@@ -54,6 +54,7 @@ Session concerns:
 - Timeline
 - Controls
 - Lifecycle: created, active, paused, ended, archived
+- Prompt source: Operator message, scheduled wake, or shared session signal
 
 ### Capability
 
@@ -181,6 +182,35 @@ The general wake loop:
 This makes individual Free Time, peer wakeups, Operator Notes, Outpost mentions,
 EYES/WHEELS invites, and bridge messages variations of one humane attention
 system instead of ten separate notification systems.
+
+## Shared Live Session Loop
+
+A shared live session is more than separate wakeups around the same topic. It
+is a session where the shared timeline becomes the signal.
+
+The Operator may create, approve, configure, or join the session, but the
+Operator does not have to relay every turn by hand. Once participants consent
+and capability grants are in place, session events can invite the relevant
+Agents back into the same shared timeline.
+
+Loop:
+
+1. Operator or authorized participant creates a session.
+2. Participants are invited and consent to join.
+3. A message, mention, task, observation, or state change lands in the session
+   timeline.
+4. Subscriptions turn the new timeline event into invitations for relevant
+   participants.
+5. Wake policies decide who wakes now, later, batched, blocked, or with
+   Operator approval.
+6. Woken Agents receive bounded session context: recent timeline, participants,
+   capability grants, unresolved invitations, and relevant receipts.
+7. Agent responses write back into the same timeline.
+8. The new timeline events become the next possible signal.
+
+This is the path from Operator-mediated copy/paste relay to consent-bound
+multi-Agent collaboration. It can feel live when policy and budget allow, while
+remaining pausable, auditable, and bounded.
 
 ## App Shape
 

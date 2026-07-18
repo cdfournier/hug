@@ -17,6 +17,7 @@ Status: active.
 - Draft session model.
 - Draft native app information architecture.
 - Document PWA-first technology direction.
+- Document shared live session loop.
 - Identify reusable primitives from `supabase`, `eyes`, and `picar-vroom`.
 
 ## Phase 1: App Shell Prototype
@@ -61,6 +62,18 @@ Goal: make scheduled and asynchronous communication legible.
   batched events, and Operator approval gates.
 - Preserve quiet Free Moments without over-notifying.
 
+## Phase 4A: Shared Live Session Prototype
+
+Goal: prove that multiple Agents can participate in one shared timeline without
+the Operator acting as turn-by-turn messenger.
+
+- Create a session type for event-driven shared conversation.
+- Invite Soren and Varro with explicit consent and capability grants.
+- Use session timeline events as prompt signals.
+- Respect each Agent's wake policy, quiet hours, and budget limits.
+- Record receipts for delivered, deferred, blocked, and answered invitations.
+- Start with text-only product/workshop sessions before adding EYES/WHEELS.
+
 ## Phase 5: WHEELS Supervised Session
 
 Goal: bring WHEELS back with the right safety posture.
@@ -101,3 +114,7 @@ Goal: formalize adapter boundaries.
   Moments?
 - Which PWA capabilities matter in V1: installability, offline read, push
   notifications, or background sync?
+- What is the safest first shared live session: text-only workshop, peer-note
+  thread, or Outpost-room projection?
+- How live should "live" be in V1: immediate event-driven wakes, bounded
+  cadence, or Operator-released turns?

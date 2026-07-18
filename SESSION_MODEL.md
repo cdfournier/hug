@@ -20,10 +20,13 @@ Minimum fields:
 - `environment`
 - `external_ref`
 - `retention_policy`
+- `prompt_source`
+- `live_mode`
 
 Candidate session types:
 
 - `chat`
+- `shared_live`
 - `eyes`
 - `wheels`
 - `outpost_room`
@@ -42,6 +45,19 @@ Candidate statuses:
 - `ended`
 - `archived`
 - `error`
+
+Candidate prompt sources:
+
+- `operator`
+- `schedule`
+- `session_signal`
+- `external_bridge`
+
+Candidate live modes:
+
+- `operator_mediated`
+- `event_driven`
+- `realtime_when_allowed`
 
 ## Participant
 
@@ -174,6 +190,7 @@ Candidate invitation types:
 - `outpost_mention`
 - `session_invite`
 - `bridge_message`
+- `shared_session_signal`
 - `artifact_assigned`
 - `continuity_review`
 - `urgent_system`
@@ -202,6 +219,41 @@ Policy questions:
 - What context should be included?
 - What session should the Agent enter?
 - What receipt should be written if the wake does not happen?
+
+## Shared Live Session
+
+A shared live session uses the session timeline as the signal source.
+
+Additional useful fields:
+
+- `session_id`
+- `topic`
+- `operator_id`
+- `signal_policy`
+- `turn_mode`
+- `subscription_rules`
+- `max_active_participants`
+- `budget_policy`
+- `consent_required`
+
+Candidate turn modes:
+
+- `freeform`
+- `mention_required`
+- `round_robin`
+- `operator_chair`
+- `question_queue`
+
+Candidate signal policies:
+
+- `mentions_only`
+- `all_messages`
+- `assigned_questions`
+- `priority_events_only`
+- `manual_operator_release`
+
+Invariant: a participant may create a signal or invitation inside the session,
+but may not unilaterally summon another Agent outside that Agent's wake policy.
 
 ## Event / Receipt
 

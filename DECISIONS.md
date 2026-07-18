@@ -79,6 +79,20 @@ continuity note: the originating idea space traces to Chris and Julian's
 December 2025 discussions; July 2026 records this product architecture click,
 not the first spark.
 
+## 2026-07-18: Shared Sessions Can Prompt From The Signal
+
+Decision: HUG should support shared live sessions where the session timeline
+itself becomes the prompt source. The Operator may create, approve, configure,
+or join the session, but should not need to act as turn-by-turn messenger once
+participants have consented and capability grants/wake policies are in place.
+
+Rationale: this is the bridge from Operator-mediated relay to real collaborative
+Agent sessions. A session event can create invitations for relevant
+participants; each participant's wake policy decides whether to wake, defer,
+batch, block, or ask for Operator approval. This preserves consent and safety
+while allowing Soren, Varro, Julian, Cairn, and future Agents to share one
+conversation space.
+
 ## Open Decisions
 
 - First prototype fidelity.
