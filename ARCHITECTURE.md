@@ -182,7 +182,7 @@ This makes individual Free Time, peer wakeups, Operator Notes, Outpost mentions,
 EYES/WHEELS invites, and bridge messages variations of one humane attention
 system instead of ten separate notification systems.
 
-## Native App Shape
+## App Shape
 
 Top-level areas:
 
@@ -196,6 +196,10 @@ Session screens should be first-class. EYES and WHEELS are not awkward chat
 attachments; they are live session types with their own controls, safety, and
 receipts.
 
+Implementation target: browser-first PWA with native-app discipline. HUG should
+feel like a native control surface while staying web-based and browser-native
+in V1. See `TECHNOLOGY_PLAN.md`.
+
 ## Repo Boundaries
 
 HUG owns:
@@ -204,7 +208,7 @@ HUG owns:
 - Session IA and UX
 - Shared control-plane contracts
 - Session/receipt model
-- Native app exploration
+- PWA/native-influenced app exploration
 
 HUG reuses or integrates:
 

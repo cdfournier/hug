@@ -63,5 +63,6 @@ Agent.
 - `VISION.md` - product north star and emotional shape.
 - `ARCHITECTURE.md` - modular app/control-plane shape.
 - `SESSION_MODEL.md` - early session data model.
+- `TECHNOLOGY_PLAN.md` - PWA-first stack and integration planning.
 - `ROADMAP.md` - first practical build path.
 - `DECISIONS.md` - founding decisions and open calls.

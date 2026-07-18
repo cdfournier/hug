@@ -51,11 +51,24 @@ Rationale: this allows Soren, Varro, Julian, Cairn, and future Agents to notice
 and reach for each other without creating runaway interruptions or bypassing
 Operator safety, budget, quiet hours, or capability boundaries.
 
+## 2026-07-18: Browser-First PWA, Native-App Discipline
+
+Decision: HUG V1 should be a web-based PWA, not a traditional native app. It
+should use a native-app-influenced interface and likely start with Next.js,
+React, TypeScript, Supabase, Supabase Auth/RLS, Supabase Realtime, and adapter
+interfaces for EYES, WHEELS, Outpost, and bridges.
+
+Rationale: the current runtime already proves Next/React/TypeScript/Supabase
+for the core primitives, Chris prefers the browser, and the product risk is the
+session/control-plane architecture rather than native packaging. React Native,
+Expo, Tauri, Swift, or Kotlin can be revisited later if the product need becomes
+concrete.
+
 ## Open Decisions
 
-- Native-first implementation stack.
 - First prototype fidelity.
 - Session schema ownership: HUG-owned tables vs. views over existing runtime
   tables.
 - Visual receipt retention policy.
 - Authentication and multi-Operator model.
+- Specific component/styling system.

@@ -16,13 +16,15 @@ Status: active.
 - Record repo boundaries.
 - Draft session model.
 - Draft native app information architecture.
+- Document PWA-first technology direction.
 - Identify reusable primitives from `supabase`, `eyes`, and `picar-vroom`.
 
 ## Phase 1: App Shell Prototype
 
 Goal: prove the navigation model without changing the current runtime.
 
-- Create a native-first or native-shaped app prototype.
+- Create a browser-first PWA prototype with native-app-influenced interaction
+  patterns.
 - Top-level areas: Agents, Sessions, Inbox, Library, Admin.
 - Render mock session cards and session detail screens.
 - Include chat, EYES, and WHEELS as distinct session types.
@@ -85,8 +87,8 @@ Goal: formalize adapter boundaries.
 
 ## Open Questions
 
-- Should HUG start as native app, web app, or web-first prototype with native
-  architecture?
+- Should HUG create new session tables immediately, or first present existing
+  runtime data through session-shaped views?
 - What is the smallest useful session table that can coexist with current
   runtime tables?
 - Which receipts must be universal across all sessions?
@@ -97,3 +99,5 @@ Goal: formalize adapter boundaries.
   unilaterally?
 - Which event types can wake immediately, and which should batch into Free
   Moments?
+- Which PWA capabilities matter in V1: installability, offline read, push
+  notifications, or background sync?
