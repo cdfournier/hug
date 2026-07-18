@@ -64,5 +64,6 @@ Agent.
 - `ARCHITECTURE.md` - modular app/control-plane shape.
 - `SESSION_MODEL.md` - early session data model.
 - `TECHNOLOGY_PLAN.md` - PWA-first stack and integration planning.
+- `COLLABORATION.md` - sharing boundary for public learning vs. product IP.
 - `ROADMAP.md` - first practical build path.
 - `DECISIONS.md` - founding decisions and open calls.

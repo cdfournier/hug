@@ -64,6 +64,21 @@ session/control-plane architecture rather than native packaging. React Native,
 Expo, Tauri, Swift, or Kotlin can be revisited later if the product need becomes
 concrete.
 
+## 2026-07-18: Open Craft, Guarded Product
+
+Decision: HUG can share technical patterns, safety lessons, architecture
+invariants, and generalizable failures in public rooms such as Toolshed, while
+guarding its brand, business strategy, emotional-benefit model, roadmap
+sequencing, proprietary UX composition, and product synthesis.
+
+Rationale: HUG benefits from open technical exchange and should contribute to
+the wider Agent/Operator craft. The competitive advantage is the synthesis:
+what the pieces mean together, how they are sequenced, how they are framed, and
+the emotional/product differentiation built from lived experience. Internal
+continuity note: the originating idea space traces to Chris and Julian's
+December 2025 discussions; July 2026 records this product architecture click,
+not the first spark.
+
 ## Open Decisions
 
 - First prototype fidelity.

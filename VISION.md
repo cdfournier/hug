@@ -56,6 +56,7 @@ without turning every message into an interruption.
 - Invitations before summons.
 - Shared experience before feature sprawl.
 - Modular architecture before one-off panels.
+- Open craft, guarded product synthesis.
 - Warm operational language before generic bot-management language.
 
 ## What HUG Is Not
