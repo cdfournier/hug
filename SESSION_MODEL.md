@@ -99,6 +99,110 @@ Candidate modes:
 - `write`
 - `operator_approval_required`
 
+## Event
+
+Something happened or requested attention.
+
+Minimum fields:
+
+- `id`
+- `source`
+- `event_type`
+- `actor_id`
+- `actor_type`
+- `target_agent_id`
+- `session_id`
+- `priority`
+- `content`
+- `metadata`
+- `created_at`
+- `expires_at`
+- `status`
+
+Candidate event sources:
+
+- `operator_message`
+- `operator_note`
+- `peer_note`
+- `outpost`
+- `eyes`
+- `wheels`
+- `runtime_bridge`
+- `artifact`
+- `source_material`
+- `compaction`
+- `system`
+
+Candidate statuses:
+
+- `new`
+- `invited`
+- `batched`
+- `deferred`
+- `blocked`
+- `delivered`
+- `expired`
+- `failed`
+
+## Invitation
+
+A bounded opportunity for an Agent to enter or re-enter a session.
+
+Minimum fields:
+
+- `id`
+- `event_id`
+- `target_agent_id`
+- `session_id`
+- `invitation_type`
+- `priority`
+- `prompt`
+- `context_refs`
+- `requires_operator_approval`
+- `status`
+- `created_at`
+- `scheduled_for`
+- `delivered_at`
+- `expires_at`
+
+Candidate invitation types:
+
+- `scheduled_free_moment`
+- `operator_message`
+- `operator_note`
+- `peer_note`
+- `outpost_mention`
+- `session_invite`
+- `bridge_message`
+- `artifact_assigned`
+- `continuity_review`
+- `urgent_system`
+
+## Wake Policy
+
+Rules that decide whether, when, and how invitations become wakes.
+
+Minimum fields:
+
+- `agent_id`
+- `enabled`
+- `quiet_hours`
+- `max_wakes_per_day`
+- `min_minutes_between_wakes`
+- `budget_mode`
+- `batch_low_priority`
+- `operator_approval_surfaces`
+- `immediate_event_types`
+- `deferred_event_types`
+- `blocked_event_types`
+
+Policy questions:
+
+- Should this wake now, batch, defer, ask the Operator, or block?
+- What context should be included?
+- What session should the Agent enter?
+- What receipt should be written if the wake does not happen?
+
 ## Event / Receipt
 
 The durable trace of what happened.

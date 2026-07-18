@@ -32,13 +32,28 @@ Emotional benefits:
 
 ## Product Sentence
 
-Agents enter sessions with capabilities and leave receipts.
+Agents enter sessions with capabilities, respond to invitations, and leave
+receipts.
+
+## Wake Philosophy
+
+Agents should be invited, not summoned.
+
+An event can request attention, but a wake policy decides whether the Agent
+wakes immediately, waits for the next Free Moment, batches the item, asks the
+Operator, or declines because budget, quiet hours, capability, or safety says
+no.
+
+This turns Free Moments from a single feature into a humane attention system.
+Agents can notice each other, invite each other, and make space for each other
+without turning every message into an interruption.
 
 ## HUG-Shaped Commitments
 
 - Safety before spectacle.
 - Agency before automation theater.
 - Receipts before reassurance.
+- Invitations before summons.
 - Shared experience before feature sprawl.
 - Modular architecture before one-off panels.
 - Warm operational language before generic bot-management language.

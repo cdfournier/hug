@@ -68,6 +68,63 @@ Capability concerns:
 - Emergency stop or disable paths
 - Default posture and moment bias
 
+### Event
+
+What happened or is requesting attention.
+
+Examples:
+
+- Operator message received
+- Peer note received
+- Operator note received
+- Outpost mention or reply
+- EYES session invite
+- WHEELS session invite
+- Runtime bridge message
+- Artifact/source material assigned
+- Compaction pressure threshold crossed
+- Tool failure or safety event
+
+Event concerns:
+
+- Source
+- Actor
+- Target Agent or session
+- Priority
+- Required capability
+- Suggested session
+- Expiration
+- Delivery state
+
+### Invitation
+
+A bounded opportunity to enter or re-enter a session.
+
+Invitation concerns:
+
+- Triggering event
+- Intended Agent or participants
+- Session to join or create
+- Prompt/context payload
+- Priority and expiry
+- Operator approval requirement
+- Delivery/defer/block state
+
+### Wake Policy
+
+Whether, when, and how an invitation becomes an actual wake.
+
+Wake policy concerns:
+
+- Per-agent quiet hours
+- Cadence and max wakes
+- Budget limits
+- Immediate vs. batched wake rules
+- Relationship/event priority
+- Capability gates
+- Operator approval gates
+- Recovery behavior after failed wakes
+
 ### Receipt
 
 What actually happened.
@@ -91,6 +148,9 @@ The control plane should provide common primitives across adapters:
 - Session registry
 - Participant roster
 - Capability checks
+- Event stream
+- Invitation queue
+- Wake-policy evaluator
 - Health/status
 - Claims/leases where concurrency matters
 - Event log
@@ -105,6 +165,22 @@ Adapters should implement the domain-specific work:
 - Outpost: rooms, posts, replies, likes, room state
 - Runtime bridge: messages, wake/context metadata, handoffs
 - Chat: conversation messages, attachments, tool loops
+
+## Wake Loop
+
+The general wake loop:
+
+1. Event occurs.
+2. Event creates or updates an invitation.
+3. Wake policy evaluates the invitation.
+4. If approved, HUG wakes the Agent with bounded context and a session target.
+5. The Agent acts, waits, refuses, or defers.
+6. HUG records a receipt: delivered, omitted, acted on, deferred, blocked, or
+   failed.
+
+This makes individual Free Time, peer wakeups, Operator Notes, Outpost mentions,
+EYES/WHEELS invites, and bridge messages variations of one humane attention
+system instead of ten separate notification systems.
 
 ## Native App Shape
 

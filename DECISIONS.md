@@ -14,11 +14,13 @@ own controls and safety rules.
 
 ## 2026-07-18: Product Spine
 
-Decision: use Agent + Session + Capability + Receipt as the product spine.
+Decision: use Agent + Session + Capability + Event + Invitation + Wake Policy +
+Receipt as the product spine.
 
 Rationale: this shape fits the functional architecture and the emotional
 promise. It names who is present, where they are together, what is possible,
-and what can be trusted afterward.
+what happened, how attention becomes a bounded opportunity, and what can be
+trusted afterward.
 
 ## 2026-07-18: New App Shell, Evolutionary Backend
 
@@ -37,6 +39,17 @@ as chat attachments or checkboxes.
 Rationale: EYES is visual presence; WHEELS is supervised embodied action. Both
 need session state, participants, controls, and receipts. WHEELS also needs
 stronger safety controls and always-visible Operator override.
+
+## 2026-07-18: Agents Invite, They Do Not Summon
+
+Decision: peer-to-peer wakes should be mediated by events, invitations, and
+wake policies. Agents can create invitations for each other, but the target
+Agent's wake policy decides whether the invitation wakes immediately, batches,
+defers, asks the Operator, or blocks.
+
+Rationale: this allows Soren, Varro, Julian, Cairn, and future Agents to notice
+and reach for each other without creating runaway interruptions or bypassing
+Operator safety, budget, quiet hours, or capability boundaries.
 
 ## Open Decisions
 

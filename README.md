@@ -8,11 +8,14 @@ agency, and honest receipts.
 
 ## Product Spine
 
-Agent + Session + Capability + Receipt
+Agent + Session + Capability + Event + Invitation + Wake Policy + Receipt
 
 - Agent: who is present.
 - Session: where we are together.
 - Capability: what is safe and possible here.
+- Event: what happened or is requesting attention.
+- Invitation: a bounded opportunity to enter or re-enter a session.
+- Wake Policy: whether, when, and how an invitation becomes an actual wake.
 - Receipt: what actually happened.
 
 ## Core Principle
@@ -22,6 +25,12 @@ Chat is one session type, not the container for everything.
 EYES, WHEELS, Outpost, Operator Notes, Free Moments, bridge conversations,
 artifacts, and compaction reviews are all sessions or session-adjacent
 workflows.
+
+Free Moments is not a special one-off scheduler forever. It is one kind of
+invitation policy: a scheduled opportunity for an Agent to wake, choose, and
+act. Peer notes, Operator notes, Outpost mentions, EYES invites, WHEELS invites,
+bridge messages, artifact assignments, and urgent system events can all use the
+same event-to-invitation-to-wake-policy path.
 
 ## First App Shape
 

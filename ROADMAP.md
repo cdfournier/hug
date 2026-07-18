@@ -11,7 +11,8 @@ narrows it too early.
 
 Status: active.
 
-- Define product spine: Agent + Session + Capability + Receipt.
+- Define product spine: Agent + Session + Capability + Event + Invitation +
+  Wake Policy + Receipt.
 - Record repo boundaries.
 - Draft session model.
 - Draft native app information architecture.
@@ -53,6 +54,9 @@ Goal: make scheduled and asynchronous communication legible.
 
 - Show Free Moments as scheduled opportunities and recent session events.
 - Add Operator Notes / Inbox shape.
+- Draft event, invitation, and wake-policy backend contracts.
+- Support per-agent wake rules: cadence, quiet hours, max wakes, immediate vs.
+  batched events, and Operator approval gates.
 - Preserve quiet Free Moments without over-notifying.
 
 ## Phase 5: WHEELS Supervised Session
@@ -71,6 +75,9 @@ Goal: formalize adapter boundaries.
 
 - Session registry.
 - Capability checks.
+- Event stream.
+- Invitation queue.
+- Wake-policy evaluator.
 - Event/receipt schema.
 - Adapter health.
 - Operator override.
@@ -86,3 +93,7 @@ Goal: formalize adapter boundaries.
 - How much visual data should EYES retain by default?
 - How does HUG support multiple Operators or households later?
 - Which provider-specific runtime details belong behind adapters?
+- How should Agents invite each other without being able to summon each other
+  unilaterally?
+- Which event types can wake immediately, and which should batch into Free
+  Moments?
