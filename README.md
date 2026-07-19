@@ -65,6 +65,8 @@ Agent.
 - `SESSION_MODEL.md` - early session data model.
 - `INTERFACE_PRINCIPLES.md` - Home, display/control surfaces, and UI staging
   principles.
+- `OPERATOR_SURFACE_MAP.md` - visible app nouns, screen inventory, and surface
+  placement rules.
 - `FREE_MOMENTS_INBOX_SPEC.md` - Phase 3 scheduled/asynchronous attention
   system spec.
 - `APP_SHELL.md` - mock-first responsive app shell structure.

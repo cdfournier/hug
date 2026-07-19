@@ -19,6 +19,11 @@ The shell uses a lightweight Atomic Design organization:
 The root `app/` directory contains Next.js routes. Routes compose page
 components from `src/components/pages`.
 
+`OPERATOR_SURFACE_MAP.md` is the field guide for visible nouns and placement
+rules. If a route feels confusing, use that document to decide whether an item
+belongs on the current card, in a drawer, on its own screen, in a modal, or out
+of the routine Operator view entirely.
+
 ## Responsive Rules
 
 - Desktop uses a persistent left navigation rail.
