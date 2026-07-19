@@ -288,6 +288,26 @@ Current Admin elements:
 Admin is where the Operator should see system machinery that would clutter
 Home, Launch, or Inbox.
 
+## Quiet Baseline
+
+When a surface feels crowded, return it to the quiet baseline before adding new
+controls.
+
+Quiet baseline means:
+
+- The card names the object.
+- The card shows one or two status signals.
+- The card gives one short sentence of context.
+- Controls appear only when their behavior is real or when the Operator opens a
+  drawer/detail surface.
+- Multiple small CTAs should not be used as placeholders for future behavior.
+
+This is especially important on Home and Launch. Home should orient. Launch
+should help the Operator choose a path. Neither should expose all available
+power by default.
+
+Power should be nearby, not everywhere.
+
 ## Surface Placement Rules
 
 ### Put It On A Card When
