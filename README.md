@@ -35,7 +35,7 @@ same event-to-invitation-to-wake-policy path.
 ## First App Shape
 
 - Agents
-- Sessions
+- Launch
 - Inbox
 - Library
 - Admin

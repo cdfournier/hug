@@ -45,7 +45,7 @@ components.
 
 - `/`: Home status and attention surface.
 - `/agents`: Agent status and wake-policy summaries.
-- `/sessions`: session list across mock session types.
+- `/sessions`: Launch surface for starting or entering experiences.
 - `/inbox`: attention queue with desktop detail surface.
 - `/library`: prompt, archive, source, and receipt artifacts.
 - `/admin`: adapter health and wake-policy configuration summaries.

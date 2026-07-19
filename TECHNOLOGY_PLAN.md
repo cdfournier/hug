@@ -55,7 +55,7 @@ target.
 
 Native-influenced patterns:
 
-- Top-level app areas: Agents, Sessions, Inbox, Library, Admin.
+- Top-level app areas: Agents, Launch, Inbox, Library, Admin.
 - Session cards and session detail screens.
 - Mobile bottom navigation or compact rail at small widths.
 - Right inspector or drawer for cockpit/activity/receipts on desktop.

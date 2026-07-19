@@ -46,7 +46,7 @@ export function HomeDashboard() {
 
           <div>
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-xl font-black">Active Sessions</h2>
+              <h2 className="text-xl font-black">Active Places</h2>
               <span className="text-sm text-[var(--ink-soft)]">mock adapters</span>
             </div>
             <div className="grid gap-3 lg:grid-cols-2">

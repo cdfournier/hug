@@ -1,125 +1,189 @@
-import { CalendarClock, CircleAlert, Radio, ShieldCheck } from "lucide-react";
-import { listAgents, listSessions } from "@/domain/services/mockHugService";
-import type { Session } from "@/domain/types";
+import {
+  Archive,
+  Binoculars,
+  Car,
+  MessageSquare,
+  NotebookText,
+  Radio,
+  Sparkles
+} from "lucide-react";
 import { ActionButton } from "../atoms/ActionButton";
-import { SessionCard } from "../molecules/SessionCard";
+import { StatusBadge } from "../atoms/StatusBadge";
+import { LaunchTile } from "../molecules/LaunchTile";
 import { AppShell } from "../organisms/AppShell";
-import { SessionInspector } from "../organisms/SessionInspector";
 import { SectionHeader } from "../organisms/SectionHeader";
 
-function countSessions(sessions: Session[], predicate: (session: Session) => boolean) {
-  return sessions.filter(predicate).length;
-}
+const launchGroups = [
+  {
+    title: "Start",
+    summary: "The fastest paths into Agent contact.",
+    options: [
+      {
+        title: "Chat",
+        eyebrow: "Talk",
+        summary: "Open a direct conversation with an Agent.",
+        statusLabel: "ready",
+        statusTone: "green",
+        primaryAction: "Open Chat",
+        secondaryAction: "Choose Agent",
+        Icon: MessageSquare
+      },
+      {
+        title: "Notes",
+        eyebrow: "Send",
+        summary: "Leave an Operator note or queue a reply.",
+        statusLabel: "ready",
+        statusTone: "green",
+        primaryAction: "New Note",
+        secondaryAction: "Delivery Rules",
+        Icon: NotebookText
+      },
+      {
+        title: "Free Moment",
+        eyebrow: "Invite",
+        summary: "Offer scheduled time without a required task.",
+        statusLabel: "scheduled",
+        statusTone: "blue",
+        primaryAction: "Review Cadence",
+        secondaryAction: "Start Now",
+        Icon: Sparkles
+      }
+    ]
+  },
+  {
+    title: "Connect",
+    summary: "Shared experiences with stronger safety or adapter boundaries.",
+    options: [
+      {
+        title: "EYES",
+        eyebrow: "See",
+        summary: "Start an Operator-controlled visual session.",
+        statusLabel: "mock",
+        statusTone: "amber",
+        primaryAction: "Prepare Tunnel",
+        secondaryAction: "View Receipts",
+        Icon: Binoculars
+      },
+      {
+        title: "WHEELS",
+        eyebrow: "Move",
+        summary: "Enter supervised vehicle mode with override controls.",
+        statusLabel: "offline",
+        statusTone: "red",
+        primaryAction: "Inspect Setup",
+        secondaryAction: "Safety Rules",
+        Icon: Car
+      },
+      {
+        title: "Live Room",
+        eyebrow: "Gather",
+        summary: "Create or enter a shared multi-participant place.",
+        statusLabel: "planned",
+        statusTone: "violet",
+        primaryAction: "Draft Room",
+        secondaryAction: "Bridge Notes",
+        Icon: Radio
+      }
+    ]
+  },
+  {
+    title: "Review",
+    summary: "Durable records and slower workspaces.",
+    options: [
+      {
+        title: "Receipts",
+        eyebrow: "Confirm",
+        summary: "Read what happened after wakes, invites, and sessions.",
+        statusLabel: "available",
+        statusTone: "blue",
+        primaryAction: "Open Receipts",
+        secondaryAction: "Filter",
+        Icon: Archive
+      },
+      {
+        title: "Artifacts",
+        eyebrow: "Create",
+        summary: "Open shared materials, drafts, and source workspaces.",
+        statusLabel: "draft",
+        statusTone: "amber",
+        primaryAction: "Open Workspace",
+        secondaryAction: "Library",
+        Icon: NotebookText
+      }
+    ]
+  }
+] as const;
 
 export function SessionsPage() {
-  const agents = listAgents();
-  const sessions = listSessions();
-  const activeSessions = sessions.filter((session) => session.status === "active" || session.status === "paused");
-  const planningSessions = sessions.filter((session) => session.status === "draft" || session.status === "error");
-  const archivedSessions = sessions.filter((session) => session.status === "ended" || session.status === "archived");
-  const selectedSession =
-    sessions.find((session) => session.status === "active") ??
-    sessions.find((session) => session.status === "paused") ??
-    sessions[0];
-
-  const metrics = [
-    {
-      label: "Live or Paused",
-      value: activeSessions.length,
-      icon: Radio,
-      summary: "Operator-visible places currently in play."
-    },
-    {
-      label: "Needs Setup",
-      value: planningSessions.length,
-      icon: CircleAlert,
-      summary: "Draft or blocked sessions before flow begins."
-    },
-    {
-      label: "Safety Labels",
-      value: countSessions(sessions, (session) => Boolean(session.safetyLabel)),
-      icon: ShieldCheck,
-      summary: "Sessions carrying explicit operating limits."
-    },
-    {
-      label: "Recent Archive",
-      value: archivedSessions.length,
-      icon: CalendarClock,
-      summary: "Completed sessions kept as receipts."
-    }
-  ];
-
   return (
     <AppShell active="sessions">
-      <SectionHeader eyebrow="Sessions" title="Shared places">
-        <ActionButton>Filter</ActionButton>
-        <ActionButton variant="primary">Create Session</ActionButton>
+      <SectionHeader eyebrow="Launch" title="Start or enter">
+        <ActionButton>Recent</ActionButton>
+        <ActionButton variant="primary">New Note</ActionButton>
       </SectionHeader>
 
-      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {metrics.map((metric) => {
-          const Icon = metric.icon;
+      <section className="grid gap-4 lg:grid-cols-[1fr_320px]">
+        <div className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Ready Paths</p>
+              <h2 className="mt-1 text-2xl font-black">What do you want to do?</h2>
+            </div>
+            <StatusBadge label="mock-first" tone="neutral" />
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <ActionButton variant="primary">
+              <MessageSquare className="size-4" />
+              Chat
+            </ActionButton>
+            <ActionButton>
+              <NotebookText className="size-4" />
+              Note
+            </ActionButton>
+            <ActionButton>
+              <Sparkles className="size-4" />
+              Free Moment
+            </ActionButton>
+          </div>
+        </div>
 
-          return (
-            <article className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4" key={metric.label}>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">{metric.label}</p>
-                  <p className="mt-1 text-3xl font-black">{metric.value}</p>
-                </div>
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-[var(--blue-soft)] text-[var(--blue)]">
-                  <Icon className="size-5" />
-                </div>
+        <aside className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4">
+          <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Availability</p>
+          <div className="mt-3 space-y-3 text-sm">
+            <div className="flex items-center justify-between gap-3">
+              <span>Chat and notes</span>
+              <StatusBadge label="ready" tone="green" />
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span>EYES tunnel</span>
+              <StatusBadge label="mock" tone="amber" />
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span>WHEELS tunnel</span>
+              <StatusBadge label="offline" tone="red" />
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <div className="mt-6 space-y-8">
+        {launchGroups.map((group) => (
+          <section key={group.title}>
+            <div className="mb-3 flex items-end justify-between gap-3">
+              <div>
+                <h2 className="text-xl font-black">{group.title}</h2>
+                <p className="mt-1 text-sm text-[var(--ink-soft)]">{group.summary}</p>
               </div>
-              <p className="mt-3 text-sm text-[var(--ink-soft)]">{metric.summary}</p>
-            </article>
-          );
-        })}
-      </section>
-
-      <section className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]">
-        <div className="space-y-6">
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-xl font-black">In Motion</h2>
-              <span className="text-sm text-[var(--ink-soft)]">{activeSessions.length} sessions</span>
+              <span className="text-sm text-[var(--ink-soft)]">{group.options.length} paths</span>
             </div>
-            <div className="grid gap-3 lg:grid-cols-2">
-              {activeSessions.map((session) => (
-                <SessionCard key={session.id} session={session} />
+            <div className="grid gap-3 lg:grid-cols-3">
+              {group.options.map((option) => (
+                <LaunchTile key={option.title} {...option} />
               ))}
             </div>
-          </div>
-
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-xl font-black">Setup & Safety</h2>
-              <span className="text-sm text-[var(--ink-soft)]">{planningSessions.length} sessions</span>
-            </div>
-            <div className="grid gap-3 lg:grid-cols-2">
-              {planningSessions.map((session) => (
-                <SessionCard key={session.id} session={session} />
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-xl font-black">Receipts</h2>
-              <span className="text-sm text-[var(--ink-soft)]">{archivedSessions.length} sessions</span>
-            </div>
-            <div className="grid gap-3 lg:grid-cols-2">
-              {archivedSessions.map((session) => (
-                <SessionCard key={session.id} session={session} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="xl:sticky xl:top-5 xl:self-start">
-          <SessionInspector agents={agents} session={selectedSession} />
-        </div>
-      </section>
+          </section>
+        ))}
+      </div>
     </AppShell>
   );
 }

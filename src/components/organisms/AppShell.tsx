@@ -3,7 +3,7 @@ import {
   Bot,
   Home,
   Inbox,
-  LayoutDashboard,
+  Rocket,
   Settings
 } from "lucide-react";
 import Link from "next/link";
@@ -17,7 +17,7 @@ type AppShellProps = {
 const navItems = [
   { id: "home", label: "Home", href: "/", icon: Home },
   { id: "agents", label: "Agents", href: "/agents", icon: Bot },
-  { id: "sessions", label: "Sessions", href: "/sessions", icon: LayoutDashboard },
+  { id: "sessions", label: "Launch", href: "/sessions", icon: Rocket },
   { id: "inbox", label: "Inbox", href: "/inbox", icon: Inbox },
   { id: "library", label: "Library", href: "/library", icon: Archive },
   { id: "admin", label: "Admin", href: "/admin", icon: Settings }
@@ -29,7 +29,7 @@ export function AppShell({ active, children }: AppShellProps) {
       <aside className="fixed inset-y-0 left-0 z-20 hidden w-64 border-r border-[var(--line)] bg-[var(--panel)] px-4 py-5 md:block">
         <div>
           <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">HUG</p>
-          <h1 className="mt-1 text-2xl font-black">Session Home</h1>
+          <h1 className="mt-1 text-2xl font-black">Operator Home</h1>
         </div>
         <nav className="mt-8 space-y-1">
           {navItems.map((item) => {

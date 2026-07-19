@@ -26,7 +26,7 @@ Goal: prove the navigation model without changing the current runtime.
 
 - Create a browser-first PWA prototype with native-app-influenced interaction
   patterns.
-- Top-level areas: Agents, Sessions, Inbox, Library, Admin.
+- Top-level areas: Agents, Launch, Inbox, Library, Admin.
 - Render mock session cards and session detail screens.
 - Include chat, EYES, and WHEELS as distinct session types.
 - Use realistic sample data from current systems.

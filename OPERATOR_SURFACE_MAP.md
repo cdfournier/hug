@@ -28,6 +28,10 @@ On screen, an Agent should answer:
 
 A Session is a bounded place where one or more participants share context.
 
+Session is primarily a model noun. The Operator-facing top-level surface should
+usually say Launch, Place, Room, Chat, Note, EYES, or WHEELS rather than asking
+the Operator to think in session taxonomy.
+
 Chat is one session type. EYES, WHEELS, Free Moments, Operator Notes, peer
 notes, compaction reviews, artifact workspaces, and external rooms can also be
 session types or session-adjacent workflows.
@@ -182,7 +186,7 @@ Current Home elements:
 - Agent cards: who is present, health, presence, usage posture, window
   pressure, current activity, next Free Moment, and default session.
 - Needs Attention: the most important Inbox Items.
-- Active Sessions: currently live or paused places.
+- Active Places: currently live or paused experiences.
 - Latest Receipts: recent proof of delivery or outcome.
 
 Home should not become:
@@ -210,24 +214,40 @@ Future likely drawers:
 - Capability profile.
 - Recent receipts for that Agent.
 
-### Sessions
+### Launch
 
-Sessions is the map of shared places.
+Launch is the Operator's way into experiences.
 
-Current Sessions elements:
+It is not a dashboard of containers. It is a launch pad for starting or
+entering the next useful experience.
 
-- Top metrics: counts for live/paused sessions, setup needs, safety labels, and
-  recent archives.
-- In Motion lane: sessions that are active or paused.
-- Setup & Safety lane: sessions that are draft, blocked, errored, or otherwise
-  need configuration before routine use.
-- Receipts lane: ended or archived session records.
-- Selected Session inspector: participants, mode, wake source, safety label,
-  and safe mock controls.
+Current Launch elements:
 
-This page is currently the easiest place to confuse nouns. It should keep
-answering one question: "what places exist, what state are they in, and what can
-I safely do with them?"
+- Ready paths: the fastest safe routes into chat, notes, and Free Moments.
+- Start group: direct Agent contact and lightweight invitations.
+- Connect group: EYES, WHEELS, live rooms, bridges, and other experiences with
+  stronger adapter or safety boundaries.
+- Review group: receipts, artifacts, archives, and slower shared workspaces.
+- Availability summary: a small status strip for experiences that are ready,
+  mocked, offline, or planned.
+
+Launch should answer:
+
+- What do I want to do?
+- Who or what do I want to connect with?
+- Is this experience available right now?
+- Does this require setup, safety review, or a tunnel?
+
+Launch should not become:
+
+- A metrics dashboard.
+- A full session registry.
+- A historical feed.
+- An adapter diagnostic page.
+
+The session registry still matters, but it belongs behind the launch action, in
+Admin, or in a session-detail view when the Operator is already inside the
+experience.
 
 ### Inbox
 
@@ -266,7 +286,7 @@ Current Admin elements:
 - Wake policy configuration summaries.
 
 Admin is where the Operator should see system machinery that would clutter
-Home, Sessions, or Inbox.
+Home, Launch, or Inbox.
 
 ## Surface Placement Rules
 
@@ -312,8 +332,9 @@ emergency disable, confirm WHEELS motion mode.
 
 These are known risks in the prototype.
 
-- Sessions can become a junk drawer if every workflow is called a session
-  without explaining what kind of place it is.
+- Launch can become a junk drawer if every workflow is shown as a peer action
+  without clarifying whether it starts contact, opens a shared experience, or
+  reviews durable material.
 - Top metrics can look like dashboard decoration if they do not map directly to
   Operator decisions.
 - Adapter names can leak into routine screens and make external systems feel
