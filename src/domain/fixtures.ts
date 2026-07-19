@@ -20,7 +20,9 @@ export const agents: Agent[] = [
     currentSessionId: "session-soren-chat",
     defaultSessionId: "session-soren-chat",
     nextFreeMoment: "10:35 AM",
-    usageLabel: "warm cache"
+    usageLabel: "warm cache",
+    windowPressure: 64,
+    windowPressureLevel: "medium"
   },
   {
     id: "varro",
@@ -33,7 +35,9 @@ export const agents: Agent[] = [
     currentSessionId: "session-varro-notes",
     defaultSessionId: "session-varro-notes",
     nextFreeMoment: "deferred to 12:00 PM",
-    usageLabel: "resting"
+    usageLabel: "resting",
+    windowPressure: 38,
+    windowPressureLevel: "low"
   },
   {
     id: "julian",
@@ -42,11 +46,13 @@ export const agents: Agent[] = [
     kind: "codex_agent",
     health: "healthy",
     presence: "idle",
-    currentActivity: "Outpost check-ins scheduled",
-    currentSessionId: "session-toolshed",
-    defaultSessionId: "session-toolshed",
+    currentActivity: "External check-ins scheduled",
+    currentSessionId: "session-external-workshop",
+    defaultSessionId: "session-external-workshop",
     nextFreeMoment: "11:13 AM",
-    usageLabel: "local thread"
+    usageLabel: "local thread",
+    windowPressure: 31,
+    windowPressureLevel: "low"
   }
 ];
 
@@ -74,11 +80,11 @@ export const sessions: Session[] = [
     promptSource: "schedule"
   },
   {
-    id: "session-toolshed",
+    id: "session-external-workshop",
     type: "outpost_room",
-    title: "Toolshed",
+    title: "External Workshop",
     status: "active",
-    summary: "Arrival receipt pattern discussion is active on Outpost.",
+    summary: "External room activity is projected through an adapter boundary.",
     participants: ["julian", "soren", "varro"],
     updatedAt: "10:36 AM",
     liveMode: "event_driven",
@@ -145,14 +151,14 @@ export const receipts: Receipt[] = [
     sourceRefs: ["wake_policy:quiet_hours"]
   },
   {
-    id: "receipt-julian-outpost",
+    id: "receipt-julian-external",
     agentId: "julian",
-    sessionId: "session-toolshed",
+    sessionId: "session-external-workshop",
     status: "delivered",
-    title: "Outpost check-in delivered",
-    summary: "Julian checked Toolshed and found no urgent action required.",
+    title: "External check-in delivered",
+    summary: "Julian checked a watched external room and found no urgent action required.",
     deliveredAt: "10:35 AM",
-    sourceRefs: ["outpost:toolshed"]
+    sourceRefs: ["external_room:mock"]
   },
   {
     id: "receipt-wheels-blocked",
@@ -246,7 +252,7 @@ export const inboxItems: InboxItem[] = [
     title: "Failed wake retry queued",
     summary: "Mock failed wake includes retry metadata for future adapter design.",
     agentId: "julian",
-    sessionId: "session-toolshed",
+    sessionId: "session-external-workshop",
     source: "Scheduler",
     priority: "normal",
     status: "failed",
@@ -261,12 +267,12 @@ export const inboxItems: InboxItem[] = [
     title: "Free Moment delivered; no action chosen",
     summary: "A valid receipt where the Agent woke and let the moment pass.",
     agentId: "julian",
-    sessionId: "session-toolshed",
+    sessionId: "session-external-workshop",
     source: "Scheduler",
     priority: "low",
     status: "delivered",
     createdAt: "6:35 AM",
-    receiptId: "receipt-julian-outpost",
+    receiptId: "receipt-julian-external",
     requiresOperatorAction: false,
     actions: ["open"]
   }
@@ -313,7 +319,7 @@ export const wakePolicies: WakePolicy[] = [
     immediateEventTypes: ["outpost_mention", "bridge_message"],
     deferredEventTypes: ["system_notice"],
     blockedEventTypes: [],
-    defaultFreeMomentDestination: "Toolshed"
+    defaultFreeMomentDestination: "External Workshop"
   }
 ];
 
@@ -359,7 +365,7 @@ export const adapterHealth: AdapterHealth[] = [
     id: "outpost",
     label: "Outpost",
     status: "mock",
-    summary: "Projected as sessions and invitations for app-shell testing."
+    summary: "External adapter boundary; product integration is still TBD."
   },
   {
     id: "eyes",

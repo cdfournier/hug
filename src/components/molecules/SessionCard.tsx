@@ -1,5 +1,5 @@
 import { Eye, MessageSquare, Radio, Shield, Wrench } from "lucide-react";
-import type { Session } from "@/domain/types";
+import type { Session, SessionType } from "@/domain/types";
 import { StatusBadge } from "../atoms/StatusBadge";
 import { sessionTone } from "../atoms/statusStyles";
 
@@ -15,6 +15,20 @@ const sessionIcons = {
   compaction_review: Shield,
   artifact_workspace: Wrench,
   free_moment: Radio
+};
+
+const sessionTypeLabels: Record<SessionType, string> = {
+  chat: "chat",
+  shared_live: "shared live",
+  eyes: "EYES",
+  wheels: "WHEELS",
+  outpost_room: "external room",
+  operator_note_thread: "operator notes",
+  peer_note_thread: "peer notes",
+  runtime_bridge: "runtime bridge",
+  compaction_review: "compaction review",
+  artifact_workspace: "artifact workspace",
+  free_moment: "free moment"
 };
 
 type SessionCardProps = {
@@ -37,7 +51,7 @@ export function SessionCard({ session }: SessionCardProps) {
           </div>
           <p className="mt-2 text-sm text-[var(--ink-soft)]">{session.summary}</p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs text-[var(--ink-soft)]">
-            <span>{session.type.replaceAll("_", " ")}</span>
+            <span>{sessionTypeLabels[session.type]}</span>
             <span>·</span>
             <span>{session.liveMode.replaceAll("_", " ")}</span>
             <span>·</span>

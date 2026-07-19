@@ -11,6 +11,8 @@ export type AgentPresence =
   | "waiting_operator"
   | "error";
 
+export type WindowPressureLevel = "low" | "medium" | "high" | "critical";
+
 export type SessionType =
   | "chat"
   | "shared_live"
@@ -86,6 +88,8 @@ export interface Agent {
   defaultSessionId: string;
   nextFreeMoment?: string;
   usageLabel: string;
+  windowPressure: number;
+  windowPressureLevel: WindowPressureLevel;
 }
 
 export interface Session {
