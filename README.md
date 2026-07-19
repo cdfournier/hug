@@ -67,6 +67,7 @@ Agent.
   principles.
 - `FREE_MOMENTS_INBOX_SPEC.md` - Phase 3 scheduled/asynchronous attention
   system spec.
+- `APP_SHELL.md` - mock-first responsive app shell structure.
 - `TECHNOLOGY_PLAN.md` - PWA-first stack and integration planning.
 - `COLLABORATION.md` - sharing boundary for public learning vs. product IP.
 - `CHECKPOINT_PROMPTS.md` - checkpoint language patterns and trust-softening
