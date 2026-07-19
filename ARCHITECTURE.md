@@ -253,5 +253,7 @@ HUG reuses or integrates:
 - Build the new product shell without destabilizing the current runtime.
 - Prefer adapter contracts over hardcoding one service into the UI.
 - Bring existing chat into HUG first as a session type.
-- Add EYES next because it is already working and session-shaped.
+- Bring Free Moments and Inbox forward next so invitation, notification, and
+  wake-policy grammar has a stable home.
+- Add EYES after the attention/session grammar is legible.
 - Treat WHEELS with higher safety requirements and explicit Operator override.

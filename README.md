@@ -65,6 +65,8 @@ Agent.
 - `SESSION_MODEL.md` - early session data model.
 - `INTERFACE_PRINCIPLES.md` - Home, display/control surfaces, and UI staging
   principles.
+- `FREE_MOMENTS_INBOX_SPEC.md` - Phase 3 scheduled/asynchronous attention
+  system spec.
 - `TECHNOLOGY_PLAN.md` - PWA-first stack and integration planning.
 - `COLLABORATION.md` - sharing boundary for public learning vs. product IP.
 - `CHECKPOINT_PROMPTS.md` - checkpoint language patterns and trust-softening

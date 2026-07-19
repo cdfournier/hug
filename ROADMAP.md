@@ -44,6 +44,7 @@ Goal: bring current runtime chat into HUG as one session type.
 
 Goal: make scheduled and asynchronous communication legible.
 
+- See `FREE_MOMENTS_INBOX_SPEC.md`.
 - Show Free Moments as scheduled opportunities and recent session events.
 - Add Operator Notes / Inbox shape.
 - Draft event, invitation, and wake-policy backend contracts.
