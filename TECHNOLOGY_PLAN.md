@@ -160,8 +160,11 @@ concepts have obvious homes.
 ## Implementation Bias
 
 - Build the PWA shell first.
+- Prototype with typed mock data before connecting live adapters.
 - Bring existing chat in as the first session type.
-- Add EYES as the first non-chat session type.
+- Bring Free Moments and Inbox forward before EYES so invitation, notification,
+  and wake-policy grammar has a stable home.
+- Add EYES after the shared session grammar is legible.
 - Design WHEELS with safety controls before wiring motion commands.
 - Add event/invitation/wake-policy features as a shared system, not as one-off
   Free Moments settings.
