@@ -13,7 +13,7 @@ export function ActionButton({ children, variant = "secondary" }: ActionButtonPr
   };
 
   return (
-    <button className={`inline-flex min-h-10 items-center justify-center rounded-md border px-3 text-sm font-semibold transition hover:brightness-95 ${variants[variant]}`}>
+    <button className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-md border px-3 text-sm font-semibold transition hover:brightness-95 ${variants[variant]}`}>
       {children}
     </button>
   );
