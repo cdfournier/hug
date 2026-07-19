@@ -1,27 +1,29 @@
 import { getWakePolicy, listAgents } from "@/domain/services/mockHugService";
-import { ActionButton } from "../atoms/ActionButton";
 import { Meter } from "../atoms/Meter";
 import { StatusBadge } from "../atoms/StatusBadge";
 import { AgentStatusCard } from "../molecules/AgentStatusCard";
+import { AgentQuickPanel } from "../organisms/AgentQuickPanel";
 import { AppShell } from "../organisms/AppShell";
 import { SectionHeader } from "../organisms/SectionHeader";
 
 export function AgentsPage() {
   const agents = listAgents();
+  const selectedAgent = agents[0];
 
   return (
     <AppShell active="agents">
-      <SectionHeader eyebrow="Agents" title="Presence and policy">
-        <ActionButton>Edit Wake Rules</ActionButton>
-      </SectionHeader>
-      <div className="grid gap-5 xl:grid-cols-[0.95fr_1.05fr]">
+      <SectionHeader eyebrow="Agents" title="People and posture" />
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
         <section className="grid gap-4">
           {agents.map((agent) => (
             <AgentStatusCard agent={agent} key={agent.id} />
           ))}
         </section>
-        <section className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-5">
-          <h2 className="text-xl font-black">Wake Policy Summary</h2>
+        <AgentQuickPanel agent={selectedAgent} policy={getWakePolicy(selectedAgent.id)} />
+      </div>
+
+      <section className="mt-6 rounded-lg border border-[var(--line)] bg-[var(--panel)] p-5">
+        <h2 className="text-xl font-black">Wake Policy Summary</h2>
           <div className="mt-4 space-y-4">
             {agents.map((agent, index) => {
               const policy = getWakePolicy(agent.id);
@@ -46,8 +48,7 @@ export function AgentsPage() {
               );
             })}
           </div>
-        </section>
-      </div>
+      </section>
     </AppShell>
   );
 }
