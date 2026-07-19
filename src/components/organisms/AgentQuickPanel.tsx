@@ -1,8 +1,9 @@
-import { MessageSquare, Moon, NotebookText, Sparkles } from "lucide-react";
+import { MessageSquare, NotebookText, Settings, Sparkles } from "lucide-react";
 import type { Agent, WakePolicy } from "@/domain/types";
 import { ActionButton } from "../atoms/ActionButton";
 import { Meter } from "../atoms/Meter";
 import { StatusBadge } from "../atoms/StatusBadge";
+import { ToggleRow } from "../molecules/ToggleRow";
 
 type AgentQuickPanelProps = {
   agent: Agent;
@@ -41,15 +42,18 @@ export function AgentQuickPanel({ agent, policy }: AgentQuickPanelProps) {
         </ActionButton>
       </div>
 
-      <div className="mt-5 rounded-md border border-[var(--line)] bg-[var(--background)] p-3">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <Moon className="size-4 text-[var(--ink-soft)]" />
-            <span className="text-sm font-semibold">Quiet Hours</span>
-          </div>
-          <StatusBadge label={policy?.enabled ? "on" : "off"} tone={policy?.enabled ? "green" : "neutral"} />
-        </div>
-        <p className="mt-2 text-sm text-[var(--ink-soft)]">{policy?.quietHours ?? "No policy loaded."}</p>
+      <div className="mt-5 space-y-2">
+        <ToggleRow checked={Boolean(policy?.enabled)} label="Agent Available" description="Master availability for routine wakes." />
+        <ToggleRow checked={Boolean(policy?.enabled)} label="Free Time" description={policy?.quietHours ?? "Uses the current wake policy."} />
+        <ToggleRow checked label="Operator Notes" description="Allow queued notes from the Operator." />
+        <ToggleRow checked={false} label="External Mentions" description="Paused until bridge rules are approved." disabled />
+      </div>
+
+      <div className="mt-3">
+        <ActionButton variant="ghost">
+          <Settings className="size-4" />
+          Full Admin
+        </ActionButton>
       </div>
     </aside>
   );
