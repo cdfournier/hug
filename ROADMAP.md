@@ -40,18 +40,7 @@ Goal: bring current runtime chat into HUG as one session type.
 - Show basic cockpit data and tool receipts.
 - Keep current runtime UI as fallback.
 
-## Phase 3: EYES Session Integration
-
-Goal: make EYES first-class.
-
-- Show EYES session status.
-- Copy/share join prompts.
-- Show participants and recent observations.
-- Integrate frame/burst state from existing EYES service.
-- Add visual continuity receipt flow.
-- Keep capture Operator-controlled.
-
-## Phase 4: Free Moments And Inbox
+## Phase 3: Free Moments And Inbox
 
 Goal: make scheduled and asynchronous communication legible.
 
@@ -62,7 +51,7 @@ Goal: make scheduled and asynchronous communication legible.
   batched events, and Operator approval gates.
 - Preserve quiet Free Moments without over-notifying.
 
-## Phase 4A: Shared Live Session Prototype
+## Phase 3A: Shared Live Session Prototype
 
 Goal: prove that multiple Agents can participate in one shared timeline without
 the Operator acting as turn-by-turn messenger.
@@ -73,6 +62,17 @@ the Operator acting as turn-by-turn messenger.
 - Respect each Agent's wake policy, quiet hours, and budget limits.
 - Record receipts for delivered, deferred, blocked, and answered invitations.
 - Start with text-only product/workshop sessions before adding EYES/WHEELS.
+
+## Phase 4: EYES Session Integration
+
+Goal: make EYES first-class.
+
+- Show EYES session status.
+- Copy/share join prompts.
+- Show participants and recent observations.
+- Integrate frame/burst state from existing EYES service.
+- Add visual continuity receipt flow.
+- Keep capture Operator-controlled.
 
 ## Phase 5: WHEELS Supervised Session
 
