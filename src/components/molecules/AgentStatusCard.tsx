@@ -1,4 +1,4 @@
-import { MessageSquare, NotebookText, Settings, Sparkles } from "lucide-react";
+import { Archive, MessageSquare, NotebookText, Settings, Sparkles } from "lucide-react";
 import type { Agent, WakePolicy, WindowPressureLevel } from "@/domain/types";
 import { ActionButton } from "../atoms/ActionButton";
 import { HealthDot } from "../atoms/HealthDot";
@@ -72,6 +72,10 @@ export function AgentStatusCard({ agent, policy }: AgentStatusCardProps) {
               <ActionButton>
                 <Sparkles className="size-4" />
                 Free Moment
+              </ActionButton>
+              <ActionButton>
+                <Archive className="size-4" />
+                Checkpoint
               </ActionButton>
               <ActionButton variant="ghost">
                 <Settings className="size-4" />
