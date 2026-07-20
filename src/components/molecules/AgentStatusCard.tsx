@@ -1,9 +1,10 @@
 import { MessageSquare, NotebookText, Settings, Sparkles } from "lucide-react";
 import type { Agent, WakePolicy, WindowPressureLevel } from "@/domain/types";
 import { ActionButton } from "../atoms/ActionButton";
+import { HealthDot } from "../atoms/HealthDot";
 import { Meter } from "../atoms/Meter";
 import { StatusBadge } from "../atoms/StatusBadge";
-import { healthTone, presenceTone } from "../atoms/statusStyles";
+import { presenceTone } from "../atoms/statusStyles";
 import { ToggleRow } from "./ToggleRow";
 
 type AgentStatusCardProps = {
@@ -26,14 +27,17 @@ export function AgentStatusCard({ agent, policy }: AgentStatusCardProps) {
       <summary className="grid cursor-pointer list-none gap-3 p-4 marker:hidden sm:grid-cols-[minmax(0,1fr)_auto_180px] sm:items-center [&::-webkit-details-marker]:hidden">
         <div className="min-w-0">
           <div className="flex min-w-0 items-center gap-2">
+            <HealthDot health={agent.health} />
             <h3 className="truncate text-lg font-bold">{agent.displayName}</h3>
-            <StatusBadge label={agent.health} tone={healthTone(agent.health)} />
           </div>
-          <p className="mt-1 truncate text-sm text-[var(--ink-soft)]">{agent.currentActivity}</p>
+          <p className="mt-1 truncate text-sm text-[var(--ink-soft)]">
+            {agent.currentActivity}
+            <span className="mx-2 text-[var(--line)]">/</span>
+            {agent.kind === "runtime_agent" ? "runtime" : "codex"}
+          </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <StatusBadge label={agent.presence.replace("_", " ")} tone={presenceTone(agent.presence)} />
-          <StatusBadge label={agent.kind.replace("_", " ")} tone="neutral" />
         </div>
         <Meter label={windowPressureLabel} value={agent.windowPressure} tone={pressureTone(agent.windowPressureLevel)} />
       </summary>
