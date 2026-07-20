@@ -1,6 +1,6 @@
 import { listAgents, listHomeAttentionItems } from "@/domain/services/mockHugService";
 import { StatusBadge } from "../atoms/StatusBadge";
-import { AgentStatusCard } from "../molecules/AgentStatusCard";
+import { HomeAgentCard } from "../molecules/HomeAgentCard";
 import { SectionHeader } from "./SectionHeader";
 
 export function HomeDashboard() {
@@ -13,7 +13,7 @@ export function HomeDashboard() {
 
       <section className="grid gap-4 lg:grid-cols-3">
         {agents.map((agent) => (
-          <AgentStatusCard agent={agent} key={agent.id} />
+          <HomeAgentCard agent={agent} key={agent.id} />
         ))}
       </section>
 
