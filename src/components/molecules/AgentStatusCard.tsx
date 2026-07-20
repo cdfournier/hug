@@ -88,6 +88,7 @@ export function AgentStatusCard({ agent, policy }: AgentStatusCardProps) {
             <ToggleRow checked={Boolean(policy?.enabled)} label="All Routine Wakes" description="Master switch for scheduled agent activity." />
             <ToggleRow checked={Boolean(policy?.enabled)} label="Free Time" description={policy?.quietHours ?? "Uses current wake policy."} />
             <ToggleRow checked label="Operator Notes" description="Allow queued notes from the Operator." />
+            <ToggleRow checked label="Peer Notes" description="Allow notes from other approved agents." />
             <ToggleRow checked={false} label="External Mentions" description="Paused until bridge rules are approved." disabled />
           </div>
         </div>
