@@ -268,10 +268,10 @@ Notes is an Agent-neutral communication surface.
 
 Current Notes elements:
 
-- A recipient picker with `All Agents` plus individual Agents.
-- A composer for Operator-authored notes.
-- Filters for Agent, direction, status, and sort order.
-- A recent note list showing who each note is from or for.
+- A `To` picker with `All Agents` plus individual Agents.
+- A Compose section for Operator-authored notes.
+- A Ready section for queued or drafted outbound notes.
+- A Reply section for inbound Agent notes waiting on Operator attention.
 
 Notes should answer:
 
@@ -281,8 +281,11 @@ Notes should answer:
 - Which wake policy or delivery rule applies?
 
 Notes should not be titled around a single Agent at the top level. Agent names
-belong in the recipient picker, filters, note metadata, or an Agent-specific
-detail state.
+belong in the recipient picker, note metadata, or an Agent-specific detail
+state.
+
+Filters and receipt controls may return later, but only after Compose, Ready,
+and Reply prove themselves as the base surfaces.
 
 ### Library
 
