@@ -13,7 +13,7 @@ type ExperienceBadge = {
 type ExperienceFrameProps = {
   actions?: ReactNode;
   badges?: ExperienceBadge[];
-  children: ReactNode;
+  children?: ReactNode;
   eyebrow: string;
   heading: string;
   headerContent?: ReactNode;
@@ -78,7 +78,7 @@ export function ExperienceFrame({
         {primarySurface ? <div className="border-b border-[var(--line)] p-4">{primarySurface}</div> : null}
         {utilityBar ? <div className="border-b border-[var(--line)] bg-[var(--background)] px-4 py-3">{utilityBar}</div> : null}
 
-        {children}
+        {children ? children : null}
       </section>
     </>
   );

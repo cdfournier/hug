@@ -270,8 +270,11 @@ Current Notes elements:
 
 - A `To` picker with `All Agents` plus individual Agents.
 - A Compose section for Operator-authored notes.
+
+Next Notes elements:
+
+- A Read/Reply section for inbound Agent notes waiting on Operator attention.
 - A Ready section for queued or drafted outbound notes.
-- A Reply section for inbound Agent notes waiting on Operator attention.
 
 Notes should answer:
 
@@ -284,8 +287,8 @@ Notes should not be titled around a single Agent at the top level. Agent names
 belong in the recipient picker, note metadata, or an Agent-specific detail
 state.
 
-Filters and receipt controls may return later, but only after Compose, Ready,
-and Reply prove themselves as the base surfaces.
+Filters and receipt controls may return later, but only after Compose and
+Read/Reply prove themselves as the base surfaces.
 
 ### Library
 

@@ -226,10 +226,12 @@ export function SessionsPage() {
           primarySurface={
             <div className="grid gap-3">
               <h3 className="text-sm font-black uppercase text-[var(--ink-soft)]">Compose</h3>
-              <textarea
-                className="min-h-28 w-full resize-none rounded-md border border-[var(--line)] bg-[var(--panel)] p-3 text-sm outline-none placeholder:text-[var(--ink-soft)]"
-                placeholder="Write a note"
-              />
+              <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
+                <textarea
+                  className="min-h-24 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
+                  placeholder="Write a note"
+                />
+              </div>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-2">
                   <ActionButton>Attach Source</ActionButton>
@@ -239,42 +241,7 @@ export function SessionsPage() {
               </div>
             </div>
           }
-        >
-
-          <div className="grid gap-8 p-4 lg:grid-cols-2">
-            <section>
-              <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-sm font-black uppercase text-[var(--ink-soft)]">Ready</h3>
-                <span className="text-sm text-[var(--ink-soft)]">2 queued</span>
-              </div>
-              <div className="mt-3 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-                <article className="py-3">
-                  <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">To All Agents</p>
-                  <h4 className="mt-1 font-bold">Ask for HUG Home reactions</h4>
-                  <p className="mt-1 text-sm text-[var(--ink-soft)]">Queued for each Agent&apos;s next available wake.</p>
-                </article>
-                <article className="py-3">
-                  <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Draft · Varro</p>
-                  <h4 className="mt-1 font-bold">Bridge question for Toolshed</h4>
-                  <p className="mt-1 text-sm text-[var(--ink-soft)]">Held until the external-room rules are clearer.</p>
-                </article>
-              </div>
-            </section>
-            <section>
-              <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-sm font-black uppercase text-[var(--ink-soft)]">Reply</h3>
-                <span className="text-sm text-[var(--ink-soft)]">1 waiting</span>
-              </div>
-              <div className="mt-3 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-                <article className="py-3">
-                  <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">From Soren</p>
-                  <h4 className="mt-1 font-bold">Launch pattern reflection</h4>
-                  <p className="mt-1 text-sm text-[var(--ink-soft)]">The opened experience feels calmer when Launch fully gets out of the way.</p>
-                </article>
-              </div>
-            </section>
-          </div>
-        </ExperienceFrame>
+        />
       </AppShell>
     );
   }
