@@ -212,21 +212,25 @@ export function SessionsPage() {
             { label: "2 unread", tone: "amber" }
           ]}
           eyebrow="Notes"
-          heading="Notes"
-          onBack={() => setActiveExperience("launch")}
-          subtitle="operator notes / agent notes / wake policy applies"
-          title="Operator Notes"
-          primarySurface={
-            <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
-              <label className="mb-3 grid gap-1">
+          heading="Operator Notes"
+          headerContent={
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-block size-2.5 rounded-full bg-[var(--green)]" />
+              <label className="grid min-w-56 gap-1">
                 <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Recipient</span>
-                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--background)] px-3 text-sm font-semibold">
                   <option>All Agents</option>
                   <option>Soren</option>
                   <option>Varro</option>
                   <option>Julian</option>
                 </select>
               </label>
+            </div>
+          }
+          onBack={() => setActiveExperience("launch")}
+          title="Operator Notes"
+          primarySurface={
+            <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <textarea
                 className="min-h-28 w-full resize-none rounded-md border border-[var(--line)] bg-[var(--panel)] p-3 text-sm outline-none placeholder:text-[var(--ink-soft)]"
                 placeholder="Write a note"

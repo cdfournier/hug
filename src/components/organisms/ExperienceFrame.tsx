@@ -16,6 +16,7 @@ type ExperienceFrameProps = {
   children: ReactNode;
   eyebrow: string;
   heading: string;
+  headerContent?: ReactNode;
   onBack: () => void;
   presenceTone?: ExperienceTone;
   primarySurface?: ReactNode;
@@ -30,6 +31,7 @@ export function ExperienceFrame({
   children,
   eyebrow,
   heading,
+  headerContent,
   onBack,
   presenceTone = "green",
   primarySurface,
@@ -56,11 +58,15 @@ export function ExperienceFrame({
       <section className="min-h-[calc(100vh-150px)] rounded-lg border border-[var(--line)] bg-[var(--panel)] shadow-sm">
         <div className="flex min-h-16 flex-wrap items-center justify-between gap-3 border-b border-[var(--line)] px-4">
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className={`inline-block size-2.5 rounded-full ${presenceClass}`} />
-              <h2 className="truncate text-xl font-black">{title}</h2>
-            </div>
-            {subtitle ? <p className="truncate text-sm text-[var(--ink-soft)]">{subtitle}</p> : null}
+            {headerContent ?? (
+              <>
+                <div className="flex items-center gap-2">
+                  <span className={`inline-block size-2.5 rounded-full ${presenceClass}`} />
+                  <h2 className="truncate text-xl font-black">{title}</h2>
+                </div>
+                {subtitle ? <p className="truncate text-sm text-[var(--ink-soft)]">{subtitle}</p> : null}
+              </>
+            )}
           </div>
           <div className="flex flex-wrap gap-2">
             {badges.map((badge) => (
