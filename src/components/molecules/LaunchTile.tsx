@@ -12,6 +12,7 @@ type LaunchTileProps = {
   statusTone: LaunchTone;
   Icon: LucideIcon;
   compact?: boolean;
+  onOpen?: () => void;
   selected?: boolean;
 };
 
@@ -23,14 +24,20 @@ export function LaunchTile({
   statusTone,
   Icon,
   compact = false,
+  onOpen,
   selected = false
 }: LaunchTileProps) {
+  const isInteractive = Boolean(onOpen);
+
   if (compact) {
     return (
-      <article
-        className={`rounded-md border bg-[var(--panel)] p-3 transition hover:border-[var(--blue)] ${
+      <button
+        className={`w-full rounded-md border bg-[var(--panel)] p-3 text-left transition ${
           selected ? "border-[var(--blue)] ring-2 ring-[var(--blue-soft)]" : "border-[var(--line)]"
-        }`}
+        } ${isInteractive ? "hover:border-[var(--blue)]" : "cursor-default opacity-75"}`}
+        disabled={!isInteractive}
+        onClick={onOpen}
+        type="button"
       >
         <div className="flex items-center gap-2">
           <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[var(--blue-soft)] text-[var(--blue)]">
@@ -44,15 +51,18 @@ export function LaunchTile({
             <p className="mt-0.5 truncate text-xs text-[var(--ink-soft)]">{eyebrow}</p>
           </div>
         </div>
-      </article>
+      </button>
     );
   }
 
   return (
-    <article
-      className={`rounded-lg border bg-[var(--panel)] p-4 shadow-sm transition hover:border-[var(--blue)] ${
+    <button
+      className={`w-full rounded-lg border bg-[var(--panel)] p-4 text-left shadow-sm transition ${
         selected ? "border-[var(--blue)] ring-2 ring-[var(--blue-soft)]" : "border-[var(--line)]"
-      }`}
+      } ${isInteractive ? "hover:border-[var(--blue)]" : "cursor-default opacity-75"}`}
+      disabled={!isInteractive}
+      onClick={onOpen}
+      type="button"
     >
       <div className="flex items-start gap-3">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-[var(--blue-soft)] text-[var(--blue)]">
@@ -68,11 +78,11 @@ export function LaunchTile({
           </div>
           <p className="mt-2 text-sm text-[var(--ink-soft)]">{summary}</p>
           <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--blue)]">
-            Open path
-            <ArrowRight className="size-4" />
+            {isInteractive ? "Open path" : "Not wired"}
+            {isInteractive ? <ArrowRight className="size-4" /> : null}
           </div>
         </div>
       </div>
-    </article>
+    </button>
   );
 }
