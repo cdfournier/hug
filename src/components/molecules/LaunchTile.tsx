@@ -8,6 +8,8 @@ type LaunchTileProps = {
   title: string;
   eyebrow: string;
   summary: string;
+  actionLabel: string;
+  unavailableReason?: string;
   statusLabel: string;
   statusTone: LaunchTone;
   Icon: LucideIcon;
@@ -20,6 +22,8 @@ export function LaunchTile({
   title,
   eyebrow,
   summary,
+  actionLabel,
+  unavailableReason,
   statusLabel,
   statusTone,
   Icon,
@@ -78,7 +82,7 @@ export function LaunchTile({
           </div>
           <p className="mt-2 text-sm text-[var(--ink-soft)]">{summary}</p>
           <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--blue)]">
-            {isInteractive ? "Open path" : "Not wired"}
+            {isInteractive ? actionLabel : unavailableReason ?? actionLabel}
             {isInteractive ? <ArrowRight className="size-4" /> : null}
           </div>
         </div>

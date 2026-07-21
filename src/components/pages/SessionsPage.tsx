@@ -25,6 +25,7 @@ const launchGroups = [
         title: "Chat",
         eyebrow: "Talk",
         summary: "Open a direct conversation with an Agent.",
+        actionLabel: "Open chat",
         statusLabel: "ready",
         statusTone: "green",
         Icon: MessageSquare
@@ -34,6 +35,7 @@ const launchGroups = [
         title: "Notes",
         eyebrow: "Send",
         summary: "Leave an Operator note or queue a reply.",
+        actionLabel: "Open notes",
         statusLabel: "ready",
         statusTone: "green",
         Icon: NotebookText
@@ -43,6 +45,8 @@ const launchGroups = [
         title: "Free Moment",
         eyebrow: "Invite",
         summary: "Offer scheduled time without a required task.",
+        actionLabel: "Schedule moment",
+        unavailableReason: "Not wired yet",
         statusLabel: "scheduled",
         statusTone: "blue",
         Icon: Sparkles
@@ -57,6 +61,8 @@ const launchGroups = [
         title: "EYES",
         eyebrow: "See",
         summary: "Start an Operator-controlled visual session.",
+        actionLabel: "Start EYES",
+        unavailableReason: "Mock only",
         statusLabel: "mock",
         statusTone: "amber",
         Icon: Binoculars
@@ -66,6 +72,8 @@ const launchGroups = [
         title: "WHEELS",
         eyebrow: "Move",
         summary: "Enter supervised vehicle mode with override controls.",
+        actionLabel: "Open garage",
+        unavailableReason: "Offline",
         statusLabel: "offline",
         statusTone: "red",
         Icon: Car
@@ -75,6 +83,8 @@ const launchGroups = [
         title: "Live Room",
         eyebrow: "Gather",
         summary: "Create or enter a shared multi-participant place.",
+        actionLabel: "Create room",
+        unavailableReason: "Planned",
         statusLabel: "planned",
         statusTone: "violet",
         Icon: Radio
@@ -89,6 +99,8 @@ const launchGroups = [
         title: "Receipts",
         eyebrow: "Confirm",
         summary: "Read what happened after wakes, invites, and sessions.",
+        actionLabel: "Review receipts",
+        unavailableReason: "Not wired yet",
         statusLabel: "available",
         statusTone: "blue",
         Icon: Archive
@@ -98,6 +110,8 @@ const launchGroups = [
         title: "Artifacts",
         eyebrow: "Create",
         summary: "Open shared materials, drafts, and source workspaces.",
+        actionLabel: "Open artifacts",
+        unavailableReason: "Draft only",
         statusLabel: "draft",
         statusTone: "amber",
         Icon: NotebookText
