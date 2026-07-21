@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import { ActionButton } from "../atoms/ActionButton";
 import { StatusBadge } from "../atoms/StatusBadge";
+import { ComposerSurface } from "../molecules/ComposerSurface";
 import { LaunchTile } from "../molecules/LaunchTile";
 import { AppShell } from "../organisms/AppShell";
 import { ExperienceFrame } from "../organisms/ExperienceFrame";
@@ -209,37 +210,32 @@ export function SessionsPage() {
           eyebrow="Notes"
           heading="Operator Notes"
           headerContent={
-            <div className="flex flex-wrap items-center gap-4 py-6">
-              <label className="grid min-w-56 gap-1">
-                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">To</span>
-                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--background)] px-3 text-sm font-semibold">
-                  <option>All Agents</option>
-                  <option>Soren</option>
-                  <option>Varro</option>
-                  <option>Julian</option>
-                </select>
-              </label>
-            </div>
+            <h2 className="truncate text-xl font-black">New Note</h2>
           }
           onBack={() => setActiveExperience("launch")}
-          title="Operator Notes"
+          title="New Note"
           primarySurface={
-            <div className="grid gap-3">
-              <h3 className="text-sm font-black uppercase text-[var(--ink-soft)]">Compose</h3>
-              <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
-                <textarea
-                  className="min-h-24 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
-                  placeholder="Write a note"
-                />
-              </div>
-              <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap gap-2">
+            <ComposerSurface
+              actions={
+                <>
                   <ActionButton>Attach Source</ActionButton>
                   <ActionButton>Schedule</ActionButton>
-                </div>
-                <ActionButton variant="primary">Queue Note</ActionButton>
-              </div>
-            </div>
+                </>
+              }
+              placeholder="Write a note"
+              primaryActionLabel="Queue Note"
+              topControl={
+                <label className="grid max-w-80 gap-1">
+                  <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">To</span>
+                  <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                    <option>All Agents</option>
+                    <option>Soren</option>
+                    <option>Varro</option>
+                    <option>Julian</option>
+                  </select>
+                </label>
+              }
+            />
           }
         />
       </AppShell>
@@ -265,20 +261,17 @@ export function SessionsPage() {
         subtitle="runtime / operator-mediated / bounded context"
         title="Chat with Soren"
         primarySurface={
-          <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
-            <textarea
-              className="min-h-24 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
-              placeholder="Message Soren"
-            />
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex flex-wrap gap-2">
+          <ComposerSurface
+            actions={
+              <>
                 <ActionButton>Attach</ActionButton>
                 <ActionButton>Source</ActionButton>
                 <ActionButton>Offer Free Moment</ActionButton>
-              </div>
-              <ActionButton variant="primary">Send</ActionButton>
-            </div>
-          </div>
+              </>
+            }
+            placeholder="Message Soren"
+            primaryActionLabel="Send"
+          />
         }
       >
 

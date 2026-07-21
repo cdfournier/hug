@@ -268,8 +268,8 @@ Notes is an Agent-neutral communication surface.
 
 Current Notes elements:
 
-- A `To` picker with `All Agents` plus individual Agents.
-- A Compose section for Operator-authored notes.
+- The shared composer pattern used by Chat.
+- A `To` picker inside the composer with `All Agents` plus individual Agents.
 
 Next Notes elements:
 
