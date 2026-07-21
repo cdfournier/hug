@@ -148,8 +148,8 @@ concepts have obvious homes.
 
 ## Early Technical Questions
 
-- Should HUG create new session tables immediately, or first present existing
-  runtime data through session-shaped views?
+- How small can the first HUG-owned session/control-plane schema be while still
+  reading existing runtime data through session-shaped views?
 - How much state belongs in Supabase Realtime versus polling?
 - Which workflows need background jobs instead of in-process timers?
 - What is the first authentication boundary for local/dev/prod?
@@ -161,6 +161,8 @@ concepts have obvious homes.
 
 - Build the PWA shell first.
 - Prototype with typed mock data before connecting live adapters.
+- Treat HUG-owned control-plane tables and runtime-shaped read views as
+  separate layers from the beginning.
 - Bring existing chat in as the first session type.
 - Bring Free Moments and Inbox forward before EYES so invitation, notification,
   and wake-policy grammar has a stable home.

@@ -93,11 +93,31 @@ batch, block, or ask for Operator approval. This preserves consent and safety
 while allowing Soren, Varro, Julian, Cairn, and future Agents to share one
 conversation space.
 
+## 2026-07-21: HUG Owns Sessions, Runtime Owns Facts
+
+Decision: HUG should own the session/control-plane schema while existing
+runtime tables remain the source of truth for provider/runtime facts. HUG
+should read runtime state through session-shaped views and adapter contracts,
+and write through domain APIs or adapters instead of mutating runtime tables
+directly.
+
+Rationale: a HUG session is not the same thing as a runtime conversation. A
+runtime conversation is one substrate thread; a HUG session is an experience
+envelope that can include chat, Free Moments, Operator Notes, peer notes,
+EYES, WHEELS, Outpost, artifacts, checkpoints, and future bridges. HUG needs
+native tables for invitations, participants, capability grants, receipts,
+wake policies, and session state. Runtime data should keep its provenance and
+shape so existing Agents are not destabilized and future providers can be
+added behind adapters.
+
+Implementation bias: avoid mirror tables that copy runtime facts into HUG.
+Prefer HUG-owned control-plane tables, read-only views over runtime tables,
+and write-through adapters that record intent and receipts. The invariant is:
+runtime owns the facts; HUG owns orchestration.
+
 ## Open Decisions
 
 - First prototype fidelity.
-- Session schema ownership: HUG-owned tables vs. views over existing runtime
-  tables.
 - Visual receipt retention policy.
 - Authentication and multi-Operator model.
 - Specific component/styling system.

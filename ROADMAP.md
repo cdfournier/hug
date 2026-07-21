@@ -101,8 +101,6 @@ Goal: formalize adapter boundaries.
 
 ## Open Questions
 
-- Should HUG create new session tables immediately, or first present existing
-  runtime data through session-shaped views?
 - What is the smallest useful session table that can coexist with current
   runtime tables?
 - Which receipts must be universal across all sessions?

@@ -2,6 +2,43 @@
 
 Early model for HUG's central abstraction.
 
+## Schema Ownership
+
+HUG owns the session/control-plane layer. Existing runtime tables own raw
+runtime facts.
+
+This means HUG should have native tables for concepts that only exist at the
+product/control-plane level:
+
+- sessions
+- session participants
+- capability grants
+- events
+- invitations
+- wake policies
+- receipts
+- adapter status
+- retention policy metadata
+
+Existing runtime tables should remain the source of truth for provider and
+runtime facts:
+
+- conversation records
+- conversation messages
+- tool events
+- usage events
+- source materials
+- memories and restoration profiles
+- compaction proposals and archives
+- provider-specific metadata
+
+HUG should connect to those facts through read-only views and adapter
+contracts. Writes should go through domain APIs or adapters, then HUG should
+record the intent, result, and receipt at the session layer.
+
+The important distinction: a runtime conversation is one substrate thread. A
+HUG session is the experience envelope around one or more substrates.
+
 ## Session
 
 A session is a shared situation with participants, capabilities, controls, and
