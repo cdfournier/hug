@@ -209,7 +209,7 @@ export function SessionsPage() {
           eyebrow="Notes"
           heading="Operator Notes"
           headerContent={
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4 py-6">
               <label className="grid min-w-56 gap-1">
                 <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">To</span>
                 <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--background)] px-3 text-sm font-semibold">
