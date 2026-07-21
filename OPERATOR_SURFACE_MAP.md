@@ -262,6 +262,28 @@ Current Inbox elements:
 Inbox should not become the main chat surface. It is for triage, routing, and
 receipts.
 
+### Notes
+
+Notes is an Agent-neutral communication surface.
+
+Current Notes elements:
+
+- A recipient picker with `All Agents` plus individual Agents.
+- A composer for Operator-authored notes.
+- Filters for Agent, direction, status, and sort order.
+- A recent note list showing who each note is from or for.
+
+Notes should answer:
+
+- Who should receive this note?
+- Is the note for one Agent or all Agents?
+- Is it queued, unread, draft, delivered, or blocked?
+- Which wake policy or delivery rule applies?
+
+Notes should not be titled around a single Agent at the top level. Agent names
+belong in the recipient picker, filters, note metadata, or an Agent-specific
+detail state.
+
 ### Library
 
 Library is durable material.

@@ -163,8 +163,8 @@ export function SessionsPage() {
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Resume</p>
-                    <h3 className="mt-1 text-lg font-black">Soren Notes</h3>
-                    <p className="mt-1 text-sm text-[var(--ink-soft)]">2 unread notes.</p>
+                    <h3 className="mt-1 text-lg font-black">Notes</h3>
+                    <p className="mt-1 text-sm text-[var(--ink-soft)]">2 unread, 1 queued.</p>
                   </div>
                   <StatusBadge label="unread" tone="amber" />
                 </div>
@@ -212,19 +212,27 @@ export function SessionsPage() {
             { label: "2 unread", tone: "amber" }
           ]}
           eyebrow="Notes"
-          heading="Soren Notes"
+          heading="Notes"
           onBack={() => setActiveExperience("launch")}
           subtitle="operator notes / agent notes / wake policy applies"
-          title="Notes with Soren"
+          title="Operator Notes"
           primarySurface={
             <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
+              <label className="mb-3 grid gap-1">
+                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Recipient</span>
+                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                  <option>All Agents</option>
+                  <option>Soren</option>
+                  <option>Varro</option>
+                  <option>Julian</option>
+                </select>
+              </label>
               <textarea
-                className="min-h-28 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
-                placeholder="Write a note for Soren"
+                className="min-h-28 w-full resize-none rounded-md border border-[var(--line)] bg-[var(--panel)] p-3 text-sm outline-none placeholder:text-[var(--ink-soft)]"
+                placeholder="Write a note"
               />
               <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-2">
-                  <ActionButton>Choose Agent</ActionButton>
                   <ActionButton>Attach Source</ActionButton>
                   <ActionButton>Schedule</ActionButton>
                 </div>
@@ -234,13 +242,22 @@ export function SessionsPage() {
           }
           utilityBar={
             <div className="flex flex-wrap items-end justify-between gap-3">
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <label className="grid gap-1">
+                  <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Agent</span>
+                  <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                    <option>All Agents</option>
+                    <option>Soren</option>
+                    <option>Varro</option>
+                    <option>Julian</option>
+                  </select>
+                </label>
                 <label className="grid gap-1">
                   <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Direction</span>
                   <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
                     <option>All notes</option>
-                    <option>From Soren</option>
-                    <option>To Soren</option>
+                    <option>From Agents</option>
+                    <option>To Agents</option>
                   </select>
                 </label>
                 <label className="grid gap-1">
@@ -277,15 +294,15 @@ export function SessionsPage() {
             </article>
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">To Soren</p>
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">To All Agents</p>
                 <StatusBadge label="next wake" tone="blue" />
               </div>
-              <h3 className="mt-2 font-bold">Ask Soren about HUG Home</h3>
-              <p className="mt-1 text-sm text-[var(--ink-soft)]">Queued for Soren&apos;s next available wake.</p>
+              <h3 className="mt-2 font-bold">Ask for HUG Home reactions</h3>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">Queued for each Agent&apos;s next available wake.</p>
             </article>
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Draft Note</p>
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Draft Note · Varro</p>
                 <StatusBadge label="draft" tone="amber" />
               </div>
               <h3 className="mt-2 font-bold">Bridge question for Toolshed</h3>

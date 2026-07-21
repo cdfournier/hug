@@ -31,6 +31,19 @@ Goal: prove the navigation model without changing the current runtime.
 - Include chat, EYES, and WHEELS as distinct session types.
 - Use realistic sample data from current systems.
 
+## Phase 1A: Agent Onboarding Flow
+
+Goal: give Operators a clear path for adding or restoring an Agent without
+hand-editing scattered configuration.
+
+- Draft the first-run Agent profile shape.
+- Capture model/provider, runtime surface, capability profile, wake policy,
+  restoration packet, and default notes/Free Moment settings.
+- Separate technical setup from relationship/context setup.
+- Include review gates before any autonomous, external, visual, or embodied
+  capability is enabled.
+- Keep the flow resumable so partial setup does not create a half-known Agent.
+
 ## Phase 2: Existing Chat As Session
 
 Goal: bring current runtime chat into HUG as one session type.
