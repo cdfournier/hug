@@ -166,10 +166,9 @@ export function SessionsPage() {
   if (activeExperience === "notes") {
     return (
       <AppShell active="sessions">
-        <SectionHeader eyebrow="Notes" title="Operator Notes">
+        <SectionHeader eyebrow="Notes" title="Soren Notes">
           <ActionButton onClick={() => setActiveExperience("launch")}>Back to Launch</ActionButton>
           <ActionButton>Receipts</ActionButton>
-          <ActionButton variant="primary">Close Notes</ActionButton>
         </SectionHeader>
 
         <section className="min-h-[calc(100vh-150px)] rounded-lg border border-[var(--line)] bg-[var(--panel)] shadow-sm">
@@ -177,13 +176,13 @@ export function SessionsPage() {
             <div className="min-w-0">
               <div className="flex items-center gap-2">
                 <span className="inline-block size-2.5 rounded-full bg-[var(--green)]" />
-                <h2 className="truncate text-xl font-black">Notes for Soren</h2>
+                <h2 className="truncate text-xl font-black">Notes with Soren</h2>
               </div>
-              <p className="truncate text-sm text-[var(--ink-soft)]">queued / operator-mediated / next wake policy applies</p>
+              <p className="truncate text-sm text-[var(--ink-soft)]">operator notes / agent notes / wake policy applies</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <StatusBadge label="ready" tone="green" />
-              <StatusBadge label="queued" tone="blue" />
+              <StatusBadge label="2 unread" tone="amber" />
             </div>
           </div>
 
@@ -207,19 +206,19 @@ export function SessionsPage() {
           <div className="grid gap-3 p-4">
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Queued Note</p>
-                <StatusBadge label="next wake" tone="blue" />
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">From Soren</p>
+                <StatusBadge label="unread" tone="amber" />
               </div>
-              <h3 className="mt-2 font-bold">Ask Soren about HUG Home</h3>
-              <p className="mt-1 text-sm text-[var(--ink-soft)]">Waiting for Soren&apos;s next available wake.</p>
+              <h3 className="mt-2 font-bold">Launch pattern reflection</h3>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">The opened experience feels calmer when Launch fully gets out of the way.</p>
             </article>
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Delivered Note</p>
-                <StatusBadge label="answered" tone="green" />
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">To Soren</p>
+                <StatusBadge label="next wake" tone="blue" />
               </div>
-              <h3 className="mt-2 font-bold">Review checkpoint ritual language</h3>
-              <p className="mt-1 text-sm text-[var(--ink-soft)]">Soren answered and receipt is available.</p>
+              <h3 className="mt-2 font-bold">Ask Soren about HUG Home</h3>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">Queued for Soren&apos;s next available wake.</p>
             </article>
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
