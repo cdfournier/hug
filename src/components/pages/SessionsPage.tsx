@@ -138,6 +138,44 @@ export function SessionsPage() {
         <SectionHeader eyebrow="Launch" title="Choose a path" />
 
         <div className="grid gap-6">
+          <section>
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <h2 className="text-xl font-black">Active / Recent</h2>
+              <span className="text-sm text-[var(--ink-soft)]">2 available</span>
+            </div>
+            <div className="grid gap-3 lg:grid-cols-2">
+              <article className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4 shadow-sm">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Continue</p>
+                    <h3 className="mt-1 text-lg font-black">Chat with Soren</h3>
+                    <p className="mt-1 text-sm text-[var(--ink-soft)]">Last activity 4 minutes ago.</p>
+                  </div>
+                  <StatusBadge label="active" tone="green" />
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <ActionButton variant="primary" onClick={() => setActiveExperience("chat")}>Open Chat</ActionButton>
+                  <ActionButton>Receipt</ActionButton>
+                </div>
+              </article>
+
+              <article className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4 shadow-sm">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Resume</p>
+                    <h3 className="mt-1 text-lg font-black">Soren Notes</h3>
+                    <p className="mt-1 text-sm text-[var(--ink-soft)]">2 unread notes.</p>
+                  </div>
+                  <StatusBadge label="unread" tone="amber" />
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <ActionButton variant="primary" onClick={() => setActiveExperience("notes")}>Open Notes</ActionButton>
+                  <ActionButton>Mark Read</ActionButton>
+                </div>
+              </article>
+            </div>
+          </section>
+
           {launchGroups.map((group) => (
             <section key={group.title}>
               <div className="mb-3 flex items-center justify-between gap-3">
