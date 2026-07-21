@@ -11,6 +11,7 @@ type LaunchTileProps = {
   statusLabel: string;
   statusTone: LaunchTone;
   Icon: LucideIcon;
+  compact?: boolean;
   selected?: boolean;
 };
 
@@ -21,8 +22,32 @@ export function LaunchTile({
   statusLabel,
   statusTone,
   Icon,
+  compact = false,
   selected = false
 }: LaunchTileProps) {
+  if (compact) {
+    return (
+      <article
+        className={`rounded-md border bg-[var(--panel)] p-3 transition hover:border-[var(--blue)] ${
+          selected ? "border-[var(--blue)] ring-2 ring-[var(--blue-soft)]" : "border-[var(--line)]"
+        }`}
+      >
+        <div className="flex items-center gap-2">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[var(--blue-soft)] text-[var(--blue)]">
+            <Icon className="size-4" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center justify-between gap-2">
+              <h4 className="truncate text-sm font-black">{title}</h4>
+              <StatusBadge label={statusLabel} tone={statusTone} />
+            </div>
+            <p className="mt-0.5 truncate text-xs text-[var(--ink-soft)]">{eyebrow}</p>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
   return (
     <article
       className={`rounded-lg border bg-[var(--panel)] p-4 shadow-sm transition hover:border-[var(--blue)] ${
