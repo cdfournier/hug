@@ -203,6 +203,37 @@ export function SessionsPage() {
             </div>
           </div>
 
+          <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--line)] bg-[var(--background)] px-4 py-3">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <label className="grid gap-1">
+                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Direction</span>
+                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                  <option>All notes</option>
+                  <option>From Soren</option>
+                  <option>To Soren</option>
+                </select>
+              </label>
+              <label className="grid gap-1">
+                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Status</span>
+                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                  <option>Any status</option>
+                  <option>Unread</option>
+                  <option>Queued</option>
+                  <option>Draft</option>
+                </select>
+              </label>
+              <label className="grid gap-1">
+                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Sort</span>
+                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                  <option>Newest first</option>
+                  <option>Oldest first</option>
+                  <option>Needs action</option>
+                </select>
+              </label>
+            </div>
+            <span className="text-sm text-[var(--ink-soft)]">3 notes</span>
+          </div>
+
           <div className="grid gap-3 p-4">
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
