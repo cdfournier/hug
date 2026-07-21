@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { StatusBadge } from "../atoms/StatusBadge";
 
 type LaunchTone = "blue" | "green" | "amber" | "red" | "violet" | "neutral";
@@ -10,6 +11,7 @@ type LaunchTileProps = {
   statusLabel: string;
   statusTone: LaunchTone;
   Icon: LucideIcon;
+  selected?: boolean;
 };
 
 export function LaunchTile({
@@ -18,10 +20,15 @@ export function LaunchTile({
   summary,
   statusLabel,
   statusTone,
-  Icon
+  Icon,
+  selected = false
 }: LaunchTileProps) {
   return (
-    <article className="rounded-lg border border-[var(--line)] bg-[var(--panel)] p-4 shadow-sm transition hover:border-[var(--blue)]">
+    <article
+      className={`rounded-lg border bg-[var(--panel)] p-4 shadow-sm transition hover:border-[var(--blue)] ${
+        selected ? "border-[var(--blue)] ring-2 ring-[var(--blue-soft)]" : "border-[var(--line)]"
+      }`}
+    >
       <div className="flex items-start gap-3">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-md bg-[var(--blue-soft)] text-[var(--blue)]">
           <Icon className="size-5" />
@@ -35,6 +42,10 @@ export function LaunchTile({
             <StatusBadge label={statusLabel} tone={statusTone} />
           </div>
           <p className="mt-2 text-sm text-[var(--ink-soft)]">{summary}</p>
+          <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--blue)]">
+            Open path
+            <ArrowRight className="size-4" />
+          </div>
         </div>
       </div>
     </article>
