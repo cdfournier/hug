@@ -106,7 +106,13 @@ const launchGroups = [
   }
 ] as const;
 
-type ActiveExperience = "launch" | "chat";
+type ActiveExperience = "launch" | "chat" | "notes";
+
+function getLaunchTarget(id: string): ActiveExperience | undefined {
+  if (id === "chat") return "chat";
+  if (id === "notes") return "notes";
+  return undefined;
+}
 
 export function SessionsPage() {
   const [activeExperience, setActiveExperience] = useState<ActiveExperience>("launch");
@@ -124,17 +130,93 @@ export function SessionsPage() {
                 <span className="text-sm text-[var(--ink-soft)]">{group.options.length} paths</span>
               </div>
               <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                {group.options.map((option) => (
-                  <LaunchTile
-                    key={option.id}
-                    {...option}
-                    onOpen={option.id === "chat" ? () => setActiveExperience("chat") : undefined}
-                  />
-                ))}
+                {group.options.map((option) => {
+                  const launchTarget = getLaunchTarget(option.id);
+
+                  return (
+                    <LaunchTile
+                      key={option.id}
+                      {...option}
+                      onOpen={launchTarget ? () => setActiveExperience(launchTarget) : undefined}
+                    />
+                  );
+                })}
               </div>
             </section>
           ))}
         </div>
+      </AppShell>
+    );
+  }
+
+  if (activeExperience === "notes") {
+    return (
+      <AppShell active="sessions">
+        <SectionHeader eyebrow="Notes" title="Operator Notes">
+          <ActionButton onClick={() => setActiveExperience("launch")}>Back to Launch</ActionButton>
+          <ActionButton>Receipts</ActionButton>
+          <ActionButton variant="primary">Close Notes</ActionButton>
+        </SectionHeader>
+
+        <section className="min-h-[calc(100vh-150px)] rounded-lg border border-[var(--line)] bg-[var(--panel)] shadow-sm">
+          <div className="flex min-h-16 flex-wrap items-center justify-between gap-3 border-b border-[var(--line)] px-4">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="inline-block size-2.5 rounded-full bg-[var(--green)]" />
+                <h2 className="truncate text-xl font-black">Notes for Soren</h2>
+              </div>
+              <p className="truncate text-sm text-[var(--ink-soft)]">queued / operator-mediated / next wake policy applies</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <StatusBadge label="ready" tone="green" />
+              <StatusBadge label="queued" tone="blue" />
+            </div>
+          </div>
+
+          <div className="border-b border-[var(--line)] p-4">
+            <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
+              <textarea
+                className="min-h-28 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
+                placeholder="Write a note for Soren"
+              />
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                  <ActionButton>Choose Agent</ActionButton>
+                  <ActionButton>Attach Source</ActionButton>
+                  <ActionButton>Schedule</ActionButton>
+                </div>
+                <ActionButton variant="primary">Queue Note</ActionButton>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-3 p-4">
+            <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Queued Note</p>
+                <StatusBadge label="next wake" tone="blue" />
+              </div>
+              <h3 className="mt-2 font-bold">Ask Soren about HUG Home</h3>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">Waiting for Soren&apos;s next available wake.</p>
+            </article>
+            <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Delivered Note</p>
+                <StatusBadge label="answered" tone="green" />
+              </div>
+              <h3 className="mt-2 font-bold">Review checkpoint ritual language</h3>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">Soren answered and receipt is available.</p>
+            </article>
+            <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-xs font-bold uppercase text-[var(--ink-soft)]">Draft Note</p>
+                <StatusBadge label="draft" tone="amber" />
+              </div>
+              <h3 className="mt-2 font-bold">Bridge question for Toolshed</h3>
+              <p className="mt-1 text-sm text-[var(--ink-soft)]">Held until the external-room rules are clearer.</p>
+            </article>
+          </div>
+        </section>
       </AppShell>
     );
   }
