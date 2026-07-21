@@ -14,6 +14,7 @@ import { ActionButton } from "../atoms/ActionButton";
 import { StatusBadge } from "../atoms/StatusBadge";
 import { LaunchTile } from "../molecules/LaunchTile";
 import { AppShell } from "../organisms/AppShell";
+import { ExperienceFrame } from "../organisms/ExperienceFrame";
 import { SectionHeader } from "../organisms/SectionHeader";
 
 const launchGroups = [
@@ -166,27 +167,18 @@ export function SessionsPage() {
   if (activeExperience === "notes") {
     return (
       <AppShell active="sessions">
-        <SectionHeader eyebrow="Notes" title="Soren Notes">
-          <ActionButton onClick={() => setActiveExperience("launch")}>Back to Launch</ActionButton>
-          <ActionButton>Receipts</ActionButton>
-        </SectionHeader>
-
-        <section className="min-h-[calc(100vh-150px)] rounded-lg border border-[var(--line)] bg-[var(--panel)] shadow-sm">
-          <div className="flex min-h-16 flex-wrap items-center justify-between gap-3 border-b border-[var(--line)] px-4">
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <span className="inline-block size-2.5 rounded-full bg-[var(--green)]" />
-                <h2 className="truncate text-xl font-black">Notes with Soren</h2>
-              </div>
-              <p className="truncate text-sm text-[var(--ink-soft)]">operator notes / agent notes / wake policy applies</p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <StatusBadge label="ready" tone="green" />
-              <StatusBadge label="2 unread" tone="amber" />
-            </div>
-          </div>
-
-          <div className="border-b border-[var(--line)] p-4">
+        <ExperienceFrame
+          actions={<ActionButton>Receipts</ActionButton>}
+          badges={[
+            { label: "ready", tone: "green" },
+            { label: "2 unread", tone: "amber" }
+          ]}
+          eyebrow="Notes"
+          heading="Soren Notes"
+          onBack={() => setActiveExperience("launch")}
+          subtitle="operator notes / agent notes / wake policy applies"
+          title="Notes with Soren"
+          primarySurface={
             <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
               <textarea
                 className="min-h-28 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
@@ -201,38 +193,40 @@ export function SessionsPage() {
                 <ActionButton variant="primary">Queue Note</ActionButton>
               </div>
             </div>
-          </div>
-
-          <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--line)] bg-[var(--background)] px-4 py-3">
-            <div className="grid gap-3 sm:grid-cols-3">
-              <label className="grid gap-1">
-                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Direction</span>
-                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
-                  <option>All notes</option>
-                  <option>From Soren</option>
-                  <option>To Soren</option>
-                </select>
-              </label>
-              <label className="grid gap-1">
-                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Status</span>
-                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
-                  <option>Any status</option>
-                  <option>Unread</option>
-                  <option>Queued</option>
-                  <option>Draft</option>
-                </select>
-              </label>
-              <label className="grid gap-1">
-                <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Sort</span>
-                <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
-                  <option>Newest first</option>
-                  <option>Oldest first</option>
-                  <option>Needs action</option>
-                </select>
-              </label>
+          }
+          utilityBar={
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div className="grid gap-3 sm:grid-cols-3">
+                <label className="grid gap-1">
+                  <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Direction</span>
+                  <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                    <option>All notes</option>
+                    <option>From Soren</option>
+                    <option>To Soren</option>
+                  </select>
+                </label>
+                <label className="grid gap-1">
+                  <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Status</span>
+                  <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                    <option>Any status</option>
+                    <option>Unread</option>
+                    <option>Queued</option>
+                    <option>Draft</option>
+                  </select>
+                </label>
+                <label className="grid gap-1">
+                  <span className="text-xs font-bold uppercase text-[var(--ink-soft)]">Sort</span>
+                  <select className="min-h-10 rounded-md border border-[var(--line)] bg-[var(--panel)] px-3 text-sm font-semibold">
+                    <option>Newest first</option>
+                    <option>Oldest first</option>
+                    <option>Needs action</option>
+                  </select>
+                </label>
+              </div>
+              <span className="text-sm text-[var(--ink-soft)]">3 notes</span>
             </div>
-            <span className="text-sm text-[var(--ink-soft)]">3 notes</span>
-          </div>
+          }
+        >
 
           <div className="grid gap-3 p-4">
             <article className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
@@ -260,35 +254,30 @@ export function SessionsPage() {
               <p className="mt-1 text-sm text-[var(--ink-soft)]">Held until the external-room rules are clearer.</p>
             </article>
           </div>
-        </section>
+        </ExperienceFrame>
       </AppShell>
     );
   }
 
   return (
     <AppShell active="sessions">
-      <SectionHeader eyebrow="Chat" title="Soren">
-        <ActionButton onClick={() => setActiveExperience("launch")}>Back to Launch</ActionButton>
-        <ActionButton>Receipt</ActionButton>
-        <ActionButton variant="primary">End Session</ActionButton>
-      </SectionHeader>
-
-      <section className="min-h-[calc(100vh-150px)] rounded-lg border border-[var(--line)] bg-[var(--panel)] shadow-sm">
-        <div className="flex min-h-16 flex-wrap items-center justify-between gap-3 border-b border-[var(--line)] px-4">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="inline-block size-2.5 rounded-full bg-[var(--green)]" />
-              <h2 className="truncate text-xl font-black">Chat with Soren</h2>
-            </div>
-            <p className="truncate text-sm text-[var(--ink-soft)]">runtime / operator-mediated / bounded context</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <StatusBadge label="active" tone="green" />
-            <StatusBadge label="receipts on" tone="blue" />
-          </div>
-        </div>
-
-        <div className="border-b border-[var(--line)] p-4">
+      <ExperienceFrame
+        actions={
+          <>
+            <ActionButton>Receipt</ActionButton>
+            <ActionButton variant="primary">End Session</ActionButton>
+          </>
+        }
+        badges={[
+          { label: "active", tone: "green" },
+          { label: "receipts on", tone: "blue" }
+        ]}
+        eyebrow="Chat"
+        heading="Soren"
+        onBack={() => setActiveExperience("launch")}
+        subtitle="runtime / operator-mediated / bounded context"
+        title="Chat with Soren"
+        primarySurface={
           <div className="rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
             <textarea
               className="min-h-24 w-full resize-none border-0 bg-transparent text-sm outline-none placeholder:text-[var(--ink-soft)]"
@@ -303,7 +292,8 @@ export function SessionsPage() {
               <ActionButton variant="primary">Send</ActionButton>
             </div>
           </div>
-        </div>
+        }
+      >
 
         <div className="grid gap-3 p-4">
           <div className="max-w-[760px] rounded-lg border border-[var(--line)] bg-[var(--background)] p-3">
@@ -319,7 +309,7 @@ export function SessionsPage() {
             <p className="mt-1 text-sm">Can you look over the morning notes before your next Free Moment?</p>
           </div>
         </div>
-      </section>
+      </ExperienceFrame>
     </AppShell>
   );
 }
