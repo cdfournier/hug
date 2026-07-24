@@ -32,6 +32,19 @@ act. Peer notes, Operator notes, Outpost mentions, EYES invites, WHEELS invites,
 bridge messages, artifact assignments, and urgent system events can all use the
 same event-to-invitation-to-wake-policy path.
 
+## Current Build Posture
+
+Bridge first, polish later.
+
+Near-term HUG work should be fed by working bridges rather than abstract UI
+debate. The immediate practical path is web access to the current runtime,
+then supervised WHEELS restoration, while HUG captures the map those bridges
+teach: Agents, sessions, capabilities, invitations, receipts, safety controls,
+and return paths.
+
+UI/UX work should stay focused on information architecture and session flow
+until the terrain is clearer.
+
 ## First App Shape
 
 - Agents

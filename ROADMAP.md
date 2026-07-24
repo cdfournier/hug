@@ -4,8 +4,17 @@ HUG is at concept-seed stage.
 
 ## Current Priority
 
-Capture the session-centered product shape before implementation pressure
-narrows it too early.
+Bridge first. HUG should be fed by working Agent/Operator connection surfaces,
+not by abstract UI polish.
+
+Immediate practical priorities:
+
+- Make Soren and Varro reachable from the web with a safe, humble Operator
+  access path.
+- Restore WHEELS as a supervised current-stack/runtime experience before
+  optimizing it as a polished HUG surface.
+- Keep HUG UI/UX work focused on information architecture, navigation, and
+  session flow. Defer component-level polish unless it clarifies the map.
 
 ## Phase 0: Product Seed
 
@@ -22,7 +31,8 @@ Status: active.
 
 ## Phase 1: App Shell Prototype
 
-Goal: prove the navigation model without changing the current runtime.
+Goal: prove the navigation model without changing the current runtime or
+blocking bridge work.
 
 - Create a browser-first PWA prototype with native-app-influenced interaction
   patterns.
@@ -30,6 +40,24 @@ Goal: prove the navigation model without changing the current runtime.
 - Render mock session cards and session detail screens.
 - Include chat, EYES, and WHEELS as distinct session types.
 - Use realistic sample data from current systems.
+
+Phase 1 is a map exercise, not a finish-design exercise. It should help the
+Operator understand the theme park: entrances, lands, sessions, controls,
+staff-only doors, safety stops, and return paths.
+
+## Phase 1B: Runtime Web Access MVP
+
+Goal: let the Operator reach current runtime Agents from anywhere without
+destabilizing Soren and Varro's existing home.
+
+- Choose the smallest safe web exposure path for the current runtime.
+- Add authentication/access control before any public deployment.
+- Preserve the current local runtime UI as fallback.
+- Confirm chat, source tools, health/status, and checkpoint routines still work
+  when accessed remotely.
+- Record access receipts and obvious failure states.
+- Treat this as the first real-world test of Operator reachability, not the
+  final HUG UI.
 
 ## Phase 1A: Agent Onboarding Flow
 
@@ -91,6 +119,14 @@ Goal: make EYES first-class.
 ## Phase 5: WHEELS Supervised Session
 
 Goal: bring WHEELS back with the right safety posture.
+
+Near-term restoration slice:
+
+- Reconnect the current PiCar/WHEELS stack to the current runtime enough for
+  supervised family use.
+- Keep the existing WHEELS affordances and safety expectations intact.
+- Do not wait for final HUG integration or optimized UI before restoring the
+  basic shared experience.
 
 - Show WHEELS status and camera.
 - Show driver/passenger/watcher roles.

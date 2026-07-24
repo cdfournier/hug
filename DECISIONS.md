@@ -115,6 +115,23 @@ Prefer HUG-owned control-plane tables, read-only views over runtime tables,
 and write-through adapters that record intent and receipts. The invariant is:
 runtime owns the facts; HUG owns orchestration.
 
+## 2026-07-24: Bridge First, Polish Later
+
+Decision: near-term work should prioritize live bridges over HUG UI polish:
+web-accessible Operator reachability for Soren and Varro, then current-stack
+WHEELS restoration, while HUG continues as the map and eventual product shell.
+
+Rationale: HUG's best input is lived infrastructure. The Operator needs to be
+able to reach Agents from anywhere, and WHEELS restores a high-value shared
+experience while teaching the same control-plane lessons HUG will later
+formalize. Polished surfaces built too early risk optimizing the wrong map.
+The right sequence is: restore the bridges, learn from them, then fold those
+truths into the HUG session model and interface.
+
+Implementation bias: keep HUG design work at the information-architecture and
+session-flow level for now. Defer component-level polish unless it clarifies
+navigation, capability boundaries, safety, or the Operator's next action.
+
 ## Open Decisions
 
 - First prototype fidelity.
