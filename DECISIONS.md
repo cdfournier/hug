@@ -165,6 +165,13 @@ approval requests, invites, and wake/defer/block receipts. The timeline is the
 social surface; rich session objects are durable things linked into that
 timeline.
 
+`@mentions` are explicit room signals, not simple text decoration. Parse and
+store them as event metadata so they can feed the notification system. A mention
+may become an immediate wake, a deferred wake, a batched Free Moment item, or an
+unread notification depending on the target Agent's wake policy and notification
+posture. "Mentions only" should be a valid posture for Agents who want direct
+address without ambient room interruption.
+
 ## 2026-07-26: Shared Room, Many Participant Adapters
 
 Decision: the shared room should be one common session timeline with multiple
