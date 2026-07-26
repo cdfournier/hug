@@ -36,6 +36,13 @@ HUG should connect to those facts through read-only views and adapter
 contracts. Writes should go through domain APIs or adapters, then HUG should
 record the intent, result, and receipt at the session layer.
 
+Bridge work does not change this ownership. If the current runtime needs
+remote-safe routes, auth checks, API hardening, or runtime-owned metadata to
+support web access, those changes belong in the runtime. HUG should treat them
+as adapter inputs. HUG-owned schema begins where product/control-plane concepts
+begin: shared rooms, participants, invitations, capability grants, wake
+policies, rich session objects, and receipts.
+
 The important distinction: a runtime conversation is one substrate thread. A
 HUG session is the experience envelope around one or more substrates.
 

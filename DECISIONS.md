@@ -115,6 +115,15 @@ Prefer HUG-owned control-plane tables, read-only views over runtime tables,
 and write-through adapters that record intent and receipts. The invariant is:
 runtime owns the facts; HUG owns orchestration.
 
+Bridge-work guardrail: runtime web access may require changes inside the
+current runtime repo, including authentication, remote-safe routes, API
+hardening, or runtime-owned metadata. Those are runtime implementation changes,
+not a reversal of schema ownership. HUG should consume them through adapter
+contracts and session-shaped views. The first HUG-owned tables should appear
+only when HUG needs product/control-plane concepts the runtime does not own:
+shared rooms, participants, invitations, capability grants, wake policies,
+rich session objects, and receipts.
+
 ## 2026-07-24: Bridge First, Polish Later
 
 Decision: near-term work should prioritize live bridges over HUG UI polish:

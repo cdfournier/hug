@@ -55,6 +55,8 @@ If you are catching up, read in this order:
 - Runtime owns runtime facts. HUG owns orchestration.
 - Prefer HUG-owned control-plane tables plus read-only runtime views and
   write-through adapters.
+- Runtime web access may harden or expose runtime-owned APIs, but it should not
+  copy runtime facts into HUG-owned tables.
 - Keep current runtime UI available as fallback until HUG earns replacement.
 - Build the shared room as the first social bridge before WHEELS, because EYES,
   WHEELS, notes, links, attachments, and receipts all need a common timeline

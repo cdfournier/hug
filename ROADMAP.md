@@ -170,8 +170,8 @@ Goal: formalize adapter boundaries.
 
 ## Open Questions
 
-- What is the smallest useful session table that can coexist with current
-  runtime tables?
+- Given the settled ownership decision, what is the smallest useful HUG-owned
+  control-plane table set for the shared room/bar MVP?
 - Which receipts must be universal across all sessions?
 - How much visual data should EYES retain by default?
 - How does HUG support multiple Operators or households later?
