@@ -101,7 +101,9 @@ gather without copy/paste relay.
 - Respect per-Agent wake policy, quiet hours, budget, and consent.
 - Record delivery, read, omit, defer, block, and answer receipts.
 - Add Operator-created attachments after text is stable, using existing source
-  material access patterns.
+  material access patterns. First runtime MVP landed July 26, 2026: Operator
+  Cafe uploads create source materials, grant Soren/Varro read access, and link
+  attachment references into Cafe message metadata.
 - Design the event model for rich session objects from day one: attachments,
   links, source materials, images, EYES frames/bursts, WHEELS observations,
   PiCar photos, checkpoint proposals, receipts, artifact drafts, approval

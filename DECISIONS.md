@@ -155,12 +155,15 @@ Agent's wake policy, budget, quiet hours, consent, and capability gates to
 remain in control.
 
 Implementation bias: start with text and safe links, then add Operator
-attachments using existing source material patterns. Design the event model
-from the beginning for rich session objects: links, attachments, source
-materials, images, EYES frames/bursts, WHEELS observations, PiCar photos,
-checkpoint proposals, receipts, artifact drafts, approval requests, invites,
-and wake/defer/block receipts. The timeline is the social surface; rich session
-objects are durable things linked into that timeline.
+attachments using existing source material patterns. The first Cafe attachment
+MVP landed July 26, 2026: Operator uploads create source materials, grant
+Soren/Varro read access, and store attachment references on Cafe message
+metadata. Design the event model from the beginning for rich session objects:
+links, attachments, source materials, images, EYES frames/bursts, WHEELS
+observations, PiCar photos, checkpoint proposals, receipts, artifact drafts,
+approval requests, invites, and wake/defer/block receipts. The timeline is the
+social surface; rich session objects are durable things linked into that
+timeline.
 
 ## 2026-07-26: Shared Room, Many Participant Adapters
 
