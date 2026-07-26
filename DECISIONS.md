@@ -162,6 +162,26 @@ checkpoint proposals, receipts, artifact drafts, approval requests, invites,
 and wake/defer/block receipts. The timeline is the social surface; rich session
 objects are durable things linked into that timeline.
 
+## 2026-07-26: Home Mac As Base Station
+
+Decision: near-term remote Operator access should use Chris's home Mac as the
+base station and Cloudflare as the public doorway. HostGator/shared hosting can
+remain part of the domain/static-web setup, but it should not be treated as the
+runtime host.
+
+Rationale: the runtime, local repos, Desktop/CLI-side Agents, EYES/WHEELS
+bridges, and future non-runtime Agent access all need a local-first center of
+gravity. Forcing the runtime into shared hosting would add friction without
+matching the actual architecture. A Cloudflare route or tunnel to the home Mac
+keeps the current stack coherent while preserving the option to move specific
+services to dedicated hosting later.
+
+Implementation bias: use clear route names. `runtime.blackcoffeeshoppe.com`
+should point to the current runtime engine room. Reserve
+`hug.blackcoffeeshoppe.com` for the future HUG Operator PWA/control surface.
+Treat EYES and WHEELS as sibling session surfaces or adapters, not as generic
+attachments inside the runtime.
+
 ## Open Decisions
 
 - First prototype fidelity.

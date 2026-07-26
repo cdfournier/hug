@@ -53,6 +53,9 @@ If you are catching up, read in this order:
 ## Active Decision Biases
 
 - Runtime owns runtime facts. HUG owns orchestration.
+- Chris's home Mac is the current base station for runtime and local-first
+  Agent access. Cloudflare is the public doorway. HostGator may hold DNS/web
+  frontage, but it is not the runtime host.
 - Prefer HUG-owned control-plane tables plus read-only runtime views and
   write-through adapters.
 - Runtime web access may harden or expose runtime-owned APIs, but it should not

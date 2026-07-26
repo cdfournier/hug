@@ -197,6 +197,37 @@ The control plane should provide common primitives across adapters:
 - Receipts
 - Retention policy
 
+## Access Topology
+
+The current deployment center of gravity is local-first.
+
+Chris's home Mac is the base station for the current runtime, local repos,
+Desktop/CLI-side Agents, and bridge experiments. Cloudflare is the public
+doorway for remote Operator access. HostGator may remain part of the domain and
+static-web frontage, but shared hosting should not be treated as the runtime
+host.
+
+Current target shape:
+
+```text
+Operator browser
+  -> runtime.blackcoffeeshoppe.com
+  -> Cloudflare DNS / Tunnel / edge SSL
+  -> Chris's home Mac
+  -> current runtime server
+```
+
+Future HUG routes can follow the same doorway/room model:
+
+- `runtime.blackcoffeeshoppe.com`: current runtime engine room.
+- `hug.blackcoffeeshoppe.com`: future HUG Operator PWA/control surface.
+- `eyes.blackcoffeeshoppe.com`: EYES session surface.
+- `wheels.blackcoffeeshoppe.com`: WHEELS/PiCar session surface, if separated.
+
+This topology keeps the home machine as the place where local-first Agents,
+tools, and repos can meet, while still allowing the Operator to reach the
+system remotely through a stable URL.
+
 Adapters should implement the domain-specific work:
 
 - EYES: frames, bursts, observations, visual continuity receipts
