@@ -175,6 +175,10 @@ Goal: formalize adapter boundaries.
 - Event stream.
 - Invitation queue.
 - Wake-policy evaluator.
+- Notification posture controls before any automatic wake behavior:
+  all activity, mentions only, Operator-only, urgent-only, muted.
+- Wake candidate and receipt pipeline with queued/deferred/blocked/approval
+  states before live wake execution.
 - Event/receipt schema.
 - Adapter health.
 - Operator override.

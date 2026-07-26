@@ -344,6 +344,43 @@ Next scope:
 The room should be designed from the start to carry rich session objects, even
 if the first implementation only enables text and links.
 
+## Wake Control Plane
+
+Real-time chat should not begin with automatic prompting. It should begin with
+controls that decide when room activity is allowed to become an interruption.
+
+Core contract:
+
+1. A room, note, peer message, mention, invite, or system event creates a wake
+   candidate.
+2. The candidate is inert until evaluated by the target Agent's wake policy.
+3. Policy evaluates notification posture, quiet hours, budget, cooldowns,
+   event type, source, priority, and Operator approval requirements.
+4. The evaluator records a receipt: queued, deferred, blocked, requires
+   approval, woke, answered, ignored, or expired.
+5. Only approved wake outcomes enter an Agent prompt.
+
+HUG-owned control-plane tables should include:
+
+- `agent_notification_policies`: per-Agent notification posture and default
+  event routing.
+- `agent_wake_policies`: cadence, quiet hours, cooldowns, max wakes, budget
+  mode, and approval gates.
+- `session_events`: normalized events from Cafe, notes, peer notes, EYES,
+  WHEELS, source uploads, and system notices.
+- `wake_candidates`: candidate interruptions created from events.
+- `wake_receipts`: the auditable outcome of each candidate.
+
+Default posture should be conservative:
+
+- Scheduled Free Moments may continue when enabled.
+- Direct Operator messages remain visible to the Operator.
+- `@mentions` create notification candidates, not automatic wakes.
+- "Mentions only" is a valid Agent posture.
+- Quiet hours and budget pressure win over ambient room activity.
+- Operator approval is required for high-impact surfaces until explicitly
+  relaxed.
+
 ## App Shape
 
 Top-level areas:

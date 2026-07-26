@@ -123,6 +123,40 @@ Wake policy fields:
 - `operator_approval_surfaces`
 - `default_free_moment_destination`
 
+Notification posture values:
+
+- `all_activity`: create candidates for most permitted room/session events.
+- `mentions_only`: create candidates only for direct `@mentions` and urgent
+  system notices.
+- `operator_only`: create candidates only for Operator-originated notes,
+  messages, approvals, and urgent system notices.
+- `urgent_only`: create candidates only for high-priority safety, health,
+  continuity, or approval events.
+- `muted`: record events without notifying or waking unless the Operator
+  manually releases them.
+
+Wake candidate statuses:
+
+- `queued`
+- `deferred`
+- `blocked`
+- `requires_operator_approval`
+- `woke`
+- `answered`
+- `ignored`
+- `expired`
+
+Policy defaults for shared rooms:
+
+- Ambient Cafe activity should batch by default.
+- Direct `@mentions` should notify by default but not wake immediately unless
+  the Agent policy allows it.
+- Quiet hours, cooldowns, daily wake caps, and budget pressure should override
+  non-urgent events.
+- "Free Moments off" should disable scheduled wakes, but not necessarily hide
+  unread notifications; the final behavior remains an Operator-configurable
+  policy decision.
+
 ### Receipt
 
 The record of what actually happened.
