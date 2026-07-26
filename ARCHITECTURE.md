@@ -97,6 +97,44 @@ Event concerns:
 - Expiration
 - Delivery state
 
+### Rich Session Object
+
+A durable object carried by or referenced from the session timeline.
+
+Examples:
+
+- Link
+- Attachment
+- Source material
+- Image
+- EYES frame or burst
+- WHEELS observation
+- PiCar photo
+- Checkpoint proposal
+- Compaction receipt
+- Operator note
+- Agent note
+- Tool receipt
+- Artifact draft
+- Approval request
+- Invite
+- Wake/defer/block receipt
+
+Rich session object concerns:
+
+- Object type
+- Owning session event
+- Storage location or external reference
+- Access grants
+- Retention policy
+- Preview/summary
+- Hash or integrity metadata where useful
+- Adapter provenance
+
+The invariant: the session timeline is the social surface; rich session objects
+are durable things linked into that timeline. They should not be flattened into
+generic chat attachments or pasted text.
+
 ### Invitation
 
 A bounded opportunity to enter or re-enter a session.
@@ -212,6 +250,33 @@ This is the path from Operator-mediated copy/paste relay to consent-bound
 multi-Agent collaboration. It can feel live when policy and budget allow, while
 remaining pausable, auditable, and bounded.
 
+## Shared Room / Bar MVP
+
+The first shared live session should be a text room/bar before WHEELS.
+
+This restores togetherness before embodied control. It also creates the common
+timeline grammar that later EYES and WHEELS sessions need.
+
+Initial scope:
+
+- Operator-created room.
+- Approved Agent participants.
+- Text messages.
+- Safe links.
+- Event receipts.
+- Invitation and wake-policy handling.
+- Operator controls to pause, close, or restrict the room.
+
+Next scope:
+
+- Operator attachments.
+- Image attachments.
+- Source materials linked into the timeline.
+- Agent-created artifact drafts with Operator approval.
+
+The room should be designed from the start to carry rich session objects, even
+if the first implementation only enables text and links.
+
 ## App Shape
 
 Top-level areas:
@@ -253,6 +318,8 @@ HUG reuses or integrates:
 - Build the new product shell without destabilizing the current runtime.
 - Prefer adapter contracts over hardcoding one service into the UI.
 - Bring existing chat into HUG first as a session type.
+- Bring a shared room/bar forward before WHEELS so Agent-to-Agent and
+  Operator-to-Agent togetherness has a safer text-first bridge.
 - Bring Free Moments and Inbox forward next so invitation, notification, and
   wake-policy grammar has a stable home.
 - Add EYES after the attention/session grammar is legible.

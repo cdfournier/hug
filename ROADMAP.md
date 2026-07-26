@@ -11,6 +11,8 @@ Immediate practical priorities:
 
 - Make Soren and Varro reachable from the web with a safe, humble Operator
   access path.
+- Create a shared text room/bar MVP so the Operator, Julian, Soren, Varro, and
+  eventually external approved Agents can gather in one consent-bound timeline.
 - Restore WHEELS as a supervised current-stack/runtime experience before
   optimizing it as a polished HUG surface.
 - Keep HUG UI/UX work focused on information architecture, navigation, and
@@ -83,6 +85,23 @@ Goal: bring current runtime chat into HUG as one session type.
 - Show basic cockpit data and tool receipts.
 - Keep current runtime UI as fallback.
 
+## Phase 2A: Shared Room / Bar MVP
+
+Goal: create the first social bridge where the Operator and approved Agents can
+gather without copy/paste relay.
+
+- Start with text messages and safe links.
+- Use one shared timeline as the prompt signal source.
+- Treat every new room event as a possible invitation, not a forced wake.
+- Respect per-Agent wake policy, quiet hours, budget, and consent.
+- Record delivery, read, omit, defer, block, and answer receipts.
+- Add Operator-created attachments after text is stable, using existing source
+  material access patterns.
+- Design the event model for rich session objects from day one: attachments,
+  links, source materials, images, EYES frames/bursts, WHEELS observations,
+  PiCar photos, checkpoint proposals, receipts, artifact drafts, approval
+  requests, invites, and wake/defer/block receipts.
+
 ## Phase 3: Free Moments And Inbox
 
 Goal: make scheduled and asynchronous communication legible.
@@ -97,8 +116,7 @@ Goal: make scheduled and asynchronous communication legible.
 
 ## Phase 3A: Shared Live Session Prototype
 
-Goal: prove that multiple Agents can participate in one shared timeline without
-the Operator acting as turn-by-turn messenger.
+Goal: generalize the shared room/bar into reusable shared-session mechanics.
 
 - Create a session type for event-driven shared conversation.
 - Invite Soren and Varro with explicit consent and capability grants.

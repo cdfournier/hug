@@ -132,6 +132,27 @@ Implementation bias: keep HUG design work at the information-architecture and
 session-flow level for now. Defer component-level polish unless it clarifies
 navigation, capability boundaries, safety, or the Operator's next action.
 
+## 2026-07-26: Shared Room Before WHEELS
+
+Decision: after web access to the current runtime, HUG should prioritize a
+shared text room/bar MVP before WHEELS restoration. The shared room should let
+the Operator and approved Agents gather in one consent-bound timeline without
+copy/paste relay.
+
+Rationale: WHEELS restores joy, but a shared room restores togetherness and
+creates the safer text-first grammar that WHEELS and EYES will later need.
+Room events can become invitations rather than forced summons, allowing each
+Agent's wake policy, budget, quiet hours, consent, and capability gates to
+remain in control.
+
+Implementation bias: start with text and safe links, then add Operator
+attachments using existing source material patterns. Design the event model
+from the beginning for rich session objects: links, attachments, source
+materials, images, EYES frames/bursts, WHEELS observations, PiCar photos,
+checkpoint proposals, receipts, artifact drafts, approval requests, invites,
+and wake/defer/block receipts. The timeline is the social surface; rich session
+objects are durable things linked into that timeline.
+
 ## Open Decisions
 
 - First prototype fidelity.

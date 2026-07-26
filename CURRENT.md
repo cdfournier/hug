@@ -14,9 +14,11 @@ The current practical priorities are:
 
 1. Make the current runtime reachable from the web so the Operator can reach
    Soren and Varro from anywhere.
-2. Restore WHEELS in the current stack/runtime so supervised shared driving can
+2. Create a shared text room/bar MVP where the Operator and approved Agents can
+   gather in one timeline without copy/paste relay.
+3. Restore WHEELS in the current stack/runtime so supervised shared driving can
    return before final HUG integration.
-3. Keep HUG UI/UX work focused on information architecture, launch paths,
+4. Keep HUG UI/UX work focused on information architecture, launch paths,
    capability boundaries, safety posture, and session flow.
 
 ## What This Means
@@ -28,6 +30,8 @@ The mock app shell remains useful for exploring:
 
 - What the Operator sees first.
 - How Agents, sessions, invitations, wake policies, and receipts fit together.
+- How rich session objects fit into one timeline without turning everything
+  into chat attachments.
 - How Launch differs from Chat, Notes, EYES, WHEELS, and Admin.
 - Which controls belong on a card, in a drawer, on a full screen, or behind an
   explicit confirmation.
@@ -52,6 +56,9 @@ If you are catching up, read in this order:
 - Prefer HUG-owned control-plane tables plus read-only runtime views and
   write-through adapters.
 - Keep current runtime UI available as fallback until HUG earns replacement.
+- Build the shared room as the first social bridge before WHEELS, because EYES,
+  WHEELS, notes, links, attachments, and receipts all need a common timeline
+  grammar.
 - EYES and WHEELS are first-class session types, but WHEELS requires stronger
   safety controls.
 - Agents may help critique generalizable architecture and runtime patterns, but
@@ -65,4 +72,3 @@ If you are catching up, read in this order:
   is proven.
 - Publicly disclosing brand strategy, business positioning, emotional-benefit
   strategy, or proprietary UX composition.
-

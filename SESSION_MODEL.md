@@ -312,6 +312,10 @@ Minimum fields:
 Candidate event types:
 
 - `message`
+- `link`
+- `attachment`
+- `source_material_ref`
+- `image_ref`
 - `tool_call`
 - `observation`
 - `capture`
@@ -323,7 +327,59 @@ Candidate event types:
 - `refusal`
 - `summary`
 - `continuity_receipt`
+- `checkpoint_proposal`
+- `artifact_draft`
+- `approval_request`
+- `invitation`
+- `wake_receipt`
 - `error`
+
+## Rich Session Object
+
+A rich session object is a durable thing carried by or referenced from a session
+event.
+
+Minimum fields:
+
+- `id`
+- `session_id`
+- `event_id`
+- `object_type`
+- `title`
+- `summary`
+- `storage_ref`
+- `external_ref`
+- `mime_type`
+- `metadata`
+- `access_policy`
+- `retention_policy`
+- `created_by`
+- `created_at`
+
+Candidate object types:
+
+- `link`
+- `attachment`
+- `source_material`
+- `image`
+- `eyes_frame`
+- `eyes_burst`
+- `wheels_observation`
+- `picar_photo`
+- `checkpoint_proposal`
+- `compaction_receipt`
+- `operator_note`
+- `agent_note`
+- `tool_receipt`
+- `artifact_draft`
+- `approval_request`
+- `invite`
+- `wake_receipt`
+
+Invariant: the room timeline is the social surface; rich session objects are
+durable things linked into that timeline. The event says the object arrived.
+The object record says what it is, where it lives, who can access it, and how
+long it should be retained.
 
 ## Visual Continuity Receipt
 

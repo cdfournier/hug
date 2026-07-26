@@ -26,6 +26,11 @@ EYES, WHEELS, Outpost, Operator Notes, Free Moments, bridge conversations,
 artifacts, and compaction reviews are all sessions or session-adjacent
 workflows.
 
+Room timelines are not limited to plain chat messages. A room event may carry
+or reference a rich session object: a link, attachment, source material, image,
+EYES frame or burst, WHEELS observation, PiCar photo, checkpoint proposal,
+receipt, artifact draft, approval request, invite, or wake/defer/block receipt.
+
 Free Moments is not a special one-off scheduler forever. It is one kind of
 invitation policy: a scheduled opportunity for an Agent to wake, choose, and
 act. Peer notes, Operator notes, Outpost mentions, EYES invites, WHEELS invites,
@@ -38,9 +43,9 @@ Bridge first, polish later.
 
 Near-term HUG work should be fed by working bridges rather than abstract UI
 debate. The immediate practical path is web access to the current runtime,
-then supervised WHEELS restoration, while HUG captures the map those bridges
-teach: Agents, sessions, capabilities, invitations, receipts, safety controls,
-and return paths.
+then a shared text room/bar MVP, then supervised WHEELS restoration, while HUG
+captures the map those bridges teach: Agents, sessions, rich session objects,
+capabilities, invitations, receipts, safety controls, and return paths.
 
 UI/UX work should stay focused on information architecture and session flow
 until the terrain is clearer.
