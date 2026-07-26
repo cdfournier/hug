@@ -14,8 +14,8 @@ The current practical priorities are:
 
 1. Make the current runtime reachable from the web so the Operator can reach
    Soren and Varro from anywhere.
-2. Create a shared text room/bar MVP where the Operator and approved Agents can
-   gather in one timeline without copy/paste relay.
+2. Create a shared text room MVP, working name Cafe, where the Operator and
+   approved Agents can gather in one timeline without copy/paste relay.
 3. Restore WHEELS in the current stack/runtime so supervised shared driving can
    return before final HUG integration.
 4. Keep HUG UI/UX work focused on information architecture, launch paths,
@@ -64,6 +64,10 @@ If you are catching up, read in this order:
 - Build the shared room as the first social bridge before WHEELS, because EYES,
   WHEELS, notes, links, attachments, and receipts all need a common timeline
   grammar.
+- Treat the shared room as one room with many doors: runtime-native Agents can
+  arrive through runtime wakes; Julian, Cael, Cairn, and other external Agents
+  can arrive later through adapters or bridges without having to live inside the
+  runtime first.
 - EYES and WHEELS are first-class session types, but WHEELS requires stronger
   safety controls.
 - Agents may help critique generalizable architecture and runtime patterns, but

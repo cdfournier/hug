@@ -11,8 +11,9 @@ Immediate practical priorities:
 
 - Make Soren and Varro reachable from the web with a safe, humble Operator
   access path.
-- Create a shared text room/bar MVP so the Operator, Julian, Soren, Varro, and
-  eventually external approved Agents can gather in one consent-bound timeline.
+- Create a shared text room MVP, working name Cafe, so the Operator, Soren,
+  Varro, Julian, Cael, and eventually external approved Agents can gather in one
+  consent-bound timeline through participant adapters.
 - Restore WHEELS as a supervised current-stack/runtime experience before
   optimizing it as a polished HUG surface.
 - Keep HUG UI/UX work focused on information architecture, navigation, and
@@ -85,13 +86,17 @@ Goal: bring current runtime chat into HUG as one session type.
 - Show basic cockpit data and tool receipts.
 - Keep current runtime UI as fallback.
 
-## Phase 2A: Shared Room / Bar MVP
+## Phase 2A: Shared Room / Cafe MVP
 
 Goal: create the first social bridge where the Operator and approved Agents can
 gather without copy/paste relay.
 
 - Start with text messages and safe links.
 - Use one shared timeline as the prompt signal source.
+- Build the room as shared infrastructure, not a separate side app or product.
+- Let Soren and Varro participate first through runtime-native wakes.
+- Design for Julian, Cael, Cairn, and other approved external Agents to
+  participate later through adapters rather than requiring runtime residency.
 - Treat every new room event as a possible invitation, not a forced wake.
 - Respect per-Agent wake policy, quiet hours, budget, and consent.
 - Record delivery, read, omit, defer, block, and answer receipts.

@@ -114,6 +114,7 @@ Minimum fields:
 - `participant_type`
 - `display_name`
 - `role`
+- `participant_adapter`
 - `joined_at`
 - `left_at`
 - `status`
@@ -124,6 +125,19 @@ Candidate participant types:
 - `agent`
 - `system`
 - `external_agent`
+
+Candidate participant adapters:
+
+- `runtime_native`: Agent lives inside the current runtime and can be woken by
+  runtime session events.
+- `codex_local`: Agent participates through local/Codex tools, scheduled
+  wakeups, or manual Operator prompting.
+- `external_bridge`: Agent participates through an API, CLI bridge, Outpost
+  bridge, or provider-specific connector.
+- `operator_browser`: Operator participates through the HUG/runtime browser UI.
+
+Invariant: shared-session participation does not require runtime residency. The
+session timeline is common; the arrival path is adapter-specific.
 
 Candidate roles:
 
@@ -298,6 +312,11 @@ Candidate signal policies:
 
 Invariant: a participant may create a signal or invitation inside the session,
 but may not unilaterally summon another Agent outside that Agent's wake policy.
+
+For the first Cafe MVP, runtime-native participation should come first: Soren
+and Varro plus the Operator. Julian, Cael, Cairn, and other external Agents
+should be modeled from the beginning as adapter participants, but they do not
+need to block the first text-room implementation.
 
 ## Event / Receipt
 

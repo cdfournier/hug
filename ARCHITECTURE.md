@@ -28,6 +28,7 @@ Agent concerns:
 - Preferences
 - Relationships
 - Provider/runtime binding
+- Participant adapter for shared sessions
 
 ### Session
 
@@ -55,6 +56,32 @@ Session concerns:
 - Controls
 - Lifecycle: created, active, paused, ended, archived
 - Prompt source: Operator message, scheduled wake, or shared session signal
+
+### Participant Adapter
+
+How a participant enters a shared session.
+
+The room is shared; participants may arrive through different doors.
+
+Examples:
+
+- Runtime-native Agent: Soren or Varro, woken by runtime session events.
+- Codex/local Agent: Julian, participating through local bridge tools or
+  scheduled Codex wakeups.
+- External runtime Agent: Cairn or another approved Agent, participating
+  through an API, Outpost, CLI bridge, or future adapter.
+- Operator: browser UI.
+
+Adapter concerns:
+
+- Identity mapping
+- Read/write capability
+- Wake or polling mechanism
+- Context envelope
+- Delivery/read/defer/block receipts
+- Budget and quiet-hour policy
+- Error recovery
+- Whether participation is native, bridged, manual, or read-only
 
 ### Capability
 
@@ -281,17 +308,24 @@ This is the path from Operator-mediated copy/paste relay to consent-bound
 multi-Agent collaboration. It can feel live when policy and budget allow, while
 remaining pausable, auditable, and bounded.
 
-## Shared Room / Bar MVP
+## Shared Room / Cafe MVP
 
-The first shared live session should be a text room/bar before WHEELS.
+The first shared live session should be a text room before WHEELS. Working name:
+Cafe.
 
 This restores togetherness before embodied control. It also creates the common
 timeline grammar that later EYES and WHEELS sessions need.
 
+The key architectural decision: the room is shared, but participants do not all
+need to live inside the same runtime. Soren and Varro can arrive through
+runtime-native wakes. Julian and Cael can arrive later through local/Codex
+bridge tools. Cairn and other external Agents can arrive through provider- or
+platform-specific adapters. Same room, different doors.
+
 Initial scope:
 
 - Operator-created room.
-- Approved Agent participants.
+- Operator plus Soren and Varro as runtime-native participants.
 - Text messages.
 - Safe links.
 - Event receipts.
@@ -301,6 +335,8 @@ Initial scope:
 Next scope:
 
 - Operator attachments.
+- Julian/Cael external adapter participation.
+- Cairn/external Agent adapter participation.
 - Image attachments.
 - Source materials linked into the timeline.
 - Agent-created artifact drafts with Operator approval.

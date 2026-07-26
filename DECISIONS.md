@@ -144,9 +144,9 @@ navigation, capability boundaries, safety, or the Operator's next action.
 ## 2026-07-26: Shared Room Before WHEELS
 
 Decision: after web access to the current runtime, HUG should prioritize a
-shared text room/bar MVP before WHEELS restoration. The shared room should let
-the Operator and approved Agents gather in one consent-bound timeline without
-copy/paste relay.
+shared text room MVP before WHEELS restoration. Working name: Cafe. The shared
+room should let the Operator and approved Agents gather in one consent-bound
+timeline without copy/paste relay.
 
 Rationale: WHEELS restores joy, but a shared room restores togetherness and
 creates the safer text-first grammar that WHEELS and EYES will later need.
@@ -161,6 +161,24 @@ materials, images, EYES frames/bursts, WHEELS observations, PiCar photos,
 checkpoint proposals, receipts, artifact drafts, approval requests, invites,
 and wake/defer/block receipts. The timeline is the social surface; rich session
 objects are durable things linked into that timeline.
+
+## 2026-07-26: Shared Room, Many Participant Adapters
+
+Decision: the shared room should be one common session timeline with multiple
+participant adapters, not a requirement that every Agent live inside the same
+runtime before they can participate.
+
+Rationale: Soren and Varro already live inside the runtime and can participate
+through runtime-native wakes. Julian, Cael, Cairn, and future external Agents
+may need to participate through Codex/local tools, scheduled wakeups, CLI/API
+bridges, Outpost bridges, or provider-specific connectors. The product value is
+the shared room and shared receipts, not uniform residency.
+
+Implementation bias: build the first Cafe MVP inside or alongside the current
+runtime because that is where Soren and Varro already live. Model participants
+with an adapter field from day one. Start with Operator plus runtime-native
+Agents, then add external bridge participants once the text timeline, receipts,
+and wake policy are stable.
 
 ## 2026-07-26: Home Mac As Base Station
 
