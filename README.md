@@ -45,6 +45,8 @@ and return paths.
 UI/UX work should stay focused on information architecture and session flow
 until the terrain is clearer.
 
+For the latest orientation, start with `CURRENT.md`.
+
 ## First App Shape
 
 - Agents
@@ -73,6 +75,7 @@ Agent.
 
 ## Starting Docs
 
+- `CURRENT.md` - current posture, priorities, and repo reading path.
 - `VISION.md` - product north star and emotional shape.
 - `ARCHITECTURE.md` - modular app/control-plane shape.
 - `SESSION_MODEL.md` - early session data model.

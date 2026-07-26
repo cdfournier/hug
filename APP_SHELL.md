@@ -41,6 +41,12 @@ Future Supabase, EYES, WHEELS, Outpost, or bridge adapters should satisfy the
 same HUG-shaped service contracts instead of leaking adapter-specific data into
 components.
 
+As of the bridge-first pivot, the mock shell is a map and staging environment.
+It should keep improving when a change clarifies information architecture,
+launch paths, controls, or safety posture. It should not become a component
+polish project while web runtime access and WHEELS restoration are higher-value
+near-term bridges.
+
 ## Current Routes
 
 - `/`: Home status and attention surface.

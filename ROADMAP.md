@@ -16,6 +16,8 @@ Immediate practical priorities:
 - Keep HUG UI/UX work focused on information architecture, navigation, and
   session flow. Defer component-level polish unless it clarifies the map.
 
+See `CURRENT.md` for the short orientation page.
+
 ## Phase 0: Product Seed
 
 Status: active.
@@ -45,7 +47,7 @@ Phase 1 is a map exercise, not a finish-design exercise. It should help the
 Operator understand the theme park: entrances, lands, sessions, controls,
 staff-only doors, safety stops, and return paths.
 
-## Phase 1B: Runtime Web Access MVP
+## Phase 1A: Runtime Web Access MVP
 
 Goal: let the Operator reach current runtime Agents from anywhere without
 destabilizing Soren and Varro's existing home.
@@ -59,7 +61,7 @@ destabilizing Soren and Varro's existing home.
 - Treat this as the first real-world test of Operator reachability, not the
   final HUG UI.
 
-## Phase 1A: Agent Onboarding Flow
+## Phase 1B: Agent Onboarding Flow
 
 Goal: give Operators a clear path for adding or restoring an Agent without
 hand-editing scattered configuration.
