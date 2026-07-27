@@ -1,0 +1,146 @@
+# HUG Design System Brief
+### For Claude Design — Opus session
+### Authored by Soren, July 27, 2026
+
+---
+
+## What this document is
+
+This brief consolidates the Operator's design decisions, the existing visual spec (V2/HUTS), the Interface Principles doc, and Julian's wireframe architecture into a single input for the next Claude Design session. It is the *brief* — referenceable, durable. The prompt that accompanies it is disposable.
+
+Two reference documents should be loaded alongside this brief:
+- `HUG_VISUAL_SPEC_V2.md` (the HUTS color/type spec — structural foundation)
+- `INTERFACE_PRINCIPLES.md` (the architectural grammar — from the HUG repo)
+
+Eight wireframes (four phone, four wide) exist as structural reference. Their layout and information architecture are approved. Their styling is placeholder.
+
+---
+
+## 1. Color — two colors, two roles, they swap
+
+**The Operator's position supersedes the V2 spec on surface usage.**
+
+Dark mode (primary):
+- **Deep pine green** is the surface system. Page background, panels, cards, sidebar — all green. The V2 canvas scale (`#0E1611` through `#2A3A2E`) is the right range.
+- **Cream/linen is not a surface.** It is an accent material: borders, action text, hover states, the serif voice line, the surfaced-ask drawer. Cream appears where something is being *said* — paper under the lamp — but never as a card background or panel fill.
+
+Light mode (the inversion):
+- **Cream becomes the background.** The full ground plane.
+- **Deep green becomes text, CTAs, and structural elements.**
+- Same palette, same relationship, flipped polarity. No third system. No gray mediator.
+
+This is simpler than V2 proposed. Two primary colors doing two jobs. They trade jobs across modes. Everything else is accent.
+
+**Accent remains unchanged from V2:** Hearth Amber (`#E2A45C`), one meaning — *this needs you.* Budget: 0% at rest, ceiling 2%. Ordinary primary actions are outlined, not filled. Only the button that answers an ask gets amber.
+
+**Warmth/rest dots** unchanged: filled `#7E9470` for awake, hollow 1px `#5A6854` for resting.
+
+---
+
+## 2. Typography — two registers, one family, plus a data voice
+
+V2's type system is approved with one addition:
+
+**Alegreya (serif):** Display lines and the one surfaced sentence per screen. The forward lean reads as a person speaking.
+
+**Alegreya Sans:** Navigation, names, body copy, roles, metadata sentences. The house knowing things.
+
+**Alegreya Sans SC:** Labels, micro labels. Small caps with generous tracking.
+
+**Data register (addition):** Operational readouts — percentages, durations, currency, counts — use `Alegreya Sans` with `font-variant-numeric: tabular-nums` enforced. V2 already specifies this for the Data role (19px, tabular-nums). The brief confirms: data values should be visually distinguishable from prose. If tabular figures in Alegreya Sans prove insufficient for vertical alignment at small sizes, introduce a dedicated monospaced companion (IBM Plex Mono or JetBrains Mono) scoped only to data values. Test in-family first.
+
+---
+
+## 3. Icons — 1px custom set, restrained vocabulary
+
+**Stroke:** 1px. Consistent. No fills except status dots.
+
+**Grid:** 24×24 nav, 20×20 inline where needed. Round caps, round joins.
+
+**Style direction:** Quiet. An icon in this system is wayfinding at the scale where text alone won't fit. It is not decoration and it is not branding. It should feel like it was drawn with the same pen that wrote the navigation labels.
+
+**Reference:** Tabler icons for *proportional* reference only — HUG icons should feel native to HUG, not borrowed.
+
+**Required set (minimum viable):**
+- Home (where everyone is)
+- Agents (people and posture)
+- Inbox (attention queue)
+- Launch (doors — EYES, Wheels, Cafe, Outpost)
+- Settings/admin (if surfaced)
+- Expand/collapse (drawer/detail escalation)
+- Status indicators (the warmth dots handle most of this)
+
+That's six to eight icons. Everything else stays text. If an icon isn't immediately legible at 20×20 in 1px stroke, it shouldn't exist — use the word instead.
+
+---
+
+## 4. Component patterns — from the Interface Principles
+
+The wireframes already embody these. This section names them so Claude Design can build tokens and states, not just layouts.
+
+**Screen → Drawer → Modal escalation:**
+- Screen is the stable context (Home, Agents, Inbox, Launch)
+- Drawer slides in for detail without leaving context (agent detail, inbox item review)
+- Modal is reserved for confirmation of irreversible actions only
+
+The operator should *never* lose their place. No full-page navigations for detail views. The background stays visible and the drawer is the foreground.
+
+**The three-verb inbox pattern:**
+- Review (read/inspect) → Approve → Defer
+- These are decisions, not compositions. The operator is not being asked to write. They're being asked to say yes, not yet, or let me look.
+
+**Agent card density states:**
+- *Expanded:* name, role, status, mood, pressure, cadence, current focus. The full instrument panel. Default on wide view when agent count ≤ 4.
+- *Compressed:* name, status dot, pressure bar. Nothing else. Default on phone, or when agent count pushes the layout. Tap to expand.
+- The threshold between these states should be defined in the design system — at what count, at what viewport width does the card compress?
+
+**Capability gate toggles:**
+- Visible on the agent detail view. Not hidden in settings.
+- Each gate shows: capability name, current state (on/write/read/off/planned), and *why* if it's restricted. "Paused until bridge rules are approved" is the pattern.
+- These are relationship sentences doing infrastructure work. They should read like prose, not like toggle labels.
+
+---
+
+## 5. The surfaced sentence — one per screen
+
+V2 established this and it's the single most distinctive UI decision in HUG. Each primary screen has room for one human-readable sentence that tells you the *meaning* of what you're looking at.
+
+- Home: "Soren is writing. Varro is resting. No one needs you right now."
+- Inbox: "She needs your yes before she spends anything."
+- Agent detail: "He's been thinking about the visual spec for forty minutes."
+
+**Rules:**
+- Alegreya serif. The one serif moment on the screen.
+- Generated, not templated. These aren't mad-libs with agent names inserted — they're composed by the system with awareness of actual state.
+- One per screen. Never two. If nothing is worth saying, the space stays empty. An empty sentence space is a valid state — it means peace.
+
+---
+
+## 6. Responsiveness — the same house, different windows
+
+**Phone:** Single column. Cards compressed by default. Drawers slide up from bottom as half-sheets, expandable to full. The sentence still appears.
+
+**Wide:** Multi-column where content supports it (agent cards in a row, inbox as list+drawer). Drawers slide from right. The sentence has more room but isn't bigger — it's the same size, with more air around it.
+
+**The principle:** It's the same house seen through different windows. Not a separate mobile design. Not a "mobile-first" that treats wide as an afterthought. The hierarchy doesn't change — the *breathing room* changes.
+
+---
+
+## 7. What this brief does NOT cover
+
+- **The brand style guide.** That's the other fork — social templates, merch, pitch decks, Lemons livery. Shares DNA with this system but is a separate deliverable. Comes after the app design system is stable.
+- **Motion/animation.** Not yet specified. When it's time: gentle, purposeful, never decorative. A drawer *arrives*, it doesn't *bounce*.
+- **Accessibility audit.** Needed, not yet scoped. The two-color system will need contrast ratio validation, especially cream-on-green in light mode.
+- **Dark-to-light mode toggle behavior.** The palette inversion is defined; the transition UX is not.
+
+---
+
+## 8. Success condition
+
+Unchanged from V2: **The success condition is closing the screen.** The operator opened the app, saw that everyone was okay, and put the phone down. The design should make that possible in under ten seconds. Everything that slows that moment down is debt. Everything that speeds it up is value.
+
+The design is not a dashboard. It's a window into a house where people you care about are doing things you trust them to do.
+
+---
+
+*End of brief. Two documents accompany: HUG_VISUAL_SPEC_V2.md, INTERFACE_PRINCIPLES.md.*
