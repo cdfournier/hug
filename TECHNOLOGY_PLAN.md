@@ -142,9 +142,20 @@ Integrate as a bridge adapter:
 - `receipts` or a generalized `session_events`
 - Adapter health/status tables or views
 - Retention-policy metadata
+- Environment metadata for receipts and Operator-visible labeling
 
 These do not all need to ship first. But the app should be designed so these
 concepts have obvious homes.
+
+## Sandbox Requirement
+
+Before HUG points deeper product surfaces at the live runtime, stand up a
+sandbox path. See `SANDBOX_REQUIREMENTS.md`.
+
+The recommended V1 is a separate Supabase sandbox project with copied schema,
+synthetic seed data, separate storage buckets, separate service keys, separate
+bridge tokens, and separate wake schedules. A shared live table with an
+`environment` column is not enough isolation for Agent continuity work.
 
 ## Early Technical Questions
 
@@ -156,6 +167,8 @@ concepts have obvious homes.
 - How should HUG handle offline or poor-network EYES/WHEELS sessions?
 - Which receipts are universal, and which are adapter-specific?
 - What needs to be provider-neutral from day one?
+- What is the minimal seed/reset script that lets sandbox reproduce Cafe,
+  source-material, checkpoint, and wake-policy edge cases?
 
 ## Implementation Bias
 

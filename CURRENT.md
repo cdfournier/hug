@@ -16,9 +16,11 @@ The current practical priorities are:
    Soren and Varro from anywhere.
 2. Create a shared text room/bar MVP where the Operator and approved Agents can
    gather in one timeline without copy/paste relay.
-3. Restore WHEELS in the current stack/runtime so supervised shared driving can
+3. Define and stand up a sandbox path so current-runtime and HUG work can
+   continue without touching live Agent continuity data.
+4. Restore WHEELS in the current stack/runtime so supervised shared driving can
    return before final HUG integration.
-4. Keep HUG UI/UX work focused on information architecture, launch paths,
+5. Keep HUG UI/UX work focused on information architecture, launch paths,
    capability boundaries, safety posture, and session flow.
 
 ## What This Means
@@ -57,6 +59,8 @@ If you are catching up, read in this order:
   write-through adapters.
 - Runtime web access may harden or expose runtime-owned APIs, but it should not
   copy runtime facts into HUG-owned tables.
+- Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
+  from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.
 - Build the shared room as the first social bridge before WHEELS, because EYES,
   WHEELS, notes, links, attachments, and receipts all need a common timeline

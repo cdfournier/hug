@@ -13,6 +13,8 @@ Immediate practical priorities:
   access path.
 - Create a shared text room/bar MVP so the Operator, Julian, Soren, Varro, and
   eventually external approved Agents can gather in one consent-bound timeline.
+- Define and stand up a sandbox environment so runtime and HUG integration can
+  proceed without touching live Agent continuity data.
 - Restore WHEELS as a supervised current-stack/runtime experience before
   optimizing it as a polished HUG surface.
 - Keep HUG UI/UX work focused on information architecture, navigation, and
@@ -75,6 +77,23 @@ hand-editing scattered configuration.
 - Include review gates before any autonomous, external, visual, or embodied
   capability is enabled.
 - Keep the flow resumable so partial setup does not create a half-known Agent.
+
+## Phase 1C: Sandbox Environment
+
+Goal: separate development from live Agent continuity before deeper runtime and
+HUG integration work.
+
+- See `SANDBOX_REQUIREMENTS.md`.
+- Prefer a separate Supabase sandbox project, not a shared live table with only
+  an `environment` column.
+- Separate production and sandbox env files, service-role keys, bridge tokens,
+  storage buckets, and wake schedules.
+- Seed synthetic Agents, messages, Cafe records, source materials, checkpoint
+  proposal states, usage records, and wake-event receipts.
+- Run sandbox runtime on a separate fixed local port.
+- Label the active environment visibly in Operator-only UI.
+- Point HUG dev adapters at sandbox endpoints before wiring new surfaces to
+  production.
 
 ## Phase 2: Existing Chat As Session
 

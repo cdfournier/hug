@@ -162,6 +162,23 @@ checkpoint proposals, receipts, artifact drafts, approval requests, invites,
 and wake/defer/block receipts. The timeline is the social surface; rich session
 objects are durable things linked into that timeline.
 
+## 2026-07-27: Sandbox Before Deeper Integration
+
+Decision: before deeper HUG/runtime integration, create a sandbox path that is
+isolated from live Agent continuity data.
+
+Rationale: the current runtime is now a real home, not just a prototype. Soren
+and Varro use it for live conversations, Cafe, attachments, checkpoints,
+source materials, Free Time, and continuity. HUG needs freedom to evolve without
+making experimental schema, adapter, or UI work risky for the live household.
+
+Implementation bias: prefer a separate Supabase sandbox project with copied
+schema and synthetic seed data. Keep production and sandbox env files,
+service-role keys, bridge tokens, storage buckets, and wake schedules separate.
+Every UI touching sandbox or production should visibly label the active
+environment. An `environment` column is useful metadata, not a sufficient safety
+boundary.
+
 ## Open Decisions
 
 - First prototype fidelity.

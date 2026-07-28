@@ -92,6 +92,8 @@ Agent.
   system spec.
 - `APP_SHELL.md` - mock-first responsive app shell structure.
 - `TECHNOLOGY_PLAN.md` - PWA-first stack and integration planning.
+- `SANDBOX_REQUIREMENTS.md` - dev/prod separation requirements before deeper
+  runtime and HUG integration work.
 - `COLLABORATION.md` - sharing boundary for public learning vs. product IP.
 - `CHECKPOINT_PROMPTS.md` - checkpoint language patterns and trust-softening
   principle.
