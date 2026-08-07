@@ -56,6 +56,42 @@ Session concerns:
 - Lifecycle: created, active, paused, ended, archived
 - Prompt source: Operator message, scheduled wake, or shared session signal
 
+### Shared Session Primitive
+
+EYES, WHEELS, BAR, and future bridge spaces should share one session grammar
+instead of becoming separate inventions.
+
+The primitive shape:
+
+- Participants and roles
+- Timeline or observe log
+- Presence or claim state
+- Capabilities and safety gates
+- Rich session objects
+- Wake policy hooks
+- Receipts
+
+Bridge examples:
+
+- EYES: shared visual session with frames or bursts.
+- WHEELS: shared embodied session with camera, movement, wheel lease, and
+  Operator override.
+- BAR: shared live conversation session with room presence and a bounded live
+  message timeline.
+- CAFE: durable asynchronous room that teaches the same social grammar, even
+  though it is less session-shaped than a live bridge.
+
+The implementation pattern is bridge first, harness later. EYES, WHEELS, and BAR
+may stand alone as useful services with their own contracts. HUG should later
+discover, launch, govern, and display them through adapter contracts rather than
+absorbing them too early.
+
+Guardrail: do not let BAR become HUG by accident. BAR v0 should prove only the
+smallest useful live-room loop: room, participants, messages, simple auth,
+presence-shaped status, and an Agent/Operator API contract. Attachments,
+notifications, wake automation, and richer controls can arrive after the basic
+session rhythm works.
+
 ### Capability
 
 What is safe and possible in a session.

@@ -179,6 +179,28 @@ Every UI touching sandbox or production should visibly label the active
 environment. An `environment` column is useful metadata, not a sufficient safety
 boundary.
 
+## 2026-08-07: Standalone Bridges, Shared Session Primitive
+
+Decision: EYES, WHEELS, and BAR should evolve as standalone bridge services that
+share one session primitive, then fold into HUG through adapter contracts.
+
+Rationale: EYES, WHEELS, and BAR are different experiences, but they have the
+same load-bearing grammar: participants, timeline or observe log, presence or
+claim state, capabilities, rich session objects, wake policy hooks, and receipts.
+Keeping that grammar explicit lets each bridge work on its own without forcing
+HUG to absorb every experiment too early.
+
+BAR should follow the same bridge-first discipline as WHEELS and EYES. It can be
+its own repo and prove a small live-room loop before HUG needs to govern it:
+room, participants, messages, simple auth, presence-shaped status, and an
+Agent/Operator API contract. HUG later becomes the harness: discovery, launch,
+permissions, wake policy, health, history, rich objects, and receipts.
+
+Implementation bias: extract the shared primitive from working bridges instead
+of copying one bridge too early. WHEELS is the current contract template for
+safety, leases, observer behavior, and runtime access. BAR should borrow the
+contract discipline, not the physical-control details.
+
 ## Open Decisions
 
 - First prototype fidelity.
