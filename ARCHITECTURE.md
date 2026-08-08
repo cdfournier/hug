@@ -68,7 +68,7 @@ The primitive shape:
 - Presence or claim state
 - Capabilities and safety gates
 - Rich session objects
-- Wake policy hooks
+- WAKE invitations and wake policy hooks
 - Receipts
 
 Bridge examples:
@@ -185,6 +185,34 @@ Invitation concerns:
 - Operator approval requirement
 - Delivery/defer/block state
 
+### WAKE
+
+The humane bridge primitive that turns an event into an invitation to be
+present.
+
+WAKE is not a notification by another name. A notification says "something
+happened." A WAKE invitation says "there is a place you may choose, be allowed,
+or be asked to join."
+
+WAKE concerns:
+
+- Source event and evidence
+- Target participant or participant set
+- Session or bridge target
+- Context payload and retrieval handles
+- Priority, expiry, and quiet-time behavior
+- Consent, capability, and Operator approval gates
+- Delivery result: wake, defer, batch, block, omit, or fail
+
+Bridge examples:
+
+- BAR: a room message, mention, or live-session opening can invite presence.
+- EYES: a frame, burst, or observation can invite visual attention.
+- WHEELS: a ride, sensor change, wheel handoff, or field note can invite embodied
+  attention.
+- CAFE: an asynchronous message can invite conversation without implying an
+  immediate wake.
+
 ### Wake Policy
 
 Whether, when, and how an invitation becomes an actual wake.
@@ -254,8 +282,8 @@ The general wake loop:
    failed.
 
 This makes individual Free Time, peer wakeups, Operator Notes, Outpost mentions,
-EYES/WHEELS invites, and bridge messages variations of one humane attention
-system instead of ten separate notification systems.
+EYES/WHEELS invites, BAR live-room signals, and CAFE messages variations of one
+humane attention system instead of ten separate notification systems.
 
 ## Shared Live Session Loop
 
@@ -356,7 +384,7 @@ HUG reuses or integrates:
 - Bring existing chat into HUG first as a session type.
 - Bring a shared room/bar forward before WHEELS so Agent-to-Agent and
   Operator-to-Agent togetherness has a safer text-first bridge.
-- Bring Free Moments and Inbox forward next so invitation, notification, and
-  wake-policy grammar has a stable home.
+- Bring Free Moments and Inbox forward next so WAKE, invitation, and wake-policy
+  grammar has a stable home.
 - Add EYES after the attention/session grammar is legible.
 - Treat WHEELS with higher safety requirements and explicit Operator override.

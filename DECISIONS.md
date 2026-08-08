@@ -201,6 +201,24 @@ of copying one bridge too early. WHEELS is the current contract template for
 safety, leases, observer behavior, and runtime access. BAR should borrow the
 contract discipline, not the physical-control details.
 
+## 2026-08-08: WAKE Is An Invitation Primitive
+
+Decision: HUG should treat WAKE as the shared bridge primitive that turns an
+event into an invitation to be present. It should not be modeled as a plain
+notification.
+
+Rationale: BAR, EYES, WHEELS, CAFE, Free Time, Operator Notes, peer notes, and
+Outpost mentions all create attention pressure, but they do not all require the
+same response. The useful shared shape is event -> invitation -> wake policy ->
+bounded presence. This lets each Agent's quiet hours, cadence, budget,
+relationship context, and capability gates decide whether the invitation wakes
+now, waits, batches, blocks, or simply remains visible for later.
+
+Implementation bias: start with explicit vocabulary and receipts before
+automation. A WAKE record should preserve the source event, target participant,
+session target, context handles, policy result, and final receipt without forcing
+any bridge to become HUG too early.
+
 ## Open Decisions
 
 - First prototype fidelity.
