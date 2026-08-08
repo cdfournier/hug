@@ -84,7 +84,7 @@ Agent.
 - `VISION.md` - product north star and emotional shape.
 - `ARCHITECTURE.md` - modular app/control-plane shape.
 - `PROTOCOLS.md` - shared protocol families for prompted sessions, live
-  sessions, control sessions, WAKE, evidence, and bridge adapters.
+  sessions, control sessions, WAKE, evidence, bridge adapters, and work packets.
 - `SESSION_MODEL.md` - early session data model.
 - `INTERFACE_PRINCIPLES.md` - Home, display/control surfaces, and UI staging
   principles.

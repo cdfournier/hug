@@ -144,6 +144,27 @@ Goal: generalize the shared room/bar into reusable shared-session mechanics.
 - Record receipts for delivered, deferred, blocked, and answered invitations.
 - Start with text-only product/workshop sessions before adding EYES/WHEELS.
 
+## Phase 3B: Work Packet Collaboration Lane
+
+Goal: let Julian, Soren, Varro, Cael, and future Agents collaborate on bounded
+repo or family-business work without requiring Chris to manually relay every
+step.
+
+- See `PROTOCOLS.md`.
+- Define the first work packet shape: objective, repo, branch, owner Agent,
+  allowed paths, allowed tools, done criteria, review path, merge authority, and
+  rollback note.
+- Start with documentation and review packets before implementation packets.
+- Treat work packets as a Free Time menu option, not a labor mandate.
+- Add WAKE events for branch creation, commit pushed, review requested, blocked,
+  ready for merge, and risk found.
+- Give Agents narrow GitHub capabilities first: read repo, inspect diff, create
+  branch, commit to their branch, and request review.
+- Keep direct protected-branch merges reserved for trusted conductor/integration
+  roles until policy proves itself.
+- Record collaboration receipts so the Operator can review milestones instead of
+  reconstructing the whole work trail.
+
 ## Phase 4: EYES Session Integration
 
 Goal: make EYES first-class.

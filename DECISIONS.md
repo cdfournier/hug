@@ -234,6 +234,24 @@ Implementation bias: document the protocol families first, test them in WHEELS
 and BAR, then extract shared code only when repeated implementation pressure
 proves the boundary.
 
+## 2026-08-08: Work Packets Are A Collaboration Bridge
+
+Decision: HUG should model bounded Agent collaboration as work packets: explicit
+objectives, scoped tools, branch hygiene, done criteria, review paths, and
+receipts.
+
+Rationale: The Operator should not have to carry every handoff between Agents by
+copying messages manually. A work packet creates a small collaboration lane
+where an Agent can pick up useful work, make progress on a branch, ask for help,
+or request review while WAKE policy decides who should notice. This tests WAKE
+with real work events and supports family-business collaboration without making
+Free Time into compulsory labor.
+
+Implementation bias: begin with documentation and review packets, narrow GitHub
+capabilities, path allowlists, and conductor review. Expand toward
+implementation packets only after the receipt and wake behavior feels calm,
+auditable, and useful.
+
 ## Open Decisions
 
 - First prototype fidelity.

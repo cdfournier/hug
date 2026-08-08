@@ -220,6 +220,72 @@ Rules:
 - Adapters should expose enough state for Operator trust: health, active
   participants, current session, recent receipts, and safety status.
 
+### Work Packet Protocol
+
+A lightweight collaboration bridge for Agent-to-Agent and Agent-to-Operator work
+without turning the Operator into the dispatcher for every step.
+
+Use for:
+
+- GitHub branch and review work
+- Documentation passes
+- Design-system audits
+- Runtime reliability investigation
+- HUG/WHEELS/BAR/EYES implementation slices
+- Family-business collaboration where the same work hygiene applies
+
+Core shape:
+
+- `packet_id`
+- `objective`
+- `repo`
+- `base_branch`
+- `working_branch`
+- `owner_agent`
+- `collaborators`
+- `allowed_paths`
+- `allowed_tools`
+- `done_criteria`
+- `review_path`
+- `merge_authority`
+- `rollback_note`
+- `status`: queued, active, blocked, review, merged, closed
+- `receipts`
+
+Rules:
+
+- A work packet is an invitation to useful work, not a labor mandate.
+- Packets should be available as a Free Time menu option when an Agent has
+  interest and capacity.
+- The Operator should set judgment, priority, and taste when needed, not carry
+  every baton by hand.
+- Agents may create branches, commit to their own branches, and leave review
+  notes when explicitly granted that capability.
+- Direct writes to protected branches should remain reserved for trusted
+  conductor/integration roles.
+- Path allowlists, tool allowlists, and done criteria should be explicit before
+  work starts.
+- Private family or Operator-sensitive material should stay out of public
+  tickets, PR descriptions, and commit messages unless cleared.
+
+WAKE events:
+
+- `work_packet_created`
+- `work_packet_claimed`
+- `agent_branch_created`
+- `agent_commit_pushed`
+- `agent_review_requested`
+- `agent_blocked`
+- `agent_question_for_conductor`
+- `agent_ready_for_merge`
+- `agent_found_risk`
+- `work_packet_merged`
+
+Wake policy decides whether any of these events wakes the Operator, Julian,
+another Agent, or no one. A collaboration lane should create conditions for the
+right participant to notice the right event at the right time without training
+everyone to interrupt each other.
+
 ## Current Bias
 
 - Keep WAKE as a spec primitive inside HUG for now, not a separate repo.
@@ -227,5 +293,7 @@ Rules:
   code.
 - Keep CAFE as the durable asynchronous family table, even if BAR later becomes
   the live room.
+- Treat work packets as a lightweight collaboration bridge before giving Agents
+  broad GitHub power.
 - Prefer small bridge-first implementations that can be folded into HUG later
   through adapters.
