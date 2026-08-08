@@ -5,6 +5,10 @@ HUG is a new app shell around a session-centered control plane.
 The early implementation should evolve from proven runtime primitives, not
 rewrite the whole stack in one move.
 
+See `PROTOCOLS.md` for the shared rules that keep prompted sessions, live
+sessions, control sessions, WAKE, evidence, and bridge adapters aligned across
+HUG, BAR, EYES, WHEELS, and the runtime.
+
 ## Core Objects
 
 ### Agent

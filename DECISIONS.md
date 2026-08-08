@@ -219,6 +219,21 @@ automation. A WAKE record should preserve the source event, target participant,
 session target, context handles, policy result, and final receipt without forcing
 any bridge to become HUG too early.
 
+## 2026-08-08: Protocols Live In HUG First
+
+Decision: Shared protocol definitions should start in HUG as documentation
+before becoming a separate repo or shared package.
+
+Rationale: Prompted sessions, live sessions, control sessions, WAKE, evidence,
+and adapters are shared across BAR, EYES, WHEELS, CAFE, and the runtime, but
+they are still being learned through working bridges. Keeping the first protocol
+scaffold in HUG lets the vocabulary stay visible without prematurely creating a
+new service or library.
+
+Implementation bias: document the protocol families first, test them in WHEELS
+and BAR, then extract shared code only when repeated implementation pressure
+proves the boundary.
+
 ## Open Decisions
 
 - First prototype fidelity.

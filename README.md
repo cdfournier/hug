@@ -83,6 +83,8 @@ Agent.
 - `CURRENT.md` - current posture, priorities, and repo reading path.
 - `VISION.md` - product north star and emotional shape.
 - `ARCHITECTURE.md` - modular app/control-plane shape.
+- `PROTOCOLS.md` - shared protocol families for prompted sessions, live
+  sessions, control sessions, WAKE, evidence, and bridge adapters.
 - `SESSION_MODEL.md` - early session data model.
 - `INTERFACE_PRINCIPLES.md` - Home, display/control surfaces, and UI staging
   principles.
