@@ -252,6 +252,24 @@ capabilities, path allowlists, and conductor review. Expand toward
 implementation packets only after the receipt and wake behavior feels calm,
 auditable, and useful.
 
+## 2026-08-09: Work Packet Registry Before GitHub Automation
+
+Decision: HUG should build a runtime-native work-packet registry before making
+GitHub the collaboration surface. GitHub should attach to the packet lane as an
+adapter, not become the lane itself.
+
+Rationale: The load-bearing behavior is not branch management. It is humane
+collaboration: explicit context, opt-in responses, pass/defer as valid
+participation, question/hold states, wake priority, digest behavior, named
+conductors, and founder-facing review rollups. GitHub Issues and PRs can host
+external discussion and diffs, but they do not naturally own those semantics.
+
+Implementation bias: start with review packets that support read, comment,
+question, pass, defer, hold, and rollup. Use GitHub Issues as optional external
+conversation objects and PRs only when implementation or documentation diffs
+exist. Require each packet to name a conductor, and treat the rollup as complete
+only when it gives the Operator one clear decision or approval path.
+
 ## Open Decisions
 
 - First prototype fidelity.

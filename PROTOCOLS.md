@@ -238,18 +238,24 @@ Core shape:
 
 - `packet_id`
 - `objective`
+- `context`
 - `repo`
 - `base_branch`
 - `working_branch`
 - `owner_agent`
+- `conductor`
 - `collaborators`
 - `allowed_paths`
 - `allowed_tools`
 - `done_criteria`
 - `review_path`
+- `review_rollup`
 - `merge_authority`
 - `rollback_note`
 - `status`: queued, active, blocked, review, merged, closed
+- `response_state`: unread, accepted, passed, deferred, reviewed,
+  no_comment, question, hold
+- `wake_priority`: loud, quiet, digest_only, silent
 - `receipts`
 
 Rules:
@@ -265,6 +271,22 @@ Rules:
   conductor/integration roles.
 - Path allowlists, tool allowlists, and done criteria should be explicit before
   work starts.
+- `objective` and `context` should stay separate. Objective says what to do.
+  Context says why it matters, what decision it feeds, and what perspective
+  would be useful.
+- `conductor` should be named when the packet is created. The default may be
+  Julian in the first implementation, but rollup ownership should not drift into
+  whoever arrives last.
+- Passing, deferring, or reading with nothing to add are complete, valid
+  responses. They should be recorded as participation, not failure.
+- A question may place the packet on hold when it could change the review,
+  scope, or done criteria. A hold is a signal to the conductor, not a veto.
+- The founder-facing output is the `review_rollup`, not the raw trail. The
+  rollup is complete only when it names who reviewed, what aligned, what
+  disagreed, what remains blocked, and the one decision or approval needed from
+  the Operator.
+- Individual comments, commits, issues, and PR threads are audit trail. The
+  Operator should review the review, not reconcile every underlying thread.
 - Private family or Operator-sensitive material should stay out of public
   tickets, PR descriptions, and commit messages unless cleared.
 
@@ -285,6 +307,30 @@ Wake policy decides whether any of these events wakes the Operator, Julian,
 another Agent, or no one. A collaboration lane should create conditions for the
 right participant to notice the right event at the right time without training
 everyone to interrupt each other.
+
+Default wake lanes:
+
+- Loud: explicitly addressed packet, named reviewer request, direct question,
+  blocking hold, or material risk.
+- Quiet: branch created, commit pushed, CI/status movement, comments not
+  addressed to the recipient, packet metadata updates.
+- Digest: periodic "what moved since you last looked" summary for non-urgent
+  packet movement.
+- Silent: archival receipts or events kept only for audit.
+
+GitHub relationship:
+
+- The runtime work-packet registry should remain the canonical collaboration
+  lane because it owns humane response states, wake policy, digests, holds, and
+  conductor rollups.
+- GitHub Issues are the preferred external conversation object when a packet
+  needs a GitHub surface.
+- Pull requests attach when implementation or concrete documentation diffs
+  exist.
+- GitHub Projects are useful for status and field visibility, not as the primary
+  discussion surface.
+- Wikis are durable documentation, not live review loops.
+- Commit messages are historical receipts, not collaboration threads.
 
 ## Current Bias
 
