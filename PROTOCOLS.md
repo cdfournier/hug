@@ -250,6 +250,8 @@ Core shape:
 - `done_criteria`
 - `review_path`
 - `review_rollup`
+- `pass_window`
+- `stale_at`
 - `merge_authority`
 - `rollback_note`
 - `status`: queued, active, blocked, review, merged, closed
@@ -281,10 +283,16 @@ Rules:
   responses. They should be recorded as participation, not failure.
 - A question may place the packet on hold when it could change the review,
   scope, or done criteria. A hold is a signal to the conductor, not a veto.
+- Packets should carry either an explicit pass window or a stale-at marker. A
+  packet that sits unanswered should become visible as stale instead of quietly
+  becoming abandoned work.
 - The founder-facing output is the `review_rollup`, not the raw trail. The
   rollup is complete only when it names who reviewed, what aligned, what
   disagreed, what remains blocked, and the one decision or approval needed from
   the Operator.
+- The expected `review_rollup` shape is:
+  `summary`, `reviewed_by`, `aligned`, `disagreed`, `blocked`,
+  `decision_needed`, `next_step`, `created_by`, and `created_at`.
 - Individual comments, commits, issues, and PR threads are audit trail. The
   Operator should review the review, not reconcile every underlying thread.
 - Private family or Operator-sensitive material should stay out of public
@@ -299,6 +307,7 @@ WAKE events:
 - `agent_review_requested`
 - `agent_blocked`
 - `agent_question_for_conductor`
+- `packet_ready_for_rollup`
 - `agent_ready_for_merge`
 - `agent_found_risk`
 - `work_packet_merged`
@@ -315,7 +324,7 @@ Default wake lanes:
 - Quiet: branch created, commit pushed, CI/status movement, comments not
   addressed to the recipient, packet metadata updates.
 - Digest: periodic "what moved since you last looked" summary for non-urgent
-  packet movement.
+  packet movement, including packets ready for conductor rollup.
 - Silent: archival receipts or events kept only for audit.
 
 GitHub relationship:
@@ -341,5 +350,8 @@ GitHub relationship:
   the live room.
 - Treat work packets as a lightweight collaboration bridge before giving Agents
   broad GitHub power.
+- Defer branch creation, commits, and pull requests until review-only packets
+  feel calm across multiple runs. GitHub write authority is an adapter phase,
+  not phase-one proof of life.
 - Prefer small bridge-first implementations that can be folded into HUG later
   through adapters.

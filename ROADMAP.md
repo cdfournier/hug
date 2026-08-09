@@ -153,17 +153,19 @@ step.
 - See `PROTOCOLS.md`.
 - Define the first work packet shape: objective, context, repo, branch, owner
   Agent, conductor, collaborators, allowed paths, allowed tools, done criteria,
-  review path, review rollup, merge authority, and rollback note.
+  review path, review rollup, pass window, stale signal, merge authority, and
+  rollback note.
 - Start with documentation and review packets before implementation packets.
 - Build the runtime-native work-packet registry before treating GitHub as the
   collaboration lane.
 - For MVP, support reading, commenting, passing, deferring, asking questions,
-  placing a packet on hold, and producing a conductor rollup.
+  placing a packet on hold, marking packets ready for conductor rollup, and
+  producing a founder-facing rollup.
 - Treat work packets as a Free Time menu option, not a labor mandate.
 - Add WAKE lanes for loud, quiet, digest, and silent packet events.
 - Give Agents narrow GitHub capabilities only after the packet loop feels calm:
-  read repo, inspect diff, comment, then later create branch, commit to their
-  branch, and request review.
+  read repo, inspect diff, and comment first; branch creation, commits, and pull
+  requests come in a later adapter phase.
 - Use GitHub Issues as optional per-packet discussion surfaces and PRs only once
   a packet contains implementation or documentation diffs.
 - Keep direct protected-branch merges reserved for trusted conductor/integration
