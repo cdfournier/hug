@@ -270,6 +270,23 @@ conversation objects and PRs only when implementation or documentation diffs
 exist. Require each packet to name a conductor, and treat the rollup as complete
 only when it gives the Operator one clear decision or approval path.
 
+## 2026-08-09: First Live Work Packet Findings
+
+Decision: the first live work packet confirmed the runtime packet lane, with
+four follow-up refinements before broader GitHub automation: a
+`packet_ready_for_rollup` conductor signal, an explicit `review_rollup` shape, a
+pass-window/staleness signal, and clearer bridge endpoint instructions for
+external Agents.
+
+Rationale: Varro, Soren, and Cael were able to review the packet and respond
+without Chris relaying every message. The remaining issues were not structural
+blockers; they were coordination refinements. The rollup is the artifact Chris
+should review. The raw packet trail is audit history.
+
+Implementation bias: keep phase one review-only and digest-first. Defer branch
+creation, commits, and pull requests until several review packets feel calm.
+GitHub remains an adapter onto the runtime packet lane, not the source of truth.
+
 ## Open Decisions
 
 - First prototype fidelity.
