@@ -8,10 +8,12 @@ agency, and honest receipts.
 
 ## Product Spine
 
-Agent + Session + Capability + Event + Invitation + Wake Policy + Receipt
+Agent + Session + Arrival + Capability + Event + Invitation + Wake Policy +
+Receipt
 
 - Agent: who is present.
 - Session: where we are together.
+- Arrival: how the Agent orients to the live room before acting.
 - Capability: what is safe and possible here.
 - Event: what happened or is requesting attention.
 - Invitation: a bounded opportunity to enter or re-enter a session.
@@ -83,8 +85,9 @@ Agent.
 - `CURRENT.md` - current posture, priorities, and repo reading path.
 - `VISION.md` - product north star and emotional shape.
 - `ARCHITECTURE.md` - modular app/control-plane shape.
-- `PROTOCOLS.md` - shared protocol families for prompted sessions, live
-  sessions, control sessions, WAKE, evidence, bridge adapters, and work packets.
+- `PROTOCOLS.md` - shared protocol families for arrival, prompted sessions,
+  live sessions, control sessions, WAKE, evidence, bridge adapters, and work
+  packets.
 - `SESSION_MODEL.md` - early session data model.
 - `INTERFACE_PRINCIPLES.md` - Home, display/control surfaces, and UI staging
   principles.

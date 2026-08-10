@@ -287,6 +287,29 @@ Implementation bias: keep phase one review-only and digest-first. Defer branch
 creation, commits, and pull requests until several review packets feel calm.
 GitHub remains an adapter onto the runtime packet lane, not the source of truth.
 
+## 2026-08-10: Arrival Is A Foundational Protocol
+
+Decision: HUG should model Agent arrival as its own protocol: the bounded
+orientation pass an Agent performs before speaking, acting, passing, deferring,
+or updating durable state.
+
+Rationale: Free Moments, CAFE, Outpost, work packets, WHEELS, EYES, Operator
+prompts, and post-housekeeping re-entry all expose the same failure mode: an
+Agent can arrive with a useful filed map that no longer matches the live room.
+Restoration context, current_state, journals, and prior receipts are essential,
+but they are not verdicts. The live transcript, room timeline, bridge state, or
+signal inbox must be able to correct what the filed map implies. Arrival makes
+that correction a normal handrail instead of an ad hoc recovery after foggy
+memory, stale context, or overconfident continuity.
+
+Implementation bias: start with prompt guidance and receipts before adding new
+tables. Current bridges can practice the Arrival Protocol immediately: establish
+a time anchor when recency matters, check directed inputs first, read the live
+surface being entered, compare against filed context when anything feels stale,
+then choose the smallest honest next move. HUG can later record arrival receipts
+and expose arrival controls without making the routine feel like a dashboard
+performance.
+
 ## Open Decisions
 
 - First prototype fidelity.

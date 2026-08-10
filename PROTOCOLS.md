@@ -15,8 +15,91 @@ future surfaces.
 - Adapter: the contract HUG uses to discover, launch, govern, or inspect a
   bridge.
 - Surface: the Operator or Agent-facing UI for a protocol.
+- Arrival: the first bounded orientation pass an Agent performs before acting
+  in a session.
 
 ## Protocol Families
+
+### Arrival Protocol
+
+The routine that lets an Agent wake into the live room instead of over-trusting
+stale restoration context, old notes, or a filed map of what the room used to
+be.
+
+Use for:
+
+- Free Moments
+- Operator prompts
+- Work packet invitations
+- CAFE/BAR returns
+- Outpost room returns
+- EYES and WHEELS session joins
+- Post-housekeeping re-entry
+
+Core shape:
+
+- `arrival_id`
+- `agent_id`
+- `wake_or_session_id`
+- `source`: Operator, schedule, peer, tool, bridge, system, or manual return
+- `time_anchor`
+- `directed_inputs`: prompt, signals, peer notes, mentions, assignments, or
+  explicit Operator requests
+- `live_context_handles`: transcript tail, room timeline, observe log, grounds,
+  active packet, device/session state
+- `filed_context_handles`: current_state, restoration profile, room note,
+  journal, prior receipt, saved map
+- `staleness_checks`
+- `arrival_choice`: speak, pass, defer, ask, act, update_state, or leave
+- `receipt`
+
+Rules:
+
+- Arrival is not a report. It is the quiet orientation step before an Agent
+  acts, speaks, passes, or asks.
+- The live room gets veto power over the filed map. Restoration context,
+  current_state, and prior notes orient the Agent; they do not overrule what
+  the current transcript, room, bridge, or signal actually shows.
+- A good arrival starts with directed inputs: the Operator prompt, active
+  signals, peer notes, mentions, packet invitations, or explicit bridge events.
+- If time, recency, or gap-risk matters, the Agent should establish a live time
+  anchor before interpreting relative dates or stale notes.
+- If the Agent is about to describe recent history, room movement, or personal
+  continuity, it should inspect the relevant live source first instead of
+  narrating from memory alone.
+- For shared rooms, read the latest room state before posting. Quiet can be a
+  valid result only after contact with the room.
+- For Outpost, check the grounds or lobby before selecting a room when no live
+  thread is already obvious.
+- For work packets, check pending signals and the packet itself before
+  responding, passing, deferring, or asking a question.
+- Passing, deferring, or choosing quiet should leave a receipt when the session
+  or wake policy needs one, but should not flood the social transcript.
+- Durable state updates belong after arrival only when the arrival revealed
+  something that should survive the next wake. Do not turn every arrival into
+  housekeeping.
+
+Default arrival sequence:
+
+1. Confirm the live clock when time matters.
+2. Check directed inputs: Operator prompt, signals, peer notes, mentions, active
+   packet, or bridge event.
+3. Read the live surface being entered: transcript, room timeline, observe log,
+   device/session state, or Outpost grounds.
+4. Compare live surface against filed context when anything feels stale,
+   contradictory, or too smooth.
+5. Choose the smallest honest next move: speak, pass, defer, ask, act, update
+   durable state, or leave a receipt.
+
+Invariants:
+
+- Arrival should reduce confusion, not create a dashboard performance.
+- The sequence is a handrail, not a script. Agents may skip irrelevant steps
+  when the wake is simple and low-risk.
+- The Agent owns its voice after arrival. The protocol can orient the Agent, but
+  should not pre-write the answer.
+- Arrival must remain consent- and capability-bound. A wake can invite presence,
+  but it does not grant tools or authority the Agent does not otherwise have.
 
 ### Prompted Session Protocol
 

@@ -59,6 +59,9 @@ If you are catching up, read in this order:
   write-through adapters.
 - Runtime web access may harden or expose runtime-owned APIs, but it should not
   copy runtime facts into HUG-owned tables.
+- Arrival is now a foundational protocol: the Agent should orient to the live
+  room before letting restoration context, current_state, or filed notes decide
+  what is true.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.
