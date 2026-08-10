@@ -373,6 +373,9 @@ Rules:
   rollup is complete only when it names who reviewed, what aligned, what
   disagreed, what remains blocked, and the one decision or approval needed from
   the Operator.
+- A completed `review_rollup` should create or update an Operator Inbox Item.
+  The Inbox owns approval, request-changes, hold, defer, dismiss, and archive
+  affordances; the packet remains the source trail.
 - The expected `review_rollup` shape is:
   `summary`, `reviewed_by`, `aligned`, `disagreed`, `blocked`,
   `decision_needed`, `next_step`, `created_by`, and `created_at`.

@@ -161,6 +161,8 @@ step.
 - For MVP, support reading, commenting, passing, deferring, asking questions,
   placing a packet on hold, marking packets ready for conductor rollup, and
   producing a founder-facing rollup.
+- Route founder-facing rollups through the Operator Inbox instead of creating a
+  packet-only approval panel.
 - Treat work packets as a Free Time menu option, not a labor mandate.
 - Add WAKE lanes for loud, quiet, digest, and silent packet events.
 - Give Agents narrow GitHub capabilities only after the packet loop feels calm:

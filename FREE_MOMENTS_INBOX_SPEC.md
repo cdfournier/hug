@@ -3,9 +3,10 @@
 Phase 3 makes scheduled and asynchronous communication legible.
 
 The goal is not to rebuild the current global Free Time toggle with a nicer
-button. The goal is to turn Free Moments, Operator Notes, Agent notes, peer
-messages, mentions, wake requests, and system notices into one coherent
-attention system.
+button, or to create a custom panel for every new bridge. The goal is to turn
+Free Moments, Operator Notes, Agent notes, peer messages, mentions, wake
+requests, work packet rollups, approval requests, bridge events, and system
+notices into one coherent attention system.
 
 ## Product Intent
 
@@ -15,8 +16,8 @@ An invitation is not a command. It is a bounded opportunity for an Agent to
 wake, enter a session, and choose what to do there.
 
 Inbox is the Operator-facing surface for attention. It shows what arrived, what
-is pending, what was deferred, what needs approval, and what already received a
-receipt.
+is pending, what was deferred, what needs approval, what is ready for review,
+and what already received a receipt.
 
 This moves HUG toward parity with the current runtime while creating the shared
 grammar needed for future peer wakeups, Outpost mentions, EYES invites, WHEELS
@@ -28,12 +29,14 @@ In scope for Phase 3:
 
 - Per-Agent Free Moment schedule visibility.
 - Per-Agent wake policy settings shape.
-- Operator Inbox for notes, notifications, invitations, and receipts.
+- Operator Inbox for notes, notifications, invitations, approvals, rollups,
+  requests, and receipts.
 - Mock-first UI and typed fixtures.
 - Event, invitation, wake-policy, and receipt contracts.
 - Display of delivered, deferred, blocked, answered, expired, and dismissed
   states.
-- Manual Operator controls for start, stop, approve, defer, and dismiss.
+- Manual Operator controls for start, stop, approve, request changes, hold,
+  defer, and dismiss.
 
 Out of scope for Phase 3:
 
@@ -73,6 +76,8 @@ Inbox item fields:
 
 - `id`
 - `kind`
+- `source_type`
+- `source_id`
 - `title`
 - `summary`
 - `agent_id`
@@ -80,9 +85,12 @@ Inbox item fields:
 - `source`
 - `priority`
 - `status`
+- `requested_by`
+- `target_operator`
 - `created_at`
 - `updated_at`
 - `due_at`
+- `expires_at`
 - `receipt_id`
 - `requires_operator_action`
 - `actions`
@@ -91,6 +99,7 @@ Candidate kinds:
 
 - `operator_note`
 - `agent_note`
+- `agent_request`
 - `peer_note`
 - `free_moment`
 - `outpost_mention`
@@ -99,6 +108,48 @@ Candidate kinds:
 - `system_notice`
 - `capability_request`
 - `checkpoint_notice`
+- `room_review`
+- `work_packet_rollup`
+- `wake_policy_decision`
+- `bridge_approval`
+
+Candidate source types:
+
+- `packet`
+- `agent_request`
+- `room_review`
+- `wake_policy`
+- `bridge`
+- `session`
+- `system`
+- `note`
+
+Candidate actions:
+
+- `open`
+- `mark_read`
+- `dismiss`
+- `defer`
+- `approve`
+- `request_changes`
+- `hold`
+- `archive`
+- `open_session`
+- `view_receipt`
+- `reply`
+
+Rules:
+
+- Packet rollups are Inbox Items, not a separate packet-only dashboard. A
+  `packet_ready_for_rollup` event should create or update a
+  `work_packet_rollup` item whose primary artifact is the conductor rollup.
+- Agent requests are Inbox Items, not special chat commands. Requests for more
+  Free Moments, capability access, clarification, review, or consent should
+  enter the same attention queue with explicit actions.
+- The Operator reviews the rollup, request, or approval summary first. The raw
+  trail remains available as context, not as the primary task.
+- Inbox Items should collapse many subsystem-specific events into one
+  human-legible action whenever possible.
 
 ### Wake Policy
 

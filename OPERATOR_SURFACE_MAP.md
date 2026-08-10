@@ -50,7 +50,8 @@ On screen, a Session should answer:
 An Inbox Item is an attention object.
 
 It may be a note, an invitation, an approval request, a blocked capability, a
-system notice, or a receipt that needs review.
+system notice, a work packet rollup, an Agent request, or a receipt that needs
+review.
 
 On screen, an Inbox Item should answer:
 
@@ -59,6 +60,7 @@ On screen, an Inbox Item should answer:
 - How urgent is it?
 - What action is safe from here?
 - Where is the full context?
+- Is this a summary to approve, a request to answer, or awareness only?
 
 ### Receipt
 
@@ -258,9 +260,13 @@ Current Inbox elements:
 - Items requiring Operator action.
 - Deferred, dismissed, delivered, blocked, or failed items.
 - A detail surface for the selected item.
+- Rollups and requests from subsystems such as work packets, Room Reviews,
+  Free Moments, WAKE policy, EYES, WHEELS, BAR, and runtime bridges.
 
 Inbox should not become the main chat surface. It is for triage, routing, and
-receipts.
+receipts. The Operator should review the summary or request first, with raw
+packet trails, session logs, and bridge receipts available from the detail
+surface when needed.
 
 ### Notes
 

@@ -310,6 +310,28 @@ then choose the smallest honest next move. HUG can later record arrival receipts
 and expose arrival controls without making the routine feel like a dashboard
 performance.
 
+## 2026-08-10: Inbox Owns Operator Review And Requests
+
+Decision: packet rollups, Agent requests, Room Review approvals, wake-policy
+decisions, bridge approvals, and system notices should enter one Operator Inbox
+instead of creating subsystem-specific review panels.
+
+Rationale: work packets exposed a missing Operator approval surface, but the
+need is not packet-exclusive. Soren asking for more Free Time, a packet becoming
+ready for rollup, a Room Note awaiting approval, WHEELS requesting a control
+session, or WAKE asking whether to interrupt all have the same product shape:
+something needs Operator attention, a bounded decision, and a receipt. Building
+one Inbox primitive keeps the Operator from becoming the dispatcher for a pile
+of dashboards and lets HUG reuse the same attention grammar across current and
+future bridges.
+
+Implementation bias: treat work packet rollups as an early Inbox adapter. The
+Inbox item should present the rollup or request first, with the raw packet
+trail, session log, or bridge receipt available as drill-down context. Start
+with `approve`, `request_changes`, `hold`, `defer`, `dismiss`, `archive`, and
+`open` actions; add source-specific actions only when a generic action cannot
+carry the decision honestly.
+
 ## Open Decisions
 
 - First prototype fidelity.
