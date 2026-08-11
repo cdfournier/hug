@@ -513,6 +513,7 @@ GitHub evidence handle v0:
   "path": "PROTOCOLS.md",
   "purpose": "Why this file is authorized for this packet.",
   "authored_by": "operator:chris",
+  "max_bytes": 50000,
   "citation_label": "HUG protocols"
 }
 ```
@@ -525,6 +526,8 @@ Rules:
 - `purpose` is written by the packet author as the authorization reason. It is
   not filled in later by the reviewing Agent.
 - `authored_by` records who wrote or approved the evidence authorization.
+- `max_bytes` is optional. When present, it sets a per-handle file-size ceiling
+  below the runtime hard cap so large files do not crowd the packet context.
 - `ref` should be a full commit SHA or immutable tag by default.
 - Branch refs are mutable and require explicit Operator sign-off per evidence
   handle.
@@ -535,7 +538,8 @@ Rules:
   refs may be displayed as pending evidence, but resolver fetches should reject
   mutable refs until a later phase defines stronger controls.
 - Each resolved file writes an `evidence_resolved` receipt to the packet trail
-  with `fetched_by`, `fetched_at`, `byte_length`, and `sha256`.
+  with `fetched_by`, `fetched_at`, `byte_length`, `effective_max_bytes`, and
+  `sha256`.
 - Reviewing Agents should cite the `citation_label` and relevant file details
   when a GitHub read materially shapes their packet response.
 - v1 candidates: batched evidence resolution, snippets with line anchors, and

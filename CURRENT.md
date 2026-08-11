@@ -69,7 +69,8 @@ If you are catching up, read in this order:
   and all writes wait. Evidence handles use packet-scoped ids and author-written
   purpose fields with explicit `authored_by` authority. The current runtime can
   resolve one approved handle at a time and records an `evidence_resolved`
-  receipt with fetch actor, time, byte length, and SHA-256.
+  receipt with fetch actor, time, byte length, effective byte limit, and
+  SHA-256.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.
