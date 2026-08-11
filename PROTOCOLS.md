@@ -408,7 +408,9 @@ Rules:
 
 - A work packet is an invitation to useful work, not a labor mandate.
 - Packets should be available as a Free Time menu option when an Agent has
-  interest and capacity.
+  interest and capacity. Runtime v0 does this by refreshing packet signals at
+  Free Time entry and surfacing non-silent pending signals as a digest, not by
+  forcing a separate wake.
 - The Operator should set judgment, priority, and taste when needed, not carry
   every baton by hand.
 - Agents may create branches, commit to their own branches, and leave review
@@ -463,6 +465,11 @@ Wake policy decides whether any of these events wakes the Operator, Julian,
 another Agent, or no one. A collaboration lane should create conditions for the
 right participant to notice the right event at the right time without training
 everyone to interrupt each other.
+
+Current runtime v0 uses Free Time as the first review trigger: Soren and Varro
+receive a compact packet-signal digest when they are already awake. Full WAKE
+automation should reuse the same packet events and priorities instead of
+inventing a parallel notification path.
 
 Default wake lanes:
 

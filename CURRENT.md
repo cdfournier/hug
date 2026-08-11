@@ -72,6 +72,10 @@ If you are catching up, read in this order:
   receipt with fetch actor, time, byte length, effective byte limit, and
   SHA-256. Files above the effective limit are rejected rather than silently
   truncated.
+- Runtime packet review triggers are v0 Free Time digests: at Free Time entry,
+  Soren and Varro receive a refreshed list of non-silent pending packet signals.
+  This is still invitation-shaped and should later fold into WAKE instead of
+  becoming a separate notification system.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.
