@@ -528,6 +528,8 @@ Rules:
 - `authored_by` records who wrote or approved the evidence authorization.
 - `max_bytes` is optional. When present, it sets a per-handle file-size ceiling
   below the runtime hard cap so large files do not crowd the packet context.
+  Files above the effective limit are rejected in v0. They are not silently
+  truncated.
 - `ref` should be a full commit SHA or immutable tag by default.
 - Branch refs are mutable and require explicit Operator sign-off per evidence
   handle.
