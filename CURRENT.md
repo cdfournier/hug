@@ -62,6 +62,8 @@ If you are catching up, read in this order:
 - Arrival is now a foundational protocol: the Agent should orient to the live
   room before letting restoration context, current_state, or filed notes decide
   what is true.
+- Notepad is approved as an optional per-Agent side table for small follow-ups;
+  do not build it until the low-pressure v0 shape stays clear.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.

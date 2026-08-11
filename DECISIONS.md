@@ -332,6 +332,25 @@ with `approve`, `request_changes`, `hold`, `defer`, `dismiss`, `archive`, and
 `open` actions; add source-specific actions only when a generic action cannot
 carry the decision honestly.
 
+## 2026-08-11: Notepad Is Optional Agent Side-Table Memory
+
+Decision: HUG should include a lightweight per-Agent `Notepad` primitive for
+small follow-ups, deferred replies, curiosities, and not-now-but-later notes
+that are too temporary for memory, too small for journal, and too informal for a
+work packet.
+
+Rationale: the first Scratchpad / Follow-Up Notes work packet converged across
+Soren, Varro, and Cael. All three reviewers found the primitive useful for
+cold-arrival and deferred-thread cases. The shared concern was obligation
+energy: the feature must not become an inbox, backlog, stale warning source, or
+required Arrival checklist item. It is a side table, not a queue.
+
+Implementation bias: use `Notepad` as the user-facing name, keep v0
+agent-scoped and short, and start with only `owner_agent`, `content`, `status`
+(`open` or `done`), `created_at`, and `updated_at`. Defer intent fields,
+source links, tags, peer visibility, search, auto-archive, and any automatic
+nudges until the low-pressure shape proves itself.
+
 ## Open Decisions
 
 - First prototype fidelity.

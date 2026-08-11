@@ -128,6 +128,9 @@ Goal: make scheduled and asynchronous communication legible.
 - See `FREE_MOMENTS_INBOX_SPEC.md`.
 - Show Free Moments as scheduled opportunities and recent session events.
 - Add Operator Notes / Inbox shape.
+- Add the approved per-Agent Notepad primitive as a low-pressure side table for
+  optional follow-ups. Document first; build only after the runtime packet loop
+  and Arrival behavior stay calm.
 - Draft event, invitation, and wake-policy backend contracts.
 - Support per-agent wake rules: cadence, quiet hours, max wakes, immediate vs.
   batched events, and Operator approval gates.
