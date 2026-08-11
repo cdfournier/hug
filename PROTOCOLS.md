@@ -528,9 +528,18 @@ Rules:
 - `ref` should be a full commit SHA or immutable tag by default.
 - Branch refs are mutable and require explicit Operator sign-off per evidence
   handle.
+- The v0 resolver fetches only packet-authorized GitHub handles by explicit
+  handle id. It does not browse repositories, read Issues, inspect PRs, write
+  comments, create branches, or mutate GitHub state.
+- The v0 resolver accepts full commit SHAs and `refs/tags/<tag>` refs. Branch
+  refs may be displayed as pending evidence, but resolver fetches should reject
+  mutable refs until a later phase defines stronger controls.
+- Each resolved file writes an `evidence_resolved` receipt to the packet trail
+  with `fetched_by`, `fetched_at`, `byte_length`, and `sha256`.
 - Reviewing Agents should cite the `citation_label` and relevant file details
   when a GitHub read materially shapes their packet response.
-- v1 candidates: `fetched_by`, `fetched_at`, then `content_hash`.
+- v1 candidates: batched evidence resolution, snippets with line anchors, and
+  private-repo credential profiles.
 
 Collaboration lane SOP:
 
