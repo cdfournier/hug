@@ -512,6 +512,7 @@ GitHub evidence handle v0:
   "ref": "full commit SHA or immutable tag",
   "path": "PROTOCOLS.md",
   "purpose": "Why this file is authorized for this packet.",
+  "authored_by": "operator:chris",
   "citation_label": "HUG protocols"
 }
 ```
@@ -523,6 +524,7 @@ Rules:
   across packets.
 - `purpose` is written by the packet author as the authorization reason. It is
   not filled in later by the reviewing Agent.
+- `authored_by` records who wrote or approved the evidence authorization.
 - `ref` should be a full commit SHA or immutable tag by default.
 - Branch refs are mutable and require explicit Operator sign-off per evidence
   handle.

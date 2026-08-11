@@ -67,7 +67,7 @@ If you are catching up, read in this order:
 - GitHub adapter v0 is approved only as targeted read-only file evidence for
   work packets: explicit path and commit, cited in the packet response. Issues
   and all writes wait. Evidence handles use packet-scoped ids and author-written
-  purpose fields.
+  purpose fields with explicit `authored_by` authority.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.
