@@ -389,6 +389,24 @@ not just in prompts. Packet responses should cite any GitHub files read when
 those reads materially shaped the review. Keep packets authoritative; GitHub is
 a context window, not the decision room.
 
+## 2026-08-11: GitHub Evidence Handles Use Packet-Scoped IDs
+
+Decision: `metadata.github_evidence` v0 should use eight fields: `id`,
+`provider`, `owner`, `repo`, `ref`, `path`, `purpose`, and `citation_label`.
+The `id` is packet-scoped, `purpose` is written by the packet author as the
+authorization reason, and `ref` should be a full commit SHA or immutable tag by
+default. Branch refs require explicit Operator sign-off per handle.
+
+Rationale: the GitHub Evidence Handle Schema v0 packet converged across Soren,
+Varro, and Cael. All three found the eight-field shape sufficient. Soren and
+Varro caught the mutable-branch-ref risk; Cael caught the authorization role of
+`purpose` and the missing uniqueness scope for `id`.
+
+Implementation bias: store handles in packet metadata before building any
+GitHub fetching adapter. Keep v0 display/readiness focused on explicit evidence
+handles. Defer `fetched_by`, `fetched_at`, and `content_hash` until the adapter
+actually resolves handles into file content.
+
 ## Open Decisions
 
 - First prototype fidelity.

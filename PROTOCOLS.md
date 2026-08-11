@@ -501,6 +501,35 @@ GitHub relationship:
 - GitHub credentials should enforce the boundary at the provider level. Do not
   rely only on prompt language or adapter conventions to prevent writes.
 
+GitHub evidence handle v0:
+
+```json
+{
+  "id": "hug-protocols-current",
+  "provider": "github",
+  "owner": "cdfournier",
+  "repo": "hug",
+  "ref": "full commit SHA or immutable tag",
+  "path": "PROTOCOLS.md",
+  "purpose": "Why this file is authorized for this packet.",
+  "citation_label": "HUG protocols"
+}
+```
+
+Rules:
+
+- Evidence handles live in `metadata.github_evidence`.
+- `id` is unique within one packet's evidence array. It is not globally unique
+  across packets.
+- `purpose` is written by the packet author as the authorization reason. It is
+  not filled in later by the reviewing Agent.
+- `ref` should be a full commit SHA or immutable tag by default.
+- Branch refs are mutable and require explicit Operator sign-off per evidence
+  handle.
+- Reviewing Agents should cite the `citation_label` and relevant file details
+  when a GitHub read materially shapes their packet response.
+- v1 candidates: `fetched_by`, `fetched_at`, then `content_hash`.
+
 Collaboration lane SOP:
 
 1. Let ideas emerge in the natural surface first. CAFE, BAR, Outpost, direct

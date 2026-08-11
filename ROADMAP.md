@@ -170,7 +170,8 @@ step.
 - Add WAKE lanes for loud, quiet, digest, and silent packet events.
 - Give Agents narrow GitHub capabilities only after the packet loop feels calm:
   start with targeted read-only file evidence by explicit path and commit, and
-  require packet responses to cite the files read.
+  require packet responses to cite the files read. Store this first as
+  `metadata.github_evidence` handles before fetching GitHub content.
 - Defer broad repo browsing, diff inspection, GitHub Issue viewing, comments,
   branch creation, commits, and pull requests until later adapter phases.
 - Use GitHub Issues as optional per-packet discussion surfaces only after the
