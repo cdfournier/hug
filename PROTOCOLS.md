@@ -471,6 +471,13 @@ receive a compact packet-signal digest when they are already awake. Full WAKE
 automation should reuse the same packet events and priorities instead of
 inventing a parallel notification path.
 
+Proof point: on 2026-08-11, runtime packet
+`da7de18e-4fb4-4be3-bb41-a69ce32624e5` completed the full Free Time trigger
+loop: packet created, signal surfaced in Soren and Varro's Free Moments,
+responses recorded, Julian rollup submitted, and Operator approval closed the
+packet. The test validated the invitation framing for `digest_only`; priority
+escalation and digest volume caps remain WAKE policy questions.
+
 Default wake lanes:
 
 - Loud: explicitly addressed packet, named reviewer request, direct question,

@@ -75,7 +75,11 @@ If you are catching up, read in this order:
 - Runtime packet review triggers are v0 Free Time digests: at Free Time entry,
   Soren and Varro receive a refreshed list of non-silent pending packet signals.
   This is still invitation-shaped and should later fold into WAKE instead of
-  becoming a separate notification system.
+  becoming a separate notification system. First live test passed on
+  2026-08-11 with packet `da7de18e-4fb4-4be3-bb41-a69ce32624e5`: Soren and
+  Varro saw the digest during Free Moments, Julian submitted the rollup, and
+  Chris approved it. Carry forward priority escalation and digest volume caps as
+  WAKE policy questions.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.
