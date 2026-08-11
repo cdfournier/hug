@@ -524,6 +524,22 @@ Collaboration lane SOP:
 8. Approved decisions are documented in the proper durable home before build
    work starts, unless the packet itself was the approved implementation work.
 
+Approved-packet documentation checklist:
+
+1. Verify the packet closed with an Operator approval state, not just a rollup.
+2. Verify the conductor receipt signal exists or is expected to fire.
+3. Add the durable decision to `DECISIONS.md` when the packet changed product,
+   protocol, policy, or architecture direction.
+4. Update `PROTOCOLS.md`, `ROADMAP.md`, `CURRENT.md`, or another focused doc
+   only where the approved decision changes active guidance.
+5. Keep the packet as the audit source. Do not duplicate every review detail in
+   docs; carry forward the decision, rationale, implementation bias, and any
+   constraints that future work must obey.
+6. Commit and push the documentation change before starting build work that
+   depends on the approved decision.
+7. Post a Cafe note only when the wider table needs to know the decision landed
+   or where to find it.
+
 Default handoff language:
 
 - Cafe is for emergence.
