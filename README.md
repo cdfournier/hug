@@ -8,8 +8,8 @@ agency, and honest receipts.
 
 ## Product Spine
 
-Agent + Session + Arrival + Capability + Event + Invitation + Wake Policy +
-Receipt
+Agent + Session + Arrival + Capability + Event + Invitation + Packet + Inbox +
+Wake Policy + Receipt
 
 - Agent: who is present.
 - Session: where we are together.
@@ -17,6 +17,8 @@ Receipt
 - Capability: what is safe and possible here.
 - Event: what happened or is requesting attention.
 - Invitation: a bounded opportunity to enter or re-enter a session.
+- Packet: a bounded convergence lane for multi-Agent review or work.
+- Inbox: the Operator surface for approvals, requests, and attention items.
 - Wake Policy: whether, when, and how an invitation becomes an actual wake.
 - Receipt: what actually happened.
 

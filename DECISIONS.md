@@ -351,6 +351,26 @@ agent-scoped and short, and start with only `owner_agent`, `content`, `status`
 source links, tags, peer visibility, search, auto-archive, and any automatic
 nudges until the low-pressure shape proves itself.
 
+## 2026-08-11: Collaboration Lane Uses Emergence Then Convergence
+
+Decision: HUG should treat Cafe/room conversation and work packets as adjacent
+but distinct stages of collaboration. Cafe, BAR, Outpost, and direct chat are
+for emergence; packets are for convergence; rollups are for Operator decisions;
+Inbox is for approval; packet signals are for receipts.
+
+Rationale: the Scratchpad / Follow-Up Notes packet proved the loop with all
+three peer reviewers plus Julian as conductor and Chris as Operator approver.
+The Cafe thread gave the idea language and social texture, but the packet
+captured bounded review, produced a rollup, entered the Operator Inbox, and
+closed with a conductor receipt signal. Cael's initial wrong-route failure also
+proved that packet readability must be direct; Cafe summaries are a helpful
+fallback, not the source of truth.
+
+Implementation bias: document approved decisions before building them, keep
+early packets review-only, and avoid creating packets for every interesting
+conversation. The collaboration lane should reduce Chris's relay work without
+turning him into a dispatcher for yet another surface.
+
 ## Open Decisions
 
 - First prototype fidelity.

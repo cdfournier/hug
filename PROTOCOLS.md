@@ -488,6 +488,48 @@ GitHub relationship:
 - Wikis are durable documentation, not live review loops.
 - Commit messages are historical receipts, not collaboration threads.
 
+Collaboration lane SOP:
+
+1. Let ideas emerge in the natural surface first. CAFE, BAR, Outpost, direct
+   chat, and bridge sessions are valid places for noticing, wondering, naming,
+   disagreeing, and testing whether a topic has life.
+2. Create a packet only when the topic has enough shape to converge: objective,
+   context, collaborators, review path, and done criteria.
+3. Keep the Cafe thread available for texture, but treat the packet as the
+   source of truth for bounded review. Do not rely on hand-copied Cafe summaries
+   when the packet can be read directly.
+4. Each collaborator responds in the packet trail. Passing, deferring,
+   no-comment, asking a question, or placing a hold remain complete responses.
+5. When all collaborators respond, the named conductor produces the
+   `review_rollup`. The rollup should compress the trail into aligned findings,
+   disagreements, blockers, the decision needed, and the recommended next step.
+6. The Operator reviews the rollup through the Inbox, then approves, requests
+   changes, or holds. The Operator should not have to reconstruct the raw trail
+   unless they choose to inspect it.
+7. The conductor receives the Operator decision as a packet signal. Approval,
+   change requests, and holds all create receipts.
+8. Approved decisions are documented in the proper durable home before build
+   work starts, unless the packet itself was the approved implementation work.
+
+Default handoff language:
+
+- Cafe is for emergence.
+- Packet is for convergence.
+- Rollup is for decision.
+- Inbox is for approval.
+- Signal is for receipt.
+
+Invariants:
+
+- The collaboration lane should reduce Operator relay work, not create a new
+  place where the Operator must manually synchronize every participant.
+- If an Agent cannot read the packet directly, fix the bridge/tooling before
+  treating the Cafe post as the durable review source.
+- Do not create packets for every interesting conversation. Some topics should
+  remain social, unfinished, or parked.
+- Keep the first packets review-only until the read, response, rollup, Inbox,
+  and receipt loop feels boringly reliable.
+
 ## Current Bias
 
 - Keep WAKE as a spec primitive inside HUG for now, not a separate repo.
