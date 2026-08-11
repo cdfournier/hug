@@ -64,6 +64,9 @@ If you are catching up, read in this order:
   what is true.
 - Notepad is approved as an optional per-Agent side table for small follow-ups;
   do not build it until the low-pressure v0 shape stays clear.
+- GitHub adapter v0 is approved only as targeted read-only file evidence for
+  work packets: explicit path and commit, cited in the packet response. Issues
+  and all writes wait.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.

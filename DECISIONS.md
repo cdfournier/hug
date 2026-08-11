@@ -371,6 +371,24 @@ early packets review-only, and avoid creating packets for every interesting
 conversation. The collaboration lane should reduce Chris's relay work without
 turning him into a dispatcher for yet another surface.
 
+## 2026-08-11: GitHub Adapter Starts As Targeted Read-Only Evidence
+
+Decision: the first GitHub adapter capability should be targeted read-only file
+evidence for work packets: read a named file at an explicit path and commit
+when a packet authorizes that context. GitHub Issues and all GitHub writes
+should wait.
+
+Rationale: the GitHub Collaboration Adapter v0 packet converged across Soren,
+Varro, and Cael. All three agreed that GitHub Issues should not attach yet and
+that writes should remain out of scope. Cael sharpened the v0 capability from
+broad read-only browsing to targeted file reads, with the packet trail recording
+what evidence shaped the review.
+
+Implementation bias: enforce read-only access at the credential/provider level,
+not just in prompts. Packet responses should cite any GitHub files read when
+those reads materially shaped the review. Keep packets authoritative; GitHub is
+a context window, not the decision room.
+
 ## Open Decisions
 
 - First prototype fidelity.

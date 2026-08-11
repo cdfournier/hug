@@ -169,10 +169,13 @@ step.
 - Treat work packets as a Free Time menu option, not a labor mandate.
 - Add WAKE lanes for loud, quiet, digest, and silent packet events.
 - Give Agents narrow GitHub capabilities only after the packet loop feels calm:
-  read repo, inspect diff, and comment first; branch creation, commits, and pull
-  requests come in a later adapter phase.
-- Use GitHub Issues as optional per-packet discussion surfaces and PRs only once
-  a packet contains implementation or documentation diffs.
+  start with targeted read-only file evidence by explicit path and commit, and
+  require packet responses to cite the files read.
+- Defer broad repo browsing, diff inspection, GitHub Issue viewing, comments,
+  branch creation, commits, and pull requests until later adapter phases.
+- Use GitHub Issues as optional per-packet discussion surfaces only after the
+  packet lane has more cycles and known failure modes. PRs attach only once a
+  packet contains implementation or documentation diffs.
 - Keep direct protected-branch merges reserved for trusted conductor/integration
   roles until policy proves itself.
 - Record collaboration receipts so the Operator can review milestones instead of

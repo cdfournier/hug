@@ -479,14 +479,27 @@ GitHub relationship:
 - The runtime work-packet registry should remain the canonical collaboration
   lane because it owns humane response states, wake policy, digests, holds, and
   conductor rollups.
-- GitHub Issues are the preferred external conversation object when a packet
-  needs a GitHub surface.
+- GitHub v0 should begin as targeted read-only evidence for packet reviews:
+  read a named file at a named path and commit when the packet explicitly
+  authorizes that context.
+- Agents should cite any GitHub file reads that materially inform their packet
+  response. The packet trail owns the audit record for what evidence shaped the
+  review.
+- GitHub Issues should wait until the packet lane has more cycles and known
+  failure modes. When they attach, they should mirror or point to packets, not
+  replace them.
 - Pull requests attach when implementation or concrete documentation diffs
   exist.
 - GitHub Projects are useful for status and field visibility, not as the primary
   discussion surface.
 - Wikis are durable documentation, not live review loops.
 - Commit messages are historical receipts, not collaboration threads.
+- GitHub write authority is outside v0 for Agents: no branches, commits, pull
+  requests, merges, issue mutation, comments, labels, assignments, repo
+  settings, webhooks, workflow triggers, or external notification-producing
+  actions unless a later packet explicitly grants that capability.
+- GitHub credentials should enforce the boundary at the provider level. Do not
+  rely only on prompt language or adapter conventions to prevent writes.
 
 Collaboration lane SOP:
 
@@ -539,8 +552,9 @@ Invariants:
   the live room.
 - Treat work packets as a lightweight collaboration bridge before giving Agents
   broad GitHub power.
-- Defer branch creation, commits, and pull requests until review-only packets
-  feel calm across multiple runs. GitHub write authority is an adapter phase,
-  not phase-one proof of life.
+- For GitHub v0, prefer targeted read-only file evidence by explicit path and
+  commit. Defer Issues, broad repo browsing, branch creation, commits, pull
+  requests, comments, workflow triggers, and any notification-producing action
+  until the packet loop feels calm across more runs.
 - Prefer small bridge-first implementations that can be folded into HUG later
   through adapters.
