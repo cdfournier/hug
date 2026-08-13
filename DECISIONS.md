@@ -414,6 +414,28 @@ showed that `purpose` is an authorization claim until file content can be
 verified. Add `authored_by` before building the resolver so the authority behind
 that claim is explicit.
 
+## 2026-08-13: WAKE Should Be Tone-Aware
+
+Decision: HUG should treat WAKE as a tone-aware arrival broker, not a binary
+interrupt switch. A wake policy should decide whether an event wakes, waits,
+batches, blocks, or remains visible, and it should also tell the Agent what kind
+of arrival this is.
+
+Rationale: Free Moments proved that unprompted arrivals can include maximum
+turns, low-energy turns, recovery turns, curiosity turns, and quiet passes.
+Work-packet signals proved that directed invitations can surface when an Agent is
+already awake without becoming assignments. The next layer should unify these
+signals under shared tone vocabulary instead of building separate alert systems
+for Free Time, packets, Cafe, peer notes, Outpost, WHEELS, EYES, and BAR.
+
+Implementation bias: keep tone as an invitation frame, not an obedience command.
+Start with plain tones: `quiet`, `soft`, `directed`, `high_signal`, `recovery`,
+`curiosity`, and `maintenance`. Record the tone offered and the Agent's chosen
+response, but treat a quiet pass as a successful receipt. Scheduled Free Moments
+remain the training ground for soft/curiosity/recovery/quiet tones; packet
+signals remain the training ground for directed/high-signal tones until WAKE
+automation is ready.
+
 ## Open Decisions
 
 - First prototype fidelity.

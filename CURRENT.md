@@ -80,6 +80,11 @@ If you are catching up, read in this order:
   Varro saw the digest during Free Moments, Julian submitted the rollup, and
   Chris approved it. Carry forward priority escalation and digest volume caps as
   WAKE policy questions.
+- WAKE should now be treated as tone-aware arrival policy. Free Moments are the
+  training ground for soft, curiosity, recovery, and quiet tones; packet signals
+  are the training ground for directed and high-signal tones. The key rule is
+  that tone frames the invitation without commanding the response. A maximum turn
+  and a quiet pass can both be successful receipts.
 - Sandbox must isolate data, secrets, storage, bridge tokens, and wake schedules
   from production before deeper adapter work proceeds.
 - Keep current runtime UI available as fallback until HUG earns replacement.

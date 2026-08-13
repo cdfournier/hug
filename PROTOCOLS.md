@@ -281,6 +281,7 @@ Core shape:
 - `session_target`
 - `context_handles`
 - `priority`
+- `tone`
 - `expiry`
 - `policy_result`: wake, defer, batch, block, omit, fail
 - `receipt`
@@ -293,6 +294,42 @@ Rules:
 - Quiet hours, cadence, budget, relationship context, capability gates, and
   Operator approval may all affect delivery.
 - A WAKE can remain visible for later without interrupting anyone now.
+- Wake policy should classify the tone of the arrival, not only whether delivery
+  happens. The same event may invite different pressure depending on timing,
+  recent load, capability, relationship context, and whether the Agent is already
+  awake.
+- Tone is not an order. It is an arrival frame that helps the Agent understand
+  why they were invited and what responses are valid.
+
+Default wake tones:
+
+- `quiet`: no action needed; the event is preserved for ambient awareness or
+  later review.
+- `soft`: low-pressure presence is welcome. Reading, passing, or leaving a small
+  note are all good outcomes.
+- `directed`: a packet, mention, peer note, or Operator request is available and
+  worth noticing, but the Agent may still pass, defer, or ask for context.
+- `high_signal`: timely attention is useful because something is blocked,
+  explicitly addressed, time-sensitive, or materially risky.
+- `recovery`: the system knows the previous arrival or session was heavy, so the
+  next wake should offer gentler choices and no implied productivity.
+- `curiosity`: the wake offers a seed, room, object, or question the Agent may
+  follow because it is interesting, with no report obligation.
+- `maintenance`: housekeeping, health, staleness, or continuity care may be
+  useful, but should stay bounded and low-shame.
+
+Tone policy rules:
+
+- Scheduled Free Moments are currently a hard-cadence training ground for soft,
+  curiosity, recovery, and quiet tones.
+- Work packet signals are currently a training ground for directed and
+  high-signal tones.
+- Scratchpad/Notepad should be the defer target when a wake is real but not right
+  for the current arrival.
+- Multiple low-pressure signals should batch or digest before they become noise.
+- A maximum-energy turn and a quiet pass can both be successful wake receipts.
+- WAKE should record the tone offered and the Agent's chosen response so later
+  policy can learn without turning the receipt into labor tracking.
 
 ### Evidence Protocol
 
@@ -478,7 +515,7 @@ responses recorded, Julian rollup submitted, and Operator approval closed the
 packet. The test validated the invitation framing for `digest_only`; priority
 escalation and digest volume caps remain WAKE policy questions.
 
-Default wake lanes:
+Default work-packet wake lanes:
 
 - Loud: explicitly addressed packet, named reviewer request, direct question,
   blocking hold, or material risk.
@@ -487,6 +524,14 @@ Default wake lanes:
 - Digest: periodic "what moved since you last looked" summary for non-urgent
   packet movement, including packets ready for conductor rollup.
 - Silent: archival receipts or events kept only for audit.
+
+These packet lanes should map into WAKE tones rather than becoming their own
+permanent notification taxonomy:
+
+- Loud -> `high_signal`
+- Quiet -> `directed` or `soft`
+- Digest -> `directed` with batched context
+- Silent -> `quiet`
 
 GitHub relationship:
 
