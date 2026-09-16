@@ -48,7 +48,7 @@ export type JulianWakeProjection = {
 };
 
 const ADAPTER_ID = "julian-wake";
-const SUPPORTED_MODES = ["manual_codex_cli", "queue_existing_codex_session"];
+const SUPPORTED_MODES = ["manual_codex_cli", "queue_existing_codex_session", "queue_bound_julian_home"];
 
 function sourceId(envelope: JulianWakeEnvelope, index: number) {
   return envelope.source_id ?? envelope.signal_id ?? `arrival-${index + 1}`;
