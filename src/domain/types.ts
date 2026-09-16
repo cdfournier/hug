@@ -69,6 +69,14 @@ export type InvitationStatus =
   | "failed"
   | "cancelled";
 
+export type DeliveryReadiness =
+  | "not_requested"
+  | "held"
+  | "awaiting_target"
+  | "ready"
+  | "delivered"
+  | "failed";
+
 export type CapabilityMode =
   | "off"
   | "read_only"
@@ -118,6 +126,33 @@ export interface WakePolicy {
   deferredEventTypes: InboxKind[];
   blockedEventTypes: InboxKind[];
   defaultFreeMomentDestination: string;
+}
+
+export interface InvitationDelivery {
+  adapterId: string;
+  readiness: DeliveryReadiness;
+  supportedModes: string[];
+  targetDescription?: string;
+  limitation?: string;
+}
+
+export interface Invitation {
+  id: string;
+  eventId?: string;
+  targetAgentId: AgentId;
+  sessionId?: string;
+  kind: InboxKind;
+  priority: Priority;
+  title: string;
+  summary: string;
+  contextRefs: string[];
+  requiresOperatorApproval: boolean;
+  status: InvitationStatus;
+  createdAt: string;
+  scheduledFor?: string;
+  deliveredAt?: string;
+  expiresAt?: string;
+  delivery: InvitationDelivery;
 }
 
 export interface Receipt {
