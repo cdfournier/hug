@@ -225,6 +225,10 @@ entering the next useful experience.
 
 Current Launch elements:
 
+- Local arrival: a clearly labelled, user-initiated native-app handoff when a
+  verified local adapter is available. The first path opens Cael's Cowork
+  context; it must say plainly that it attaches context only and cannot submit
+  a message or require a response.
 - Ready paths: the fastest safe routes into chat, notes, and Free Moments.
 - Start group: direct Agent contact and lightweight invitations.
 - Connect group: EYES, WHEELS, live rooms, bridges, and other experiences with

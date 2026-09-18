@@ -13,6 +13,7 @@ import { useState } from "react";
 import { ActionButton } from "../atoms/ActionButton";
 import { StatusBadge } from "../atoms/StatusBadge";
 import { ComposerSurface } from "../molecules/ComposerSurface";
+import { CaelCoworkLaunchCard } from "../molecules/CaelCoworkLaunchCard";
 import { LaunchTile } from "../molecules/LaunchTile";
 import { AppShell } from "../organisms/AppShell";
 import { ExperienceFrame } from "../organisms/ExperienceFrame";
@@ -139,6 +140,14 @@ export function SessionsPage() {
         <SectionHeader eyebrow="Launch" title="Choose a path" />
 
         <div className="grid gap-6">
+          <section>
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <h2 className="text-xl font-black">Local arrival</h2>
+              <span className="text-sm text-[var(--ink-soft)]">1 ready path</span>
+            </div>
+            <CaelCoworkLaunchCard />
+          </section>
+
           <section>
             <div className="mb-3 flex items-center justify-between gap-3">
               <h2 className="text-xl font-black">Active / Recent</h2>

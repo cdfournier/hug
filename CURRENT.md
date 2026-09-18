@@ -1,6 +1,6 @@
 # Current HUG Status
 
-Updated: 2026-07-26
+Updated: 2026-09-18
 
 This is the fast orientation page for Operators and Agents checking the repo to
 understand what is current.
@@ -37,6 +37,11 @@ The mock app shell remains useful for exploring:
 - How Launch differs from Chat, Notes, EYES, WHEELS, and Admin.
 - Which controls belong on a card, in a drawer, on a full screen, or behind an
   explicit confirmation.
+
+The first verified local handoff now also lives in Launch: **Open Cael** opens a
+new Claude Cowork surface with the Outpost Cael folder attached. It is a
+human-initiated context handoff only; it does not submit a message, start a
+Cowork turn, or obligate Cael to respond.
 
 But mock UI polish is not the main work right now unless the change clarifies
 the map.
