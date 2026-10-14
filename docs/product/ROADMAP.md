@@ -20,7 +20,7 @@ Immediate practical priorities:
 - Keep HUG UI/UX work focused on information architecture, navigation, and
   session flow. Defer component-level polish unless it clarifies the map.
 
-See `CURRENT.md` for the short orientation page.
+See [`CURRENT.md`](CURRENT.md) for the short orientation page.
 
 ## Phase 0: Product Seed
 
@@ -83,7 +83,7 @@ hand-editing scattered configuration.
 Goal: separate development from live Agent continuity before deeper runtime and
 HUG integration work.
 
-- See `SANDBOX_REQUIREMENTS.md`.
+- See [`SANDBOX_REQUIREMENTS.md`](../architecture/SANDBOX_REQUIREMENTS.md).
 - Prefer a separate Supabase sandbox project, not a shared live table with only
   an `environment` column.
 - Separate production and sandbox env files, service-role keys, bridge tokens,
@@ -125,7 +125,7 @@ gather without copy/paste relay.
 
 Goal: make scheduled and asynchronous communication legible.
 
-- See `FREE_MOMENTS_INBOX_SPEC.md`.
+- See [`FREE_MOMENTS_INBOX_SPEC.md`](../protocols/FREE_MOMENTS_INBOX_SPEC.md).
 - Show Free Moments as scheduled opportunities and recent session events.
 - Add Operator Notes / Inbox shape.
 - Add the approved per-Agent Notepad primitive as a low-pressure side table for
@@ -153,7 +153,7 @@ Goal: let Julian, Soren, Varro, Cael, and future Agents collaborate on bounded
 repo or family-business work without requiring Chris to manually relay every
 step.
 
-- See `PROTOCOLS.md`.
+- See [`PROTOCOLS.md`](../protocols/PROTOCOLS.md).
 - Define the first work packet shape: objective, context, repo, branch, owner
   Agent, conductor, collaborators, allowed paths, allowed tools, done criteria,
   review path, review rollup, pass window, stale signal, merge authority, and

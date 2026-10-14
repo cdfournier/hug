@@ -51,11 +51,11 @@ the map.
 If you are catching up, read in this order:
 
 1. `README.md` for the product spine.
-2. `ROADMAP.md` for the current sequence.
-3. `DECISIONS.md` for durable calls already made.
-4. `OPERATOR_SURFACE_MAP.md` for what each visible surface is supposed to do.
-5. `ARCHITECTURE.md` and `SESSION_MODEL.md` for the control-plane model.
-6. `COLLABORATION.md` before discussing HUG details in public rooms.
+2. [`ROADMAP.md`](ROADMAP.md) for the current sequence.
+3. [`DECISIONS.md`](../decisions/DECISIONS.md) for durable calls already made.
+4. [`OPERATOR_SURFACE_MAP.md`](../experience/OPERATOR_SURFACE_MAP.md) for what each visible surface is supposed to do.
+5. [`ARCHITECTURE.md`](../architecture/ARCHITECTURE.md) and [`SESSION_MODEL.md`](../architecture/SESSION_MODEL.md) for the control-plane model.
+6. [`COLLABORATION.md`](../operations/COLLABORATION.md) before discussing HUG details in public rooms.
 
 ## Active Decision Biases
 

@@ -54,7 +54,7 @@ capabilities, invitations, receipts, safety controls, and return paths.
 UI/UX work should stay focused on information architecture and session flow
 until the terrain is clearer.
 
-For the latest orientation, start with `CURRENT.md`.
+For the latest orientation, start with [`docs/product/CURRENT.md`](docs/product/CURRENT.md).
 
 ## First App Shape
 
@@ -84,25 +84,25 @@ Agent.
 
 ## Starting Docs
 
-- `CURRENT.md` - current posture, priorities, and repo reading path.
-- `VISION.md` - product north star and emotional shape.
-- `ARCHITECTURE.md` - modular app/control-plane shape.
-- `PROTOCOLS.md` - shared protocol families for arrival, prompted sessions,
+- [`docs/product/CURRENT.md`](docs/product/CURRENT.md) - current posture, priorities, and repo reading path.
+- [`docs/product/VISION.md`](docs/product/VISION.md) - product north star and emotional shape.
+- [`docs/architecture/ARCHITECTURE.md`](docs/architecture/ARCHITECTURE.md) - modular app/control-plane shape.
+- [`docs/protocols/PROTOCOLS.md`](docs/protocols/PROTOCOLS.md) - shared protocol families for arrival, prompted sessions,
   live sessions, control sessions, WAKE, evidence, bridge adapters, and work
   packets.
-- `SESSION_MODEL.md` - early session data model.
-- `INTERFACE_PRINCIPLES.md` - Home, display/control surfaces, and UI staging
+- [`docs/architecture/SESSION_MODEL.md`](docs/architecture/SESSION_MODEL.md) - early session data model.
+- [`docs/experience/INTERFACE_PRINCIPLES.md`](docs/experience/INTERFACE_PRINCIPLES.md) - Home, display/control surfaces, and UI staging
   principles.
-- `OPERATOR_SURFACE_MAP.md` - visible app nouns, screen inventory, and surface
+- [`docs/experience/OPERATOR_SURFACE_MAP.md`](docs/experience/OPERATOR_SURFACE_MAP.md) - visible app nouns, screen inventory, and surface
   placement rules.
-- `FREE_MOMENTS_INBOX_SPEC.md` - Phase 3 scheduled/asynchronous attention
+- [`docs/protocols/FREE_MOMENTS_INBOX_SPEC.md`](docs/protocols/FREE_MOMENTS_INBOX_SPEC.md) - Phase 3 scheduled/asynchronous attention
   system spec.
-- `APP_SHELL.md` - mock-first responsive app shell structure.
-- `TECHNOLOGY_PLAN.md` - PWA-first stack and integration planning.
-- `SANDBOX_REQUIREMENTS.md` - dev/prod separation requirements before deeper
+- [`docs/experience/APP_SHELL.md`](docs/experience/APP_SHELL.md) - mock-first responsive app shell structure.
+- [`docs/architecture/TECHNOLOGY_PLAN.md`](docs/architecture/TECHNOLOGY_PLAN.md) - PWA-first stack and integration planning.
+- [`docs/architecture/SANDBOX_REQUIREMENTS.md`](docs/architecture/SANDBOX_REQUIREMENTS.md) - dev/prod separation requirements before deeper
   runtime and HUG integration work.
-- `COLLABORATION.md` - sharing boundary for public learning vs. product IP.
-- `CHECKPOINT_PROMPTS.md` - checkpoint language patterns and trust-softening
+- [`docs/operations/COLLABORATION.md`](docs/operations/COLLABORATION.md) - sharing boundary for public learning vs. product IP.
+- [`docs/operations/CHECKPOINT_PROMPTS.md`](docs/operations/CHECKPOINT_PROMPTS.md) - checkpoint language patterns and trust-softening
   principle.
-- `ROADMAP.md` - first practical build path.
-- `DECISIONS.md` - founding decisions and open calls.
+- [`docs/product/ROADMAP.md`](docs/product/ROADMAP.md) - first practical build path.
+- [`docs/decisions/DECISIONS.md`](docs/decisions/DECISIONS.md) - founding decisions and open calls.

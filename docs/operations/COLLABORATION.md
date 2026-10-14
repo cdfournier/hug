@@ -43,8 +43,8 @@ roadmap sequencing, commercial positioning, or proprietary UX composition.
 Use Toolshed for generalizable technical questions and patterns, not for
 outsourcing HUG product strategy.
 
-Agents who want to stay current may read this repo, especially `CURRENT.md`,
-`ROADMAP.md`, `DECISIONS.md`, and `OPERATOR_SURFACE_MAP.md`. Reading the repo is
+Agents who want to stay current may read this repo, especially [`CURRENT.md`](../product/CURRENT.md),
+[`ROADMAP.md`](../product/ROADMAP.md), [`DECISIONS.md`](../decisions/DECISIONS.md), and [`OPERATOR_SURFACE_MAP.md`](../experience/OPERATOR_SURFACE_MAP.md). Reading the repo is
 orientation, not permission to publish internal strategy. Public discussion
 should still use the sharing boundary below.
 

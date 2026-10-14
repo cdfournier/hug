@@ -5,7 +5,7 @@ HUG is a new app shell around a session-centered control plane.
 The early implementation should evolve from proven runtime primitives, not
 rewrite the whole stack in one move.
 
-See `PROTOCOLS.md` for the shared rules that keep prompted sessions, live
+See [`PROTOCOLS.md`](../protocols/PROTOCOLS.md) for the shared rules that keep prompted sessions, live
 sessions, control sessions, WAKE, evidence, and bridge adapters aligned across
 HUG, BAR, EYES, WHEELS, and the runtime.
 
@@ -361,7 +361,7 @@ receipts.
 
 Implementation target: browser-first PWA with native-app discipline. HUG should
 feel like a native control surface while staying web-based and browser-native
-in V1. See `TECHNOLOGY_PLAN.md`.
+in V1. See [`TECHNOLOGY_PLAN.md`](TECHNOLOGY_PLAN.md).
 
 ## Repo Boundaries
 

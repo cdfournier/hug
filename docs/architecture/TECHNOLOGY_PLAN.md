@@ -150,7 +150,7 @@ concepts have obvious homes.
 ## Sandbox Requirement
 
 Before HUG points deeper product surfaces at the live runtime, stand up a
-sandbox path. See `SANDBOX_REQUIREMENTS.md`.
+sandbox path. See [`SANDBOX_REQUIREMENTS.md`](SANDBOX_REQUIREMENTS.md).
 
 The recommended V1 is a separate Supabase sandbox project with copied schema,
 synthetic seed data, separate storage buckets, separate service keys, separate
