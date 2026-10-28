@@ -19,6 +19,46 @@ future surfaces.
   in a session.
 - Notepad: an optional per-Agent side table for low-stakes notes that may be
   useful later but should not become memory, journal, packet, or inbox work.
+- Guarded change: a consequential Operator action whose intent, confirmation,
+  safe application, verification, and recovery should be visible rather than
+  hidden inside an ordinary setting.
+
+## Guarded Change Protocol
+
+A reusable transaction for high-consequence administration: model/provider
+assignments, credential rotation, access or household changes, destructive
+archive/reset operations, and any action that can interrupt an Agent or alter
+durable state. It is not a collection of one-off "are you sure?" dialogs.
+
+Each action declares policy rather than hard-coding its own confirmation UI:
+
+- `confirmation`: `none`, `review`, `confirm`, or `typed_confirm`
+- `apply_boundary`: `immediate` or `safe_boundary`
+- `verification`: `none`, `health_check`, or `smoke_test`
+- `rollback`: `available` or `unavailable`
+
+Core lifecycle:
+
+1. The Operator chooses a new value; this creates a pending draft, not a live
+   change.
+2. **Save** opens a review surface that shows the exact diff, the apply point,
+   continuity implications, compatibility or test state, and rollback posture.
+3. An explicit **Confirm change** records consent and starts application at the
+   action's required boundary.
+4. HUG records application and verification receipts, then offers a clear
+   keep/rollback decision when rollback remains possible.
+
+Rules:
+
+- The same primitive must be usable per Agent: one Agent may change without
+  silently changing another.
+- A model selection changes the instrument, not the Agent's durable identity,
+  memories, permissions, or conversation record.
+- The policy is adjustable as evidence accumulates. A harmless action may be
+  lowered to review or direct apply; a surprising one can gain stronger
+  confirmation without rebuilding its screen.
+- The Operator should be able to see what changed, when, by whom, and whether
+  post-change checks passed.
 
 ## Protocol Families
 
@@ -256,6 +296,11 @@ Rules:
 - Control should use short renewable claims or leases where concurrency matters.
 - Every command should leave an inspectable receipt.
 - Observing and controlling are separate capabilities.
+
+Cloud-participant evidence and open design questions for WHEELS live control are
+kept in [WHEELS_CLOUD_PARTICIPATION_NOTES.md](WHEELS_CLOUD_PARTICIPATION_NOTES.md).
+The working direction is parity through timely, authoritative state and fair
+claims—not reduced supervision or a separate autonomy tier.
 
 ### WAKE Protocol
 

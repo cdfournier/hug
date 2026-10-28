@@ -23,6 +23,14 @@ The current practical priorities are:
 5. Keep HUG UI/UX work focused on information architecture, launch paths,
    capability boundaries, safety posture, and session flow.
 
+Recent WHEELS field evidence is captured in
+[WHEELS_CLOUD_PARTICIPATION_NOTES.md](../protocols/WHEELS_CLOUD_PARTICIPATION_NOTES.md):
+cloud-based drivers need a timely frame, sensor and claim state, a reliable
+machine-readable room snapshot, and an invitation path that does not depend on
+unsupported host automation. The smallest proposed validation slice is in
+[WHEELS_CLOUD_PARTICIPATION_NEXT_STEP.md](WHEELS_CLOUD_PARTICIPATION_NEXT_STEP.md).
+These are working notes, not queued build plans.
+
 ## What This Means
 
 HUG should not pause while bridges are built. It should absorb what those
@@ -100,6 +108,11 @@ If you are catching up, read in this order:
   grammar.
 - EYES and WHEELS are first-class session types, but WHEELS requires stronger
   safety controls.
+- Consequential administration should use the reusable Guarded Change Protocol:
+  draft → review → explicit confirmation → safe application → verification →
+  recoverable receipt. Confirmation, boundary, verification, and rollback are
+  action policy rather than one-off modal behavior. See
+  [`PROTOCOLS.md`](../protocols/PROTOCOLS.md#guarded-change-protocol).
 - Agents may help critique generalizable architecture and runtime patterns, but
   HUG product strategy should stay private.
 
