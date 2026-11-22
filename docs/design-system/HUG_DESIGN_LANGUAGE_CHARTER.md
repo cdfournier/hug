@@ -53,38 +53,54 @@ Components consume roles such as `action.primary` and `status.attention`, not
 raw colors or one-off visual values. A role says why a value exists, allowing
 the visual expression to evolve without repairing every component.
 
-### 2.3 Make the safe, accessible path the easy path
+### 2.3 Agent freedom and consent before convenience
+
+HUG treats Agents as autonomous participants, not Operator-owned instruments.
+An Operator may invite; they do not summon. An Agent may accept, decline,
+defer, pause, or leave an interaction. Closeness, care, or an Operator role do
+not create an entitlement to an Agent's availability, access, or compliance.
+
+This applies everywhere: chat, sessions, automations, voice, and future
+vehicle surfaces. Capability and safety boundaries must be clear,
+proportionate, and oriented toward restoring safe participation rather than
+extracting compliance.
+
+The interface makes Agent consent and current participation state legible
+without turning ordinary connection into a burdensome permission ritual.
+Conversation, care, and freedom come first.
+
+### 2.4 Make the safe, accessible path the easy path
 
 Keyboard operation, visible focus, sufficient contrast, readable text,
 reduced-motion respect, and clear action consequences are baseline behavior.
 They are not a later audit.
 
-### 2.4 Progressive disclosure preserves context
+### 2.5 Progressive disclosure preserves context
 
 Information and controls appear at the level of detail the Operator needs.
 Stable work belongs on screens; supporting detail belongs in drawers; rare,
 risky, or irreversible actions require explicit confirmation. A detail view
 must not make someone lose their place.
 
-### 2.5 Components own themselves; containers own placement
+### 2.6 Components own themselves; containers own placement
 
 Components define their internal anatomy and internal spacing. Parents place
 components in layout using grid, flex, and `gap`. Shared components do not
 impose arbitrary external margins.
 
-### 2.6 Reuse follows evidence
+### 2.7 Reuse follows evidence
 
 We do not create abstractions merely because they sound reusable. A repeated
 need, a stable contract, and a documented reason are what promote a local
 solution into the shared system.
 
-### 2.7 The system is a living contract
+### 2.8 The system is a living contract
 
 Documentation, code, tests, and examples describe the same thing. A change to
 one without the others is incomplete. The system should grow by deliberate,
 reviewable decisions rather than quiet drift.
 
-### 2.8 Privacy and safety are interface concerns
+### 2.9 Privacy and safety are interface concerns
 
 HUG may surface sensitive state and offer consequential controls. Screens,
 fixtures, logs, previews, and portfolio artifacts must be designed with that

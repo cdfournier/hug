@@ -1,6 +1,7 @@
 # Token Architecture
 
-**Status:** Framework-only; no token values or source format selected yet.
+**Status:** Token layers and initial color semantics are defined; no values or
+source format selected yet.
 
 ## Goal
 
@@ -16,11 +17,13 @@ Raw, named values with no product meaning on their own.
 
 Illustrative namespaces only:
 
-- `color.purple.*`, `color.neutral.*`
+- `color.palette.purple.*`
 - `space.*` — see [Spacing and Layout](./SPACING_AND_LAYOUT.md) for the
   approved quarter-rem scale
 - `font.family.*`, `font.size.*`, `font.line-height.*`
-- `radius.*`, `shadow.*`, `duration.*`, `easing.*`
+- `radius.{small,medium,large,pill,round}`
+- `icon.{small,default,large}`, `icon.stroke.default`
+- `motion.{fast,standard,deliberate}`, `easing.{standard,enter,exit}`
 
 ### Semantic tokens
 
@@ -28,20 +31,24 @@ Intentful roles consumed by components.
 
 Illustrative namespaces only:
 
-- `surface.canvas`, `surface.raised`, `surface.overlay`
+- `surface.0` through `surface.3`
 - `layout.gutter.inline`, `layout.section.block`, `layout.panel.padding`
-- `text.primary`, `text.secondary`, `text.inverse`
-- `border.subtle`, `border.strong`
-- `action.primary`, `action.secondary`, `action.danger`
-- `status.healthy`, `status.attention`, `status.critical`
+- `content.primary`, `content.secondary`, `content.tertiary`, and
+  `content.inverse`
+- `separator.default`
+- `action.primary`, `action.secondary`, `action.quiet`
+- `feedback.{success,warning,danger,info}.{content,surface,border}`
 - `focus.ring`
+- `elevation.drawer`, `elevation.dialog`
+- `backdrop.overlay`, `selection.{background,content}`
 
 ### Component tokens
 
 Component-specific roles are exceptional. They are introduced only when a
 stable component need cannot be expressed clearly through semantic roles.
 
-Example shape: `action-button.primary.background`.
+Example shapes: `field.border.invalid`, `field.validation.valid`, or
+`panel.border`.
 
 ## Rules
 
@@ -74,9 +81,9 @@ React components and examples
 
 ## Explicitly deferred
 
-- Exact purple values and contrast pairings.
-- Theme count and user theme-selection behavior.
+- Exact purple and feedback values and contrast pairings.
 - Token-generation tooling.
+- Exact duration and easing values.
 - Figma variable mapping.
 - Native-platform outputs.
 

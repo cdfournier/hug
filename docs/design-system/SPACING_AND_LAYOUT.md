@@ -31,6 +31,24 @@ browser text size receives an interface that respects that choice. HUG must not
 use the `62.5%` root-size convention or other pixel-reset technique that
 undermines this behavior.
 
+## 2.1 Margin reset and intentional use
+
+HUG begins from a global margin reset. Margin collapse and browser-default
+margins must not become hidden layout inputs.
+
+```css
+*,
+*::before,
+*::after {
+  margin: 0;
+}
+```
+
+Margin is permitted when its specific behavior is wanted, but it is a targeted
+tool rather than the default layout mechanism. Prefer `gap` for sibling
+relationships and padding for containment. See [Chris Things](./CHRIS_THINGS.md)
+for the durable working preference behind this rule.
+
 ## 3. Reference spacing scale
 
 The reference scale uses quarter-rem units. Token names represent the number of
@@ -121,6 +139,8 @@ The exact thresholds are deferred until representative HUG content exists.
   spacing roles.
 - Components consume semantic roles where they exist; local internal gaps may
   consume the reference scale directly.
+- Do not rely on browser-default margins or margin collapse for component or
+  page rhythm.
 - Do not use raw `px` for spacing, radii, type, or layout dimensions that need
   to respect the root size.
 - Avoid `height` constraints that clip text growth. Prefer `min-height` for

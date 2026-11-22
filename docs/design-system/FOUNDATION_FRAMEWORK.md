@@ -24,14 +24,15 @@ Every foundation document will use this shape:
 
 ### 1. Color and themes
 
-**Owns:** reference palette, neutral scale, semantic color roles, theme maps,
-contrast pairings, and color-independent status treatment.
+**Owns:** reference palette, semantic color roles, theme maps, contrast
+pairings, and color-independent status treatment.
 
 **Does not own:** a component's full visual treatment or meaning that should be
 conveyed by copy, iconography, or state.
 
-**Current input:** HUG will use an updated purple palette. The raw values and
-approved contrast pairings are intentionally pending.
+**Current input:** HUG is purple-led and supports light and dark from the
+start. The raw values and approved contrast pairings are intentionally pending.
+See [Color and Themes](./COLOR_AND_THEMES.md).
 
 ### 2. Typography and data
 
@@ -48,10 +49,11 @@ logical spacing, responsive composition, and layout ownership.
 **Does not own:** arbitrary external component margins or viewport-specific
 patches with no content-based reason.
 
-### 4. Surfaces, borders, radius, and elevation
+### 4. Surfaces, shape, and elevation
 
-**Owns:** canvas, raised, inset, and overlay surfaces; border roles; radius;
-shadow/elevation; and layering rules.
+**Owns:** surface-value mapping and layering rules. The approved shape and
+elevation contracts live in [Shape and Elevation](./SHAPE_AND_ELEVATION.md);
+color-role contracts live in [Color and Themes](./COLOR_AND_THEMES.md).
 
 **Does not own:** attention hierarchy by itself. Elevation expresses relation,
 not urgency.
@@ -64,12 +66,19 @@ modals.
 
 **Does not own:** decorative animation or product-specific state machines.
 
+**Current input:** Functional motion uses fast, standard, and deliberate
+tempos; User Preferences supports System, Full, and Reduced modes. See
+[Motion](./MOTION.md).
+
 ### 6. Iconography
 
 **Owns:** icon grid, stroke/fill language, sizing roles, accessible labeling,
 and the criteria for when an icon is warranted.
 
 **Does not own:** replacing understandable words with symbols.
+
+**Current input:** Tabler's outline language is the v1 source, with a 1px
+default stroke and three semantic sizes. See [Iconography](./ICONOGRAPHY.md).
 
 ### 7. Accessibility baseline
 
