@@ -169,3 +169,94 @@ legibility must be tested in both themes and contexts. Custom icons and broad
 filled-icon use remain deferred.
 **Links:** [Iconography](./ICONOGRAPHY.md)
 
+## DS-009 — Version the color-role contract before selecting values
+
+**Status:** accepted
+**Date:** 2026-11-23
+**Context:** HUG needs a portable, reviewable home for its approved semantic
+color vocabulary, but its purple reference values and contrast pairs are not
+yet ready to ship.
+**Decision:** Add `design/tokens/color.contract.json` as the canonical,
+value-free color-role manifest. It records theme requirements, reference-family
+policy, role names, descriptions, the System/Light/Dark appearance-preference
+contract, and deferred work. Do not claim DTCG
+compatibility until every token has an approved value; later add a resolved
+DTCG-compatible source that preserves these semantic names.
+**Consequences:** The system gets a real, versioned interface contract without
+embedding placeholder hex values in application CSS. The web adapter and any
+generator remain deferred until the palette can be tested honestly in light
+and dark themes.
+**Links:** [Token Architecture](./TOKEN_ARCHITECTURE.md),
+[Color and Themes](./COLOR_AND_THEMES.md),
+[`color.contract.json`](../../design/tokens/color.contract.json)
+
+## DS-013 — Verify introduced color pairs in the token workflow
+
+**Status:** accepted
+**Date:** 2026-11-23
+**Context:** Provisional colors will evolve as components are assembled, but
+readability cannot become a matter of memory or visual confidence alone.
+**Decision:** Add a dependency-free `npm run tokens:contrast` check that reads
+the color contract and enforces a 4.5:1 minimum for each currently introduced
+normal-text relationship in Light and Dark. Pair it with a short, maintained
+contrast record.
+**Consequences:** Each new text/color relationship must have a named test or a
+documented reason not to be text. The check guards the token map; component
+review remains necessary for contextual, non-text, and focus visibility.
+**Links:** [Color Contrast Checks](./COLOR_CONTRAST.md),
+[`verify-color-contrast.mjs`](../../scripts/verify-color-contrast.mjs)
+
+## DS-011 — Establish provisional theme roots for palette exploration
+
+**Status:** exploratory
+**Date:** 2026-11-23
+**Context:** HUG needs a concrete beginning for palette exploration without
+mistaking an initial brand preference for an approved full color system.
+**Decision:** Begin the color lab near Light `surface.0` `#F3F0F9` and
+`action.primary.default` `#632E9D`, plus Dark `surface.0` `#0E0916` and
+`action.primary.default` `#B48CF5`. Record these as provisional theme roots,
+not approved token values. Add remaining values only as real interface needs
+demonstrate their semantic jobs; review them visually and for contrast.
+**Consequences:** Light and dark retain a plausible starting direction while
+the system remains free to move or discard any root and determine supporting
+surfaces, content, hover, and feedback relationships incrementally. HUG avoids
+premature palette bloat. No color values are approved by this record.
+**Links:** [Color and Themes](./COLOR_AND_THEMES.md),
+[`color.contract.json`](../../design/tokens/color.contract.json)
+
+## DS-010 — Name the web color adapter before values arrive
+
+**Status:** accepted
+**Date:** 2026-11-23
+**Context:** HUG needs a stable web adapter boundary so approved values can be
+added once, consumed semantically, and changed without a component-by-component
+rename. The adapter must support System, Light, and Dark preference behavior.
+**Decision:** Map semantic color roles to CSS custom properties prefixed with
+`--hug-color-`, translating dot-separated role segments to hyphens. Use
+`data-hug-theme` on the document root for explicit `light` or `dark` choices.
+With no explicit attribute, the System default resolves through
+`prefers-color-scheme`. Record the names and selector shape now; do not emit
+value-less CSS declarations.
+**Consequences:** The palette step can fill in approved values without
+inventing property names or a theme-switching mechanism. Existing application
+variables remain legacy until an explicit migration. Native adapters retain the
+same semantic role names without inheriting CSS implementation details.
+**Links:** [Web Token Adapter](./WEB_ADAPTER.md),
+[`color.contract.json`](../../design/tokens/color.contract.json)
+
+## DS-012 — Reuse the canvas roots for primary content
+
+**Status:** accepted
+**Date:** 2026-11-23
+**Context:** The first live interface requirement after establishing canvas
+roots is readable primary content. Adding a separate near-black and near-white
+would expand the palette without demonstrating a need.
+**Decision:** Use Dark canvas `#0E0916` as provisional Light
+`content.primary`, and Light canvas `#F3F0F9` as provisional Dark
+`content.primary`. The two roots measure 17.43:1 against each other.
+**Consequences:** HUG gets accessible primary text in both themes with no new
+reference value. These are still provisional values inside the larger palette
+exploration, but their semantic reuse is now deliberate rather than accidental.
+**Links:** [Color and Themes](./COLOR_AND_THEMES.md),
+[`color.contract.json`](../../design/tokens/color.contract.json)
+

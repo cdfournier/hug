@@ -1,7 +1,8 @@
 # Token Architecture
 
-**Status:** Token layers and initial color semantics are defined; no values or
-source format selected yet.
+**Status:** Token layers and initial color semantics are defined. The v1
+value-free color contract is versioned in JSON; resolved values and generation
+tooling remain intentionally deferred.
 
 ## Goal
 
@@ -58,23 +59,32 @@ Example shapes: `field.border.invalid`, `field.validation.valid`, or
 4. Token values use platform-neutral units or values whenever practical.
 5. Tokens do not encode page or device names.
 6. A token is not created simply to preserve a one-off visual exception.
+7. Start from the provisional theme roots; add a color only when a demonstrated
+   interface need can state its semantic job and validate its contrast.
 
-## Future source and output boundary
+## Source and output boundary
 
-The canonical token source will be chosen after this framework review. It must
-be versionable, human-reviewable, platform-neutral, and able to produce a web
-adapter.
+`design/tokens/color.contract.json` is the canonical, platform-neutral color
+role manifest. It is deliberately a value-free contract, not a partial or
+invalid Design Tokens Community Group (DTCG) token file: DTCG tokens require
+values, and HUG has not yet approved its color values.
 
-The first adapter will emit CSS custom properties for the Next application.
-React components consume those semantic properties. Future platform adapters
-translate the same semantic intent rather than copy web styles.
+When the purple palette and contrast pairings are approved, a resolved
+value-bearing token source can adopt DTCG-compatible JSON without renaming the
+semantic roles in this contract. Until then, the contract stays versionable,
+human-reviewable, and portable without encouraging premature CSS use.
+
+The first adapter will emit CSS custom properties for the Next application
+only after resolved values exist. React components will consume those semantic
+properties. Future platform adapters translate the same semantic intent rather
+than copy web styles.
 
 ```text
-canonical token source (format pending)
+color contract (role names, descriptions, theme requirement)
              ↓
-theme maps and semantic roles
+resolved DTCG-compatible source (values and theme aliases; later)
              ↓
-web CSS custom properties
+web CSS custom properties (adapter; later)
              ↓
 React components and examples
 ```
@@ -82,7 +92,7 @@ React components and examples
 ## Explicitly deferred
 
 - Exact purple and feedback values and contrast pairings.
-- Token-generation tooling.
+- Resolved DTCG-compatible source and token-generation tooling.
 - Exact duration and easing values.
 - Figma variable mapping.
 - Native-platform outputs.

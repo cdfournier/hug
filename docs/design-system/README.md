@@ -34,10 +34,14 @@ does not yet prescribe a palette, typeface, component API, or screen redesign.
 8. [Iconography](./ICONOGRAPHY.md) — Tabler outline language, semantic sizes,
    and accessible icon-control rules.
 9. [Token Architecture](./TOKEN_ARCHITECTURE.md) — token layers, naming, and
-   adapter boundaries, without token values.
-10. [Component Contract Template](./COMPONENT_CONTRACT_TEMPLATE.md) — the
+   adapter boundaries, including the value-free color contract.
+10. [Web Token Adapter](./WEB_ADAPTER.md) — custom-property naming and
+    System/Light/Dark selector behavior before values ship.
+11. [Color Contrast Checks](./COLOR_CONTRAST.md) — the live verification
+    baseline for each introduced color relationship.
+12. [Component Contract Template](./COMPONENT_CONTRACT_TEMPLATE.md) — the
    repeatable brief a shared component must satisfy.
-11. [Decision Log](./DECISIONS.md) — small records of decisions that future us
+13. [Decision Log](./DECISIONS.md) — small records of decisions that future us
    should not have to reverse-engineer.
 12. [Chris Things](./CHRIS_THINGS.md) — practical, opinionated workshop
    defaults that keep repeated decisions from becoming repeated debates.
@@ -52,6 +56,11 @@ We are building the workshop, not furnishing the house:
   visual values; and
 - the rules by which values and components will later enter the system; and
 - a lightweight record of why the important choices were made.
+
+The first machine-readable artifact is
+[`design/tokens/color.contract.json`](../../design/tokens/color.contract.json).
+It records the approved color-role vocabulary and theme requirement without
+inventing unapproved values.
 
 No reference values, visual explorations, product flows, or component
 implementations are required for this stage.

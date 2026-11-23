@@ -19,6 +19,45 @@ scale will provide the atmosphere for surfaces and the emphasis for actions.
 Exact values are deliberately deferred until they can be contrast-tested in
 representative screens.
 
+Four provisional theme roots establish the starting direction for palette work:
+
+| Theme | `surface.0` | `action.primary.default` |
+| --- | --- | --- |
+| Light | `#F3F0F9` | `#632E9D` |
+| Dark | `#0E0916` | `#B48CF5` |
+
+The roots also provide the first text pair without adding colors:
+
+| Theme | `content.primary` |
+| --- | --- |
+| Light | `#0E0916` |
+| Dark | `#F3F0F9` |
+
+The root canvases contrast at **17.43:1**, so the pair exceeds the normal-text
+contrast requirement in either direction. This reuse is intentional: a
+reference value may serve more than one semantic role when the relationship is
+clear and accessible.
+
+The first working values are deliberately narrow: one panel relationship and
+one supporting-content role, both needed by ordinary screens.
+
+| Theme | `surface.1` | `content.secondary` |
+| --- | --- | --- |
+| Light | `#FBF9FF` | `#625873` |
+| Dark | `#181222` | `#C1BACE` |
+
+The current contrast guard verifies primary content on both surfaces, secondary
+content on the canvas, and inverse content on the primary action in each theme.
+See [Color Contrast Checks](./COLOR_CONTRAST.md). `surface.2` onward,
+tertiary/disabled content, feedback, selection, separator, and interaction
+state values remain deferred until a component needs them.
+
+They are theme-specific exploration anchors, not a claim that one raw swatch
+must serve both themes. They may change or be discarded after visual and
+contrast review. HUG will not manufacture a complete palette up front:
+additional reference or semantic values enter only when a real interface need
+can state their role and validate their contrast.
+
 This document defines the contract before it defines a palette.
 
 ## 2. Themes and appearance preference
@@ -34,6 +73,11 @@ The product appearance setting offers three choices:
 
 The canonical source maps the same semantic roles for both themes. A component
 must never decide locally whether it is in light or dark mode.
+
+The platform-neutral preference contract is versioned with the color roles in
+[`color.contract.json`](../../design/tokens/color.contract.json). It defines
+`system` as the default and preserves `light` and `dark` as explicit user
+choices without prescribing a particular Settings UI.
 
 ## 3. Token layers
 

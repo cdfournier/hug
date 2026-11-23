@@ -1,0 +1,260 @@
+{
+  "format": "hug-token-contract/v1",
+  "status": "exploration-anchored",
+  "description": "The canonical, platform-neutral color-role contract for HUG. The provisional theme roots establish a starting direction; no color values are approved until they pass visual and accessibility review.",
+  "themes": ["light", "dark"],
+  "appearancePreference": {
+    "default": "system",
+    "options": ["system", "light", "dark"],
+    "description": "A person may follow the device appearance or explicitly choose either theme. This is a cross-platform preference contract, not a web-only Settings implementation."
+  },
+  "rules": {
+    "componentsConsume": "semantic roles or documented component roles, never reference palette values",
+    "themeResolution": "every semantic role maps in both themes",
+    "feedback": "feedback states require a non-color cue where the distinction matters",
+    "surfaceContext": "a component resolves its treatment relative to its containing surface"
+  },
+  "webAdapter": {
+    "status": "naming-and-selector-contract",
+    "propertyPrefix": "--hug-color-",
+    "propertyNameRule": "Join semantic token path segments with hyphens after the prefix; retain numeric segments and explicit state segments.",
+    "themeAttribute": "data-hug-theme",
+    "themeSelectors": {
+      "light": ":root, [data-hug-theme=\"light\"]",
+      "dark": "[data-hug-theme=\"dark\"]",
+      "systemDark": "@media (prefers-color-scheme: dark) { :root:not([data-hug-theme]) }"
+    },
+    "propertyMap": {
+      "surface.0": "--hug-color-surface-0",
+      "surface.1": "--hug-color-surface-1",
+      "surface.2": "--hug-color-surface-2",
+      "surface.3": "--hug-color-surface-3",
+      "content.primary": "--hug-color-content-primary",
+      "content.secondary": "--hug-color-content-secondary",
+      "content.tertiary": "--hug-color-content-tertiary",
+      "content.disabled": "--hug-color-content-disabled",
+      "content.inverse": "--hug-color-content-inverse",
+      "separator.default": "--hug-color-separator-default",
+      "action.primary.default": "--hug-color-action-primary-default",
+      "action.primary.hover": "--hug-color-action-primary-hover",
+      "action.primary.disabled": "--hug-color-action-primary-disabled",
+      "action.primary.selected": "--hug-color-action-primary-selected",
+      "action.secondary.default": "--hug-color-action-secondary-default",
+      "action.secondary.hover": "--hug-color-action-secondary-hover",
+      "action.secondary.disabled": "--hug-color-action-secondary-disabled",
+      "action.secondary.selected": "--hug-color-action-secondary-selected",
+      "action.quiet.default": "--hug-color-action-quiet-default",
+      "action.quiet.hover": "--hug-color-action-quiet-hover",
+      "action.quiet.disabled": "--hug-color-action-quiet-disabled",
+      "action.quiet.selected": "--hug-color-action-quiet-selected",
+      "focus.ring": "--hug-color-focus-ring",
+      "selection.background": "--hug-color-selection-background",
+      "selection.content": "--hug-color-selection-content",
+      "feedback.success.content": "--hug-color-feedback-success-content",
+      "feedback.success.surface": "--hug-color-feedback-success-surface",
+      "feedback.success.border": "--hug-color-feedback-success-border",
+      "feedback.warning.content": "--hug-color-feedback-warning-content",
+      "feedback.warning.surface": "--hug-color-feedback-warning-surface",
+      "feedback.warning.border": "--hug-color-feedback-warning-border",
+      "feedback.danger.content": "--hug-color-feedback-danger-content",
+      "feedback.danger.surface": "--hug-color-feedback-danger-surface",
+      "feedback.danger.border": "--hug-color-feedback-danger-border",
+      "feedback.info.content": "--hug-color-feedback-info-content",
+      "feedback.info.surface": "--hug-color-feedback-info-surface",
+      "feedback.info.border": "--hug-color-feedback-info-border",
+      "backdrop.overlay": "--hug-color-backdrop-overlay"
+    },
+    "implementationRule": "Emit no CSS custom properties until approved values exist. When values are introduced, populate the light map at :root, override explicit light and dark preferences with the theme attribute, and use the system-dark media query only when no explicit preference is set."
+  },
+  "referenceFamilies": [
+    {
+      "name": "color.palette.purple.*",
+      "layer": "reference",
+      "description": "The only v1 general-purpose reference family. Exact steps and values are deferred."
+    }
+  ],
+  "exploration": {
+    "rootRoles": ["surface.0", "action.primary.default"],
+    "themeValues": {
+      "light": {
+        "surface.0": "#F3F0F9",
+        "surface.1": "#FBF9FF",
+        "content.primary": "#0E0916",
+        "content.secondary": "#625873",
+        "action.primary.default": "#632E9D",
+        "content.inverse": "#F3F0F9"
+      },
+      "dark": {
+        "surface.0": "#0E0916",
+        "surface.1": "#181222",
+        "content.primary": "#F3F0F9",
+        "content.secondary": "#C1BACE",
+        "action.primary.default": "#B48CF5",
+        "content.inverse": "#0E0916"
+      }
+    }
+  },
+  "tokens": [
+    {
+      "name": "surface.0",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-surface-0",
+      "description": "Base surface in the relational surface ladder."
+    },
+    {
+      "name": "surface.1",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-surface-1",
+      "description": "First raised or nested surface relationship."
+    },
+    {
+      "name": "surface.2",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-surface-2",
+      "description": "Second raised or nested surface relationship."
+    },
+    {
+      "name": "surface.3",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-surface-3",
+      "description": "Highest reserved surface relationship."
+    },
+    {
+      "name": "content.primary",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-content-primary",
+      "description": "Default high-emphasis text and icon content."
+    },
+    {
+      "name": "content.secondary",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-content-secondary",
+      "description": "Supporting text and icon content."
+    },
+    {
+      "name": "content.tertiary",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-content-tertiary",
+      "description": "Low-emphasis, still-readable content."
+    },
+    {
+      "name": "content.disabled",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-content-disabled",
+      "description": "Unavailable content; never a feedback signal."
+    },
+    {
+      "name": "content.inverse",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-content-inverse",
+      "description": "Content placed on an inverse or strong action surface."
+    },
+    {
+      "name": "separator.default",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-separator-default",
+      "description": "Cross-cutting structural divider between content regions."
+    },
+    {
+      "name": "action.primary.{default,hover,disabled,selected}",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperties": [
+        "--hug-color-action-primary-default",
+        "--hug-color-action-primary-hover",
+        "--hug-color-action-primary-disabled",
+        "--hug-color-action-primary-selected"
+      ],
+      "description": "Highest-emphasis general action state family. Selected is conditional on a persistent control need."
+    },
+    {
+      "name": "action.secondary.{default,hover,disabled,selected}",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperties": [
+        "--hug-color-action-secondary-default",
+        "--hug-color-action-secondary-hover",
+        "--hug-color-action-secondary-disabled",
+        "--hug-color-action-secondary-selected"
+      ],
+      "description": "Supporting general action state family. Selected is conditional on a persistent control need."
+    },
+    {
+      "name": "action.quiet.{default,hover,disabled,selected}",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperties": [
+        "--hug-color-action-quiet-default",
+        "--hug-color-action-quiet-hover",
+        "--hug-color-action-quiet-disabled",
+        "--hug-color-action-quiet-selected"
+      ],
+      "description": "Low-emphasis actions and link coloration. Selected is conditional on a persistent control need."
+    },
+    {
+      "name": "focus.ring",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-focus-ring",
+      "description": "Theme-aware focus indicator that remains visible across surfaces and controls."
+    },
+    {
+      "name": "selection.background",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-selection-background",
+      "description": "Background for broad UI or text selection."
+    },
+    {
+      "name": "selection.content",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-selection-content",
+      "description": "Content color on a selection background."
+    },
+    {
+      "name": "feedback.{success,warning,danger,info}.{content,surface,border}",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperties": [
+        "--hug-color-feedback-success-content",
+        "--hug-color-feedback-success-surface",
+        "--hug-color-feedback-success-border",
+        "--hug-color-feedback-warning-content",
+        "--hug-color-feedback-warning-surface",
+        "--hug-color-feedback-warning-border",
+        "--hug-color-feedback-danger-content",
+        "--hug-color-feedback-danger-surface",
+        "--hug-color-feedback-danger-border",
+        "--hug-color-feedback-info-content",
+        "--hug-color-feedback-info-surface",
+        "--hug-color-feedback-info-border"
+      ],
+      "description": "Status treatments; field validation may map to success or danger without duplicating palettes."
+    },
+    {
+      "name": "backdrop.overlay",
+      "layer": "semantic",
+      "type": "color",
+      "cssCustomProperty": "--hug-color-backdrop-overlay",
+      "description": "Theme-aware backdrop behind drawers, dialogs, and similar overlays."
+    }
+  ],
+  "deferred": [
+    "new reference values, introduced only when an interface need demonstrates their role",
+    "semantic-to-reference aliases for light and dark beyond the approved action anchors",
+    "feedback values and contrast pairings",
+    "component-specific tokens such as field.border.default",
+    "CSS custom-property declarations populated with approved values"
+  ]
+}
